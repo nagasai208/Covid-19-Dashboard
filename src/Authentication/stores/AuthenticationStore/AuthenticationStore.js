@@ -1,0 +1,57 @@
+import { observable, action } from "mobx";
+import { API_INITIAL } from "@ib/api-constants";
+import usersDataRespose from '../../fixtures/LoginDetails.json';
+
+class AuthenticationStore {
+    @observable getUserSignInAPIStatus
+    @observable getUserSignInAPIError
+    @observable userName
+    @observable password
+    @observable errorMessage
+    requestObject;
+    authAPIService
+
+    constructor(authenticationService) {
+        this.authAPIService = authenticationService;
+        this.init()
+    }
+    @action.bound
+    init() {
+        this.getUserSignInAPIStatus = API_INITIAL;
+        this.getUserSignInAPIError = null;
+        this.userName = '';
+        this.password = '';
+        this.errorMessage = ''
+        this.requestObject = [];
+    }
+    @action.bound
+    clearStore() {
+        this.init()
+    }
+    @action.bound
+    setUserSignInAPIResponse(response) {
+        console.log(usersDataRespose)
+    }
+
+    @action.bound
+    setGetUserSignInAPIError(authError) {
+        this.getUserSignInAPIError = authError
+    }
+
+    @action.bound
+    setGetUserSignInAPIStatus(apistatus) {
+        this.getUserSignInAPIStatus = apistatus
+    }
+
+    @action.bound
+    userLoginin() {
+        const usersPromise = this.authAPIService.loginApi()
+        return bindPromiseWithOnSuccess(usersPromise)
+            .to(this.setGetUserSignInAPIStatus, this.setUserSignInAPIResponse)
+            .catch(this.setGetUserSignInAPIError)
+    }
+}
+
+export {
+    AuthenticationStore
+}

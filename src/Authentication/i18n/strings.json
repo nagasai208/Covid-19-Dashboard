@@ -1,0 +1,12 @@
+{
+    "HiTherePleseSignup":"Hi there, please sign In",
+    "userName":"USERNAME",
+    "password":"PASSWORD",
+    "login":"LOGIN",
+    "userNameErrorMessage":"plese enter valid username",
+    "passwordErrorMessage":"Incorrect password",
+    "userNamePlaceHolder":"Enter username",
+    "passwordPlaceHolder":"Enter password",
+    "errorMessageUserName":"enter username",
+    "errorMessagePAssword":"enter password"
+}

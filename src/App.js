@@ -5,20 +5,31 @@ import HomePage from "./components/HomePage";
 import Page1 from "./components/Page1";
 
 import "./App.css";
+import { Provider } from "mobx-react";
+import stores from '../src/stores'
+import LoginPageRoute from "./Authentication/routes/LoginInPageRoute";
 
-const App = () => {
-  return (
-    <Router basename={process.env.PUBLIC_URL}>
-      <Switch>
-        <Route exact path="/page-1">
-          <Page1 />
-        </Route>
-        <Route path="/">
-          <HomePage />
-        </Route>
-      </Switch>
-    </Router>
-  );
-};
+
+class App extends React.Component {
+  render() {
+    return (
+      <Provider {...stores}>
+        <Router basename={process.env.PUBLIC_URL} >
+          <Switch>
+            <Route exact path="/page-1">
+              <Page1 />
+            </Route>
+            <Route exact path="/login">
+              <LoginPageRoute />
+            </Route>
+            <Route path="/">
+              <HomePage />
+            </Route>
+          </Switch>
+        </Router>
+      </Provider>
+    )
+  }
+}
 
 export default App;
