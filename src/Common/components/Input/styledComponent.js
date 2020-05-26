@@ -7,7 +7,7 @@ height:40px;
 border-radius:2px;
  border: solid 2px #f1f7ff;
   background-color: var(--white);
-  margin-bottom:24px;
+  
 `
 
 export {

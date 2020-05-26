@@ -8,5 +8,7 @@
     "userNamePlaceHolder":"Enter username",
     "passwordPlaceHolder":"Enter password",
     "errorMessageUserName":"enter username",
-    "errorMessagePAssword":"enter password"
+    "errorMessagePAssword":"enter password",
+    "typeText":"text",
+    "typePassword":"password"
 }

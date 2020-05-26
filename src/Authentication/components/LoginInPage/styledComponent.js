@@ -8,7 +8,7 @@ height:1024px;
 width:1515px`;
 
 
-const LoginMainDiv = styled.div`
+const LoginMainDiv = styled.form`
 ${tw`flex flex-col `};
 width:536px;
 height:687px;
@@ -42,9 +42,12 @@ const ErrorMessage = styled.p`
   ${tw`text-red-600`};
   font-size:12px;`;
 
-const UserNameTag = styled.p`
-  font-size:16px`;
+const UserNameHeading = styled.p`
+  ${tw`text-sm text-gray-600`}`
+
+const PasswordHeading = styled.p`
+  ${tw`mt-5 text-sm text-gray-600`}`
 
 export {
-  LoginPageBodyDiv, LoginMainDiv, Img, Heading, ErrorMessage, UserNameTag
+  LoginPageBodyDiv, LoginMainDiv, Img, Heading, ErrorMessage, PasswordHeading, UserNameHeading
 }

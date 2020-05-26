@@ -1,31 +1,51 @@
 import React from 'react';
-import LoginPage from "../../components/LoginInPage";
+import { observable } from "mobx";
 import { observer, inject } from "mobx-react";
+import LoginPage from "../../components/LoginInPage";
 import strings from '../../i18n/strings.json';
+import { Redirect } from "react-router-dom";
 @inject('authenticationStore')
 @observer
 class LoginPageRoute extends React.Component {
+    @observable clicked = false;
+    @observable userName = '';
+    @observable password = '';
+    @observable errorMessage = '';
+    @observable token
+
+
     onChangeUserName = (event) => {
-        this.props.authenticationStore.userName = event.target.value;
+        this.userName = event.target.value;
     }
     onChangePassword = (event) => {
-        this.props.authenticationStore.password = event.target.value;
+        this.password = event.target.value;
     }
     onClickLogin = (event) => {
-        if (this.props.authenticationStore.userName === '') {
-            this.props.authenticationStore.errorMessage = strings.errorMessageUserName;
+        if (this.userName === '') {
+            this.errorMessage = strings.errorMessageUserName; 
         }
-        else if  (this.props.authenticationStore.password === '') {
-            this.props.authenticationStore.errorMessage = strings.errorMessagePAssword;
+        else if  (this.password === '') {
+            this.errorMessage = strings.errorMessagePAssword;
         }
         else {
-            this.props.authenticationStore.errorMessage = '';
+            event.preventDefault();
+            this.clicked = true;
+            this.errorMessage = '';
+            //this.props.authenticationStore.userLoginin(this.userName, this.password)
+            this.token = 1;
+            
         }
+        event.preventDefault();
     }
     render() {
-        const { errorMessage } = this.props.authenticationStore;
+        if (this.token) {
+            return (
+                <Redirect to={{ pathname: '/covid19-dashboard' }} />
+            )
+        }
         return (
-            <LoginPage onChangeUserName={this.onChangeUserName} onChangePassword={this.onChangePassword} onClickLogin={this.onClickLogin} errorMessage={errorMessage} />
+            <LoginPage onChangeUserName={this.onChangeUserName} onChangePassword={this.onChangePassword}
+                onClickLogin={this.onClickLogin} errorMessage={this.errorMessage} clicked={this.clicked} />
         )
     }
 }

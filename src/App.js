@@ -8,6 +8,7 @@ import "./App.css";
 import { Provider } from "mobx-react";
 import stores from '../src/stores'
 import LoginPageRoute from "./Authentication/routes/LoginInPageRoute";
+import Covid19DashBoard from "./Covid19Dashboard/components/Covid19DashBoard";
 
 
 class App extends React.Component {
@@ -21,6 +22,9 @@ class App extends React.Component {
             </Route>
             <Route exact path="/login">
               <LoginPageRoute />
+            </Route>
+            <Route exact path="/covid19-dashboard">
+              <Covid19DashBoard />
             </Route>
             <Route path="/">
               <HomePage />

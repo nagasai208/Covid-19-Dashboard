@@ -5,9 +5,6 @@ import usersDataRespose from '../../fixtures/LoginDetails.json';
 class AuthenticationStore {
     @observable getUserSignInAPIStatus
     @observable getUserSignInAPIError
-    @observable userName
-    @observable password
-    @observable errorMessage
     requestObject;
     authAPIService
 
@@ -19,10 +16,7 @@ class AuthenticationStore {
     init() {
         this.getUserSignInAPIStatus = API_INITIAL;
         this.getUserSignInAPIError = null;
-        this.userName = '';
-        this.password = '';
-        this.errorMessage = ''
-        this.requestObject = [];
+        this.requestObject = []
     }
     @action.bound
     clearStore() {
@@ -42,10 +36,18 @@ class AuthenticationStore {
     setGetUserSignInAPIStatus(apistatus) {
         this.getUserSignInAPIStatus = apistatus
     }
+    @action.bound
+    requestData(userName, password) {
+        this.requestObject = [{
+            name: userName, password: password
+        }]
+
+    }
 
     @action.bound
-    userLoginin() {
-        const usersPromise = this.authAPIService.loginApi()
+    userLoginin(userName, password) {
+        this.requestData(userName, password)
+        const usersPromise = this.authAPIService.loginApi(this.requestObject)
         return bindPromiseWithOnSuccess(usersPromise)
             .to(this.setGetUserSignInAPIStatus, this.setUserSignInAPIResponse)
             .catch(this.setGetUserSignInAPIError)

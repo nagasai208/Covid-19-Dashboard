@@ -1,0 +1,19 @@
+{
+ "zonalDashboard":"Zonal Dashboard",
+ "districtWiseCasesAnalysis":"District-wise Cases Analysis",
+ "confirmed":"Confirmed",
+ "active":"Active",
+ "recovered":"Recovered",
+ "deaths":"Deaths",
+ "cumulative":"Cumulative",
+ "dialy":"daily",
+ "cumulativeReport":"CUMULATIVE REPORT",
+ "cumulativeConfirmCases":"CUMULATIVE CONFIRMED CASES",
+ "distictName":"District Name",
+ "distictWiseReport":"DISTRICT WISE REPORT",
+ "dailyConfirmedCases":"DAILY CONFIRMED CASES",
+ "dailyRecoveredCases":"DAILY RECOVERED CASES",
+ "dailyDeaths":"DAILY DEATHS"  ,
+ "mandalName": "Mandal Name",
+ "mandalWiseReport":"MANDAL WISE REPORT"
+}
