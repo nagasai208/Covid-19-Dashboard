@@ -11,6 +11,7 @@ class AuthenticationService {
 
 
     loginApi(requestObject) {
+        alert(1)
         return networkCallWithApisauce(
             this.api,
             '',

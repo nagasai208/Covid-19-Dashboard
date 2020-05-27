@@ -9,7 +9,7 @@ class Covi19Service {
     constructor() {
         this.api = create({ baseURL: 'https://sai.com' })
     }
-    usersDataApi(requestObject) {
+    getCasesDataAPI(requestObject) {
         return networkCallWithApisauce(
             this.api,
             '',

@@ -43,10 +43,12 @@ const ErrorMessage = styled.p`
   font-size:12px;`;
 
 const UserNameHeading = styled.p`
-  ${tw`text-sm text-gray-600`}`
+  ${tw`text-gray-600 mb-1`};
+  font-size:14px;`
 
 const PasswordHeading = styled.p`
-  ${tw`mt-5 text-sm text-gray-600`}`
+  ${tw`mt-5  text-gray-600 mb-1 `};
+  font-size:14px;`
 
 export {
   LoginPageBodyDiv, LoginMainDiv, Img, Heading, ErrorMessage, PasswordHeading, UserNameHeading

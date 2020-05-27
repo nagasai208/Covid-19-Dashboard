@@ -1,6 +1,9 @@
 import { observable, action } from "mobx";
 import { API_INITIAL } from "@ib/api-constants";
+import { bindPromiseWithOnSuccess } from "@ib/mobx-promise"
 import usersDataRespose from '../../fixtures/LoginDetails.json';
+import { setAccessToken } from "../../utils/StorageUtils";
+
 
 class AuthenticationStore {
     @observable getUserSignInAPIStatus
@@ -25,6 +28,7 @@ class AuthenticationStore {
     @action.bound
     setUserSignInAPIResponse(response) {
         console.log(usersDataRespose)
+        setAccessToken(1)
     }
 
     @action.bound
@@ -53,6 +57,7 @@ class AuthenticationStore {
             .catch(this.setGetUserSignInAPIError)
     }
 }
+
 
 export {
     AuthenticationStore

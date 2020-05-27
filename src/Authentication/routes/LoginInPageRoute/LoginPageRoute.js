@@ -1,9 +1,10 @@
 import React from 'react';
 import { observable } from "mobx";
+import { Redirect } from "react-router-dom";
 import { observer, inject } from "mobx-react";
 import LoginPage from "../../components/LoginInPage";
 import strings from '../../i18n/strings.json';
-import { Redirect } from "react-router-dom";
+import { getAccessToken } from "../../utils/StorageUtils";
 @inject('authenticationStore')
 @observer
 class LoginPageRoute extends React.Component {
@@ -12,8 +13,11 @@ class LoginPageRoute extends React.Component {
     @observable password = '';
     @observable errorMessage = '';
     @observable token
+    constructor(props) {
+        super(props)
+        this.token = getAccessToken()
 
-
+    }
     onChangeUserName = (event) => {
         this.userName = event.target.value;
     }
@@ -31,8 +35,9 @@ class LoginPageRoute extends React.Component {
             event.preventDefault();
             this.clicked = true;
             this.errorMessage = '';
-            //this.props.authenticationStore.userLoginin(this.userName, this.password)
-            this.token = 1;
+            this.props.authenticationStore.setUserSignInAPIResponse();
+           // this.props.authenticationStore.userLoginin(this.userName, this.password)
+           this.token = getAccessToken()
             
         }
         event.preventDefault();
