@@ -1,6 +1,6 @@
 import React, { Component } from 'react'
-import ConfirmedCasesGraph from '../../../Common/components/VerticalGraph/VerticalGraph'
 import { observer } from "mobx-react"
+import ConfirmedCasesGraph from '../../../Common/components/VerticalGraph/VerticalGraph'
 import { ConfirmedCasesDiv } from './styledComponent';
 @observer
 class ConfirmedCasesGraphComponent extends Component {

@@ -1,0 +1,122 @@
+{
+    "state_name": "Andhra Predesh",
+    "districts": [
+        {
+            "district_id": 0,
+            "district_name": "kurnool",
+            "daily_cumulative": [
+                {
+                    "date": "2020-05-29",
+                    "total_cases": 100,
+                    "total_deaths": 10,
+                    "total_recovered_cases": 80,
+                    "active_cases": 10
+                }
+            ]
+        },
+        {
+            "district_id": 1,
+            "district_name": "kadapa",
+            "daily_cumulative": [
+                {
+                    "date": "2020-05-29",
+                    "total_cases": 200,
+                    "total_deaths": 20,
+                    "total_recovered_cases": 160,
+                    "active_cases": 20
+                }
+            ]
+        },
+        {
+            "district_id": 2,
+            "district_name": "AnathaPuram",
+            "daily_cumulative": [
+                {
+                    "date": "2020-05-29",
+                    "total_cases": 500,
+                    "total_deaths": 50,
+                    "total_recovered_cases": 400,
+                    "active_cases": 50
+                }
+            ]
+        },
+        {
+            "district_id": 3,
+            "district_name": "Chittore",
+            "daily_cumulative": [
+                {
+                    "date": "2020-05-29",
+                    "total_cases": 400,
+                    "total_deaths": 20,
+                    "total_recovered_cases": 350,
+                    "active_cases": 30
+                }
+            ]
+        },
+        {
+            "district_id": 4,
+            "district_name": "Srikakulam",
+            "daily_cumulative": [
+                {
+                    "date": "2020-05-29",
+                    "total_cases": 500,
+                    "total_deaths": 50,
+                    "total_recovered_cases": 400,
+                    "active_cases": 50
+                }
+            ]
+        },
+        {
+            "district_id": 5,
+            "district_name": "Vijayanagaram",
+            "daily_cumulative": [
+                {
+                    "date": "2020-05-29 ",
+                    "total_cases": 0,
+                    "total_deaths": 0,
+                    "total_recovered_cases": 0,
+                    "active_cases": 0
+                }
+            ]
+        },
+        {
+            "district_id": 0,
+            "district_name": "string",
+            "daily_cumulative": [
+                {
+                    "date": "2020-05-29",
+                    "total_cases": 0,
+                    "total_deaths": 0,
+                    "total_recovered_cases": 0,
+                    "active_cases": 0
+                }
+            ]
+        },
+        {
+            "district_id": 0,
+            "district_name": "string",
+            "daily_cumulative": [
+                {
+                    "date": "2020-05-29",
+                    "total_cases": 0,
+                    "total_deaths": 0,
+                    "total_recovered_cases": 0,
+                    "active_cases": 0
+                }
+            ]
+        },
+        {
+            "district_id": 0,
+            "district_name": "string",
+            "daily_cumulative": [
+                {
+                    "date": "2020-05-29",
+                    "total_cases": 0,
+                    "total_deaths": 0,
+                    "total_recovered_cases": 0,
+                    "active_cases": 0
+                }
+            ]
+        }
+    ]
+}

@@ -1,7 +1,7 @@
 import React, { Component } from 'react';
-import  DatePickerRoute  from "../../routes/DatePickerRoute"
 import SecondaryButton from "../../../Common/components/SecondaryButton";
 import strings from '../../i18n/strings.json';
+import DatePickerRoute from "../../routes/DatePickerRoute"
 import { HeadeMainDiv, StateName, Date, DateHeading, CasesButton} from './styledComponent';
 
 class HeaderComponent extends Component {

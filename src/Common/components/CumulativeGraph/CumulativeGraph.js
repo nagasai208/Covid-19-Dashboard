@@ -2,8 +2,10 @@ import React, { PureComponent } from 'react';
 import {
     LineChart, Line, XAxis, YAxis, CartesianGrid, Tooltip, Legend,
 } from 'recharts';
+import { observable } from "mobx";
 
 export default class CumulativeGraph extends PureComponent {
+    @observable data=[]
     static jsfiddleUrl = 'https://jsfiddle.net/alidingling/1p40zzfe/';
 
     state = {
@@ -34,7 +36,7 @@ export default class CumulativeGraph extends PureComponent {
     }
 
     render() {
-        const { totalDistictsData } = this.props;
+        const { cumulativeDistrictData } = this.props;
         const { opacity } = this.state;
 
         return (
@@ -42,14 +44,14 @@ export default class CumulativeGraph extends PureComponent {
                 <LineChart
                     width={400}
                     height={300}
-                    data={totalDistictsData}
+                    data={cumulativeDistrictData.kurnool}
                     margin={{
                         top: 5, right: 30, left: 20, bottom: 5,
                     }}
                 >
                     <CartesianGrid strokeDasharray="3 3" />
-                    <XAxis dataKey="name" />
-                    <YAxis />
+                    <XAxis dataKey="date" />
+                    <YAxis  />
                     <Tooltip />
                     <Legend onMouseEnter={this.handleMouseEnter} onMouseLeave={this.handleMouseLeave} />
                     <Line type="monotone" dataKey="totalCases" strokeOpacity={opacity.pv} stroke="#ff6347" activeDot={{ r: 8 }} />

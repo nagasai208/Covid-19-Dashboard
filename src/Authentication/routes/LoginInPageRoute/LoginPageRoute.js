@@ -9,41 +9,42 @@ import { getAccessToken } from "../../utils/StorageUtils";
 @observer
 class LoginPageRoute extends React.Component {
     @observable clicked = false;
-    @observable userName = '';
-    @observable password = '';
-    @observable errorMessage = '';
     @observable token
     constructor(props) {
         super(props)
         this.token = getAccessToken()
 
     }
+    componentWillMount() {
+        this.props.authenticationStore.clearStore();
+    }
     onChangeUserName = (event) => {
-        this.userName = event.target.value;
+        this.props.authenticationStore.userName = event.target.value;
     }
     onChangePassword = (event) => {
-        this.password = event.target.value;
+        this.props.authenticationStore.password = event.target.value;
     }
-    onClickLogin = (event) => {
-        if (this.userName === '') {
-            this.errorMessage = strings.errorMessageUserName; 
+    onClickLogin = async (event) => {
+        if (this.props.authenticationStore.userName === '') {
+            this.props.authenticationStore.userNameErrorMessage = strings.errorMessageUserName;
         }
-        else if  (this.password === '') {
-            this.errorMessage = strings.errorMessagePAssword;
+         if (this.props.authenticationStore.password === '') {
+            this.props.authenticationStore.passwordErrorMessage = strings.errorMessagePAssword;
         }
         else {
-            event.preventDefault();
             this.clicked = true;
-            this.errorMessage = '';
-            this.props.authenticationStore.setUserSignInAPIResponse();
-            this.props.authenticationStore.userLoginin(this.userName, this.password)
-           this.token = getAccessToken()
-            
+            event.preventDefault();
+            await this.props.authenticationStore.userLogin()
+            if ((this.props.authenticationStore.passwordErrorMessage !== '') || (this.props.authenticationStore.userNameErrorMessage !== '')) {
+                this.clicked = false;
+            }
+            this.token = getAccessToken();
         }
         event.preventDefault();
     }
     render() {
         const { authenticationStore } = this.props;
+        const { passwordErrorMessage, userNameErrorMessage } = this.props.authenticationStore
         if (this.token) {
             return (
                 <Redirect to={{ pathname: '/covid19-dashboard' }} />
@@ -51,8 +52,9 @@ class LoginPageRoute extends React.Component {
         }
         return (
             <LoginPage onChangeUserName={this.onChangeUserName} onChangePassword={this.onChangePassword}
-                onClickLogin={this.onClickLogin} errorMessage={this.errorMessage} clicked={this.clicked}
-                authenticationStore={authenticationStore}/>
+                onClickLogin={this.onClickLogin} userNameErrorMessage={userNameErrorMessage} passwordErrorMessage={passwordErrorMessage}
+                clicked={this.clicked}
+                authenticationStore={authenticationStore} />
         )
     }
 }

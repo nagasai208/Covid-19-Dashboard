@@ -36,9 +36,9 @@
         {
             "districtId": 4,
             "districtName": "Krishna",
-            "totalCases": 200,
+            "totalCases": 120,
             "totalDeaths": 20,
-            "totalRecoveredCases": 150,
+            "totalRecoveredCases": 130,
             "activeCases": 27
         },
         {
@@ -52,62 +52,62 @@
         {
             "districtId": 6,
             "districtName": "Srikakulam",
-            "totalCases": 200,
+            "totalCases": 50,
             "totalDeaths": 20,
-            "totalRecoveredCases": 150,
+            "totalRecoveredCases": 10,
             "activeCases": 20
         },
         {
             "districtId": 7,
             "districtName": "East Godavari",
-            "totalCases": 200,
+            "totalCases": 20,
             "totalDeaths": 20,
-            "totalRecoveredCases": 150,
-            "activeCases": 25
+            "totalRecoveredCases": 15,
+            "activeCases": 5
         },
         {
             "districtId": 8,
             "districtName": "Vijayanagaram",
-            "totalCases": 200,
+            "totalCases": 205,
             "totalDeaths": 20,
             "totalRecoveredCases": 150,
-            "activeCases": 15
+            "activeCases": 20
         },
         {
             "districtId": 9,
             "districtName": "Nellore",
-            "totalCases": 200,
+            "totalCases": 150,
             "total_deaths": 20,
-            "totalRecoveredCases": 150,
-            "activeCases": 19
+            "totalRecoveredCases": 130,
+            "activeCases": 15
         },
         {
             "districtId": 10,
             "districtName": "Kadapa",
-            "totalCases": 200,
+            "totalCases": 140,
             "totalDeaths": 20,
-            "totalRecoveredCases": 150,
-            "activeCases": 28
+            "totalRecoveredCases": 110,
+            "activeCases": 10
         },
         {
             "districtId": 11,
             "districtName": "Anathapuram",
-            "totalCases": 200,
+            "totalCases": 100,
             "totalDeaths": 20,
-            "totalRecoveredCases": 150,
-            "activeCases": 24
+            "totalRecoveredCases": 70,
+            "activeCases": 10
         },
         {
             "districtId": 12,
             "districtName": "Chittore",
-            "totalCases": 200,
+            "totalCases": 400,
             "totalDeaths": 20,
-            "totalRecoveredCases": 150,
-            "activeCases": 20
+            "totalRecoveredCases": 350,
+            "activeCases": 30
         }
     ],
     "totalCases": 360,
     "totalDeaths": 37,
-    "totalRecovered_cases": 276,
+    "totalRecoveredCases": 276,
     "activeCases": 37
 }

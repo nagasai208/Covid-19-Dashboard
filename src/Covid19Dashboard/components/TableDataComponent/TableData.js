@@ -53,6 +53,11 @@ import { TableTag, TableMainData, TabledRow, TabledHeading, TabledData } from '.
 @observer
 class TableData extends Component {
     @action.bound
+    SortedData(event) {
+        const { covid19StateStore } = this.props;
+        covid19StateStore.sortedData()
+        }
+    @action.bound
     renderList(item,index) {
         return (
             <TabledRow key={Math.random()} index={index}>
@@ -70,11 +75,11 @@ class TableData extends Component {
             <TableMainData>
                 <TableTag>
                     <TabledRow>
-                        <TabledHeading>{strings.districtName}</TabledHeading>
-                        <TabledHeading>{strings.confirmed}</TabledHeading>
-                        <TabledHeading>{strings.active}</TabledHeading>
-                        <TabledHeading>{strings.recovered}</TabledHeading>
-                        <TabledHeading>{strings.deaths}</TabledHeading>
+                        <TabledHeading id="districtName" onClick={this.SortedData}>{strings.districtName}</TabledHeading>
+                        <TabledHeading id='2' onClick={this.SortedData}>{strings.confirmed}</TabledHeading>
+                        <TabledHeading id='3' onClick={this.SortedData}>{strings.active}</TabledHeading>
+                        <TabledHeading id='4' onClick={this.SortedData}>{strings.recovered}</TabledHeading>
+                        <TabledHeading id='5' onClick={this.SortedData}>{strings.deaths}</TabledHeading>
                     </TabledRow>
 
                     {

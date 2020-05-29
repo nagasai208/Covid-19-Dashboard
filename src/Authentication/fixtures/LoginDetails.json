@@ -1,17 +1,7 @@
 [
     {
         "id": "1",
-        "userName": "koppuravurinagasai@gmail.com",
+        "userName": "nagasai",
         "password": "nagasai9676"
-    },
-    {
-        "id": "2",
-        "userName": "knagasai@gmail.com",
-        "password": "nagasai208"
-    },
-    {
-        "id": "3",
-        "userName": "sai@gmail.com",
-        "password": "nagasai"
     }
 ]

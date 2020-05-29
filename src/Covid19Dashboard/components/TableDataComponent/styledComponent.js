@@ -12,7 +12,8 @@ background-color:${props => props.index % 2 === 0 ? '#1a202c' :'#2d3748'}
 `
 
 const TabledHeading = styled.th`
-${tw`p-2 w-48`}
+${tw`p-2 w-48`};
+cursor:pointer;
 `
 
 const TabledData = styled.td`

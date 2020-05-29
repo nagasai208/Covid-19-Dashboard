@@ -8,22 +8,22 @@ import { LoginPageBodyDiv, LoginMainDiv, Img, Heading, ErrorMessage, PasswordHea
 @observer
 class LoginPage extends React.Component {
     render() {
-        const { onChangeUserName, onChangePassword, onClickLogin, errorMessage, clicked } = this.props;
+        const { onChangeUserName, onChangePassword, onClickLogin, passwordErrorMessage, userNameErrorMessage, clicked } = this.props;
         return (
             <LoginPageBodyDiv>
                 <LoginMainDiv>    
                     <Img src={imgUrl}/>
                     <Heading>{strings.HiTherePleseSignup}</Heading>
                     <UserNameHeading>{strings.userName}</UserNameHeading>
-                    <Input type={strings.typeText} placeholder={strings.userNamePlaceHolder} onChange={onChangeUserName} />
-                {errorMessage === strings.errorMessageUserName &&
-                        <ErrorMessage>{errorMessage}</ErrorMessage>
+                    <Input type={strings.typeText} placeholder={strings.userNamePlaceHolder} onChange={onChangeUserName}  />
+                    {userNameErrorMessage !== ''  &&
+                        <ErrorMessage>{userNameErrorMessage}</ErrorMessage>
                 }
                     <PasswordHeading>{strings.password}</PasswordHeading>
                     <Input type={strings.typePassword} placeholder={strings.passwordPlaceHolder} onChange={onChangePassword} />
                 {
-                    errorMessage === strings.errorMessagePAssword && 
-                        <ErrorMessage>{errorMessage}</ErrorMessage>
+                        passwordErrorMessage !== '' && 
+                        <ErrorMessage>{passwordErrorMessage}</ErrorMessage>
                 }
                     <Button buttonName={strings.login} onClickLogin={onClickLogin} clicked={clicked} />
                 </LoginMainDiv>

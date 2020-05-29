@@ -2,27 +2,26 @@ import React from 'react';
 import TableData from "../TableDataComponent";
 import { observer } from "mobx-react";
 import SignOutRoute from "../../routes/SignOUtRoute";
-import {
-    DashboardMainDiv, CasesDiv, MapAndGarphsDiv, OnclickCasesDiv, MapsAadGraphTotalDiv,
-    OnlyGraphs, PositiveGraphsDiv, FooterData, TableDiv, DistrictWiseZonalMainDiv, DistrictWiseZonalDiv
-} from './styledComponent'
 import SecondaryButton from "../../../Common/components/SecondaryButton";
+import LoadingWrapperWithFailure from "../../../components/common/LoadingWrapperWithFailure";
+import DistrictWiseGraph from "../../../Common/components/DistrictWiseGraph/DistrictWiseGraph";
 import strings from '../../i18n/strings.json';
 import HeaderComponent from "../Header";
 import TotalCases from "../TotalCasesComponent";
 import DailyDataGraphs from "../DilyDataComponent";
 import CumulativeDataComponent from "../CumulateDataComponent";
 import ConfirmedCasesGraphComponent from '../ConfirmedCasesGraph'
-import LoadingWrapperWithFailure from "../../../components/common/LoadingWrapperWithFailure";
-import DistrictWiseGraph from "../../../Common/components/DistrictWiseGraph/DistrictWiseGraph";
+import {
+    DashboardMainDiv, CasesDiv, MapAndGarphsDiv, OnclickCasesDiv, MapsAadGraphTotalDiv,
+    OnlyGraphs, PositiveGraphsDiv, FooterData, TableDiv, DistrictWiseZonalMainDiv, DistrictWiseZonalDiv
+} from './styledComponent'
 
 @observer
 class Covid19DashBoard extends React.Component {
 
     renderList = observer(() => {
         const { dailyDataGraphs, onClickDaily, onClickCumulative, cumulativeGraphs,
-            districtAnalysis, stateTotalData, covid19StateStore } = this.props;
-
+            districtAnalysis, stateTotalData, covid19StateStore, doNetworkCalls } = this.props;
         return districtAnalysis === true ?
             <div>
                 <div>
@@ -42,12 +41,12 @@ class Covid19DashBoard extends React.Component {
                     </MapAndGarphsDiv>
                     <OnlyGraphs>
                         {
-                            dailyDataGraphs === true &&
-                            <DailyDataGraphs key={Math.random()} />
+                            dailyDataGraphs === true  &&
+                            <DailyDataGraphs key={Math.random()} covid19StateStore={covid19StateStore} />
                         }
                         {
                             cumulativeGraphs === true &&
-                            <CumulativeDataComponent key={Math.random()} covid19StateStore={covid19StateStore}  />
+                            <CumulativeDataComponent key={Math.random()} covid19StateStore={covid19StateStore} />
                         }
                     </OnlyGraphs>
 
@@ -67,14 +66,15 @@ class Covid19DashBoard extends React.Component {
                     covid19StateStore.totalDistictsData.map((item) => {
                         return <DistrictWiseZonalMainDiv>
                             <DistrictWiseZonalDiv>
+                                <p>{`${strings.cumulativeConfirmCases}-${item.districtName}`}</p>
                                 <DistrictWiseGraph totalDistictsData={covid19StateStore.totalDistictsData} />
                                 <p>{item.districtName}</p>
                             </DistrictWiseZonalDiv>
                         </DistrictWiseZonalMainDiv>
-                        
+
                     })
                 }
-               
+
             </DistrictWiseZonalMainDiv>
     })
     render() {

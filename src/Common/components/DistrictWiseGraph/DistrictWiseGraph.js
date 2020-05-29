@@ -19,10 +19,10 @@ export default class DistrictWiseGraph extends PureComponent {
                     }}
                 >
                     <CartesianGrid strokeDasharray="3 3" />
-                    <XAxis dataKey="totalRecoveredCases" />
+                    <XAxis dataKey="date" />
                     <YAxis  />
                     <Tooltip />
-                    <Line connectNulls type="monotone" dataKey="totalRecoveredCases" stroke="#8884d8" fill="#8884d8" />
+                    <Line connectNulls type="monotone" dataKey="activeCases" stroke="#8884d8" fill="#8884d8" />
                 </LineChart>
             </div>
         );

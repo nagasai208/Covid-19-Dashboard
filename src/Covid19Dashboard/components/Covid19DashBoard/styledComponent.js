@@ -9,9 +9,7 @@ const CasesDiv = styled.div`
 ${tw`flex flex-col justify-around  mt-5`}`
 
 const OnclickCasesDiv = styled.div`
-${tw`flex  justify-around ml-48 mt-5 w-1/2 flex-wrap  `}`
-
-
+${tw`flex  justify-around ml-48 mt-5 w-1/2 flex-wrap   `}`
 const MapAndGarphsDiv = styled.div`
 ${tw`flex flex-col flex-wrap`};
 ;`;

@@ -1,10 +1,10 @@
 import React from 'react';
-import Covid19DashBoard from "../../components/Covid19DashBoard";
-import { getAccessToken } from "../../../Authentication/utils/StorageUtils";
-import { Redirect, withRouter } from "react-router-dom";
 import { observer, inject } from "mobx-react";
 import { observable, action, toJS } from "mobx";
+import { withRouter } from "react-router-dom";
+import { getAccessToken } from "../../../Authentication/utils/StorageUtils";
 import { clearUserSession } from "../../../Authentication/utils/StorageUtils";
+import Covid19DashBoard from "../../components/Covid19DashBoard";
 @inject('covid19StateStore')
 @observer
 class DashBoardRoute extends React.Component {
@@ -16,32 +16,41 @@ class DashBoardRoute extends React.Component {
         super(props);
         this.token = getAccessToken();
     }
-    async componentDidMount() {
-        await this.doNetworkCalls()
+    componentDidMount() {
+        this.doNetworkCalls()
     }
-    doNetworkCalls = () => {
-        this.props.covid19StateStore.stateCasesApi()
+    componentWillUnmount() {
+        this.props.covid19StateStore.clearStore();
+    }
+    @action.bound
+    doNetworkCalls = async () => {
+        await this.props.covid19StateStore.stateCasesApi()
+        await this.props.covid19StateStore.districtCasesApi()
     }
     onClickSignOut = () => {
         this.token = clearUserSession();
     }
     @action.bound
     onClickDaily() {
+        this.doNetworkCalls()
         this.dailyDataGraphs = true;
         this.cumulativeGraphs = false;
     }
     @action.bound
     onClickCumulative() {
+        this.doNetworkCalls()
         this.cumulativeGraphs = true;
         this.dailyDataGraphs = false;
     }
 
     @action.bound
     onClickZOnal() {
+        this.doNetworkCalls()
         this.districtAnalysis = true;
     }
     @action.bound
     onClickZOnalDashBoard() {
+        this.doNetworkCalls()
         this.districtAnalysis = false;
     }
     render() {
@@ -56,7 +65,7 @@ class DashBoardRoute extends React.Component {
                 dailyDataGraphs={this.dailyDataGraphs} onClickCumulative={this.onClickCumulative}
                 cumulativeGraphs={this.cumulativeGraphs} onClickZOnalDashBoard={this.onClickZOnalDashBoard}
                 onClickZOnal={this.onClickZOnal} districtAnalysis={this.districtAnalysis} stateTotalData={stateTotalData}
-                covid19StateStore={covid19StateStore} doNetworkCalls={this.doNetworkCalls}/>
+                covid19StateStore={covid19StateStore} doNetworkCalls={this.doNetworkCalls} />
         )
     }
 }
