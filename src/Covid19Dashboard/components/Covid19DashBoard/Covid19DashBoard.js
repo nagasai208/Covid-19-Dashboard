@@ -2,7 +2,10 @@ import React from 'react';
 import TableData from "../TableDataComponent";
 import { observer } from "mobx-react";
 import SignOutRoute from "../../routes/SignOUtRoute";
-import { DashboardMainDiv, CasesDiv, MapAndGarphsDiv, OnclickCasesDiv, MapsAadGraphTotalDiv, OnlyGraphs, PositiveGraphsDiv, FooterData, TableDiv} from './styledComponent'
+import {
+    DashboardMainDiv, CasesDiv, MapAndGarphsDiv, OnclickCasesDiv, MapsAadGraphTotalDiv,
+    OnlyGraphs, PositiveGraphsDiv, FooterData, TableDiv, DistrictWiseZonalMainDiv, DistrictWiseZonalDiv
+} from './styledComponent'
 import SecondaryButton from "../../../Common/components/SecondaryButton";
 import strings from '../../i18n/strings.json';
 import HeaderComponent from "../Header";
@@ -10,23 +13,24 @@ import TotalCases from "../TotalCasesComponent";
 import DailyDataGraphs from "../DilyDataComponent";
 import CumulativeDataComponent from "../CumulateDataComponent";
 import ConfirmedCasesGraphComponent from '../ConfirmedCasesGraph'
+import LoadingWrapperWithFailure from "../../../components/common/LoadingWrapperWithFailure";
+import DistrictWiseGraph from "../../../Common/components/DistrictWiseGraph/DistrictWiseGraph";
+
 @observer
 class Covid19DashBoard extends React.Component {
-    render() {
-        const { onClickSignOut, dailyDataGraphs, onClickDaily, onClickCumulative, cumulativeGraphs } = this.props;
-        return (
-            <DashboardMainDiv>
-                <SignOutRoute onClickSignOut={onClickSignOut} />
+
+    renderList = observer(() => {
+        const { dailyDataGraphs, onClickDaily, onClickCumulative, cumulativeGraphs,
+            districtAnalysis, stateTotalData, covid19StateStore } = this.props;
+
+        return districtAnalysis === true ?
+            <div>
                 <div>
-                    <SecondaryButton btnName={strings.zonalDashboard} />
-                    <SecondaryButton btnName={strings.districtWiseCasesAnalysis} />
-                </div>
-                <div>
-                    <HeaderComponent onClickDaily={onClickDaily} onClickCumulative={onClickCumulative}/>
+                    <HeaderComponent stateTotalData={stateTotalData} key={Math.random()} onClickDaily={onClickDaily} onClickCumulative={onClickCumulative} />
                 </div>
                 <MapsAadGraphTotalDiv>
-                <MapAndGarphsDiv>
-                    <TotalCases />
+                    <MapAndGarphsDiv>
+                        <TotalCases key={Math.random()} stateTotalData={stateTotalData} />
                         <CasesDiv>
                             <OnclickCasesDiv>
                                 <a href="#">{strings.confirmed}</a>
@@ -36,27 +40,59 @@ class Covid19DashBoard extends React.Component {
                             </OnclickCasesDiv>
                         </CasesDiv>
                     </MapAndGarphsDiv>
-                    <OnlyGraphs> 
+                    <OnlyGraphs>
                         {
                             dailyDataGraphs === true &&
-                            <DailyDataGraphs />
+                            <DailyDataGraphs key={Math.random()} />
                         }
                         {
                             cumulativeGraphs === true &&
-                            <CumulativeDataComponent />
+                            <CumulativeDataComponent key={Math.random()} covid19StateStore={covid19StateStore}  />
                         }
                     </OnlyGraphs>
-                   
+
                 </MapsAadGraphTotalDiv>
                 <FooterData>
                     <TableDiv>
-                        <TableData />
+                        <TableData key={Math.random()} covid19StateStore={covid19StateStore} />
                     </TableDiv>
                     <PositiveGraphsDiv>
-                        <ConfirmedCasesGraphComponent />
+                        <ConfirmedCasesGraphComponent key={Math.random()} covid19StateStore={covid19StateStore} />
                     </PositiveGraphsDiv>
                 </FooterData>
 
+            </div> :
+            <DistrictWiseZonalMainDiv>
+                {
+                    covid19StateStore.totalDistictsData.map((item) => {
+                        return <DistrictWiseZonalMainDiv>
+                            <DistrictWiseZonalDiv>
+                                <DistrictWiseGraph totalDistictsData={covid19StateStore.totalDistictsData} />
+                                <p>{item.districtName}</p>
+                            </DistrictWiseZonalDiv>
+                        </DistrictWiseZonalMainDiv>
+                        
+                    })
+                }
+               
+            </DistrictWiseZonalMainDiv>
+    })
+    render() {
+        const { onClickSignOut,
+            onClickZOnalDashBoard, onClickZOnal, doNetworkCalls, covid19StateStore } = this.props;
+        return (
+            <DashboardMainDiv>
+                <SignOutRoute key={Math.random()} onClickSignOut={onClickSignOut} />
+                <div>
+                    <SecondaryButton key={Math.random()} onClick={onClickZOnal} btnName={strings.zonalDashboard} />
+                    <SecondaryButton key={Math.random()} onClick={onClickZOnalDashBoard} btnName={strings.districtWiseCasesAnalysis} />
+                </div>
+                <LoadingWrapperWithFailure
+                    apiStatus={covid19StateStore.getCovid19CasesAPIStatus}
+                    apiError={covid19StateStore.getCovid19CasesAPIError}
+                    onRetryClick={doNetworkCalls}
+                    renderSuccessUI={this.renderList}
+                />
             </DashboardMainDiv>
         )
     }

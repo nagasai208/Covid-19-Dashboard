@@ -5,10 +5,10 @@ import tw from 'tailwind.macro';
 const HeadeMainDiv = styled.div`
 ${tw`flex justify-between items-center m-5`}`;
 
-const StateName = styled.p`
+const StateName = styled.div`
 ${tw`text-white`}`;
 
-const Date = styled.p`
+const Date = styled.div`
 ${tw`flex bg-grey-900`}`;
 
 const DateHeading = styled.label`

@@ -36,13 +36,14 @@ class LoginPageRoute extends React.Component {
             this.clicked = true;
             this.errorMessage = '';
             this.props.authenticationStore.setUserSignInAPIResponse();
-           // this.props.authenticationStore.userLoginin(this.userName, this.password)
+            this.props.authenticationStore.userLoginin(this.userName, this.password)
            this.token = getAccessToken()
             
         }
         event.preventDefault();
     }
     render() {
+        const { authenticationStore } = this.props;
         if (this.token) {
             return (
                 <Redirect to={{ pathname: '/covid19-dashboard' }} />
@@ -50,7 +51,8 @@ class LoginPageRoute extends React.Component {
         }
         return (
             <LoginPage onChangeUserName={this.onChangeUserName} onChangePassword={this.onChangePassword}
-                onClickLogin={this.onClickLogin} errorMessage={this.errorMessage} clicked={this.clicked} />
+                onClickLogin={this.onClickLogin} errorMessage={this.errorMessage} clicked={this.clicked}
+                authenticationStore={authenticationStore}/>
         )
     }
 }

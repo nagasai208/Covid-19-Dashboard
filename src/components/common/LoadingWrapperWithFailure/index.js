@@ -37,4 +37,4 @@ class LoadingWrapperWithFailure extends React.Component {
   }
 }
 
-export default LoadingWrapperWithFailure
+export default LoadingWrapperWithFailure;

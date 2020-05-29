@@ -3,7 +3,7 @@ import {
     LineChart, Line, XAxis, YAxis, CartesianGrid, Tooltip, Legend,
 } from 'recharts';
 
-export default class CumulativeGraph extends PureComponent {
+export default class CumulativeDistrictGraph extends PureComponent {
     static jsfiddleUrl = 'https://jsfiddle.net/alidingling/1p40zzfe/';
 
     state = {

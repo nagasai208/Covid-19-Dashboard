@@ -2,10 +2,9 @@ import styled from '@emotion/styled';
 import tw from 'tailwind.macro';
 
 const LoginPageBodyDiv = styled.div`
-${tw`flex flex-col items-center justify-center`};
+${tw`flex flex-col items-center justify-center min-h-screen `};
 background-color:#f1f7ff;
-height:1024px;
-width:1515px`;
+width:100%`;
 
 
 const LoginMainDiv = styled.form`

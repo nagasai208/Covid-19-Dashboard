@@ -1,5 +1,5 @@
 import { observable, action } from "mobx";
-import { API_INITIAL } from "@ib/api-constants";
+import { API_INITIAL, API_FETCHING, API_SUCCESS } from "@ib/api-constants";
 import { bindPromiseWithOnSuccess } from "@ib/mobx-promise"
 import usersDataRespose from '../../fixtures/LoginDetails.json';
 import { setAccessToken } from "../../utils/StorageUtils";
@@ -27,7 +27,6 @@ class AuthenticationStore {
     }
     @action.bound
     setUserSignInAPIResponse(response) {
-        console.log(usersDataRespose)
         setAccessToken(1)
     }
 
@@ -50,12 +49,22 @@ class AuthenticationStore {
 
     @action.bound
     userLoginin(userName, password) {
-        this.requestData(userName, password)
-        const usersPromise = this.authAPIService.loginApi(this.requestObject)
-        return bindPromiseWithOnSuccess(usersPromise)
-            .to(this.setGetUserSignInAPIStatus, this.setUserSignInAPIResponse)
-            .catch(this.setGetUserSignInAPIError)
+
+        let promise = new Promise(function (resolve, reject) {
+            setTimeout(() => resolve(usersDataRespose), 1000);
+        });
+        this.setGetUserSignInAPIStatus(API_FETCHING)
+        promise.then(response => {
+            this.setGetUserSignInAPIStatus(API_SUCCESS)
+            this.setUserSignInAPIResponse(response)
+        })
     }
+    //     this.requestData(userName, password)
+    //     const usersPromise = this.authAPIService.loginApi(this.requestObject)
+    //     return bindPromiseWithOnSuccess(usersPromise)
+    //         .to(this.setGetUserSignInAPIStatus, this.setUserSignInAPIResponse)
+    //         .catch(this.setGetUserSignInAPIError)
+    // }
 }
 
 

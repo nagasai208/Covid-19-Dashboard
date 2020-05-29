@@ -5,7 +5,7 @@ const DailyDataGraphsDiv = styled.div`
 ${tw`bg-gray-800 m-2 p-5 `};`;
 
 
-const GraphsHeading = styled.p`
+const GraphsHeading = styled.div`
 ${tw`text-white text-sm`}`
 
 

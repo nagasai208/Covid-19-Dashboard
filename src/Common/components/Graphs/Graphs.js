@@ -33,7 +33,7 @@ export default class Graphs extends PureComponent {
     render() {
         return (
             <BarChart
-                width={500}
+                width={400}
                 height={200}
                 data={data}
                 margin={{

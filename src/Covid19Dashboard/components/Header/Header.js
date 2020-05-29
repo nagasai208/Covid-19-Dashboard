@@ -6,10 +6,10 @@ import { HeadeMainDiv, StateName, Date, DateHeading, CasesButton} from './styled
 
 class HeaderComponent extends Component {
     render() {
-        const { onClickDaily, onClickCumulative } = this.props;
+        const { onClickDaily, onClickCumulative, stateTotalData } = this.props;
         return (
             <HeadeMainDiv>
-                <StateName>Andhra Pradesh</StateName>
+                <StateName>{stateTotalData.stateName}</StateName>
                 <Date><DateHeading>{strings.date}:</DateHeading> <DatePickerRoute /></Date>
                 <CasesButton>
                     <SecondaryButton onClick={onClickCumulative} btnName={strings.cumulative} />
