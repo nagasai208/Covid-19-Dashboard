@@ -3,7 +3,6 @@ import cumulativeDistrictData from '../../fixtures/covid19DistrictData.json';
 import covid19ZonalWiseData from '../../fixtures/covid19DistrictWiseZonalData';
 class Covid19Service {
     getCasesDataAPI() {
-        
         return new Promise(resolve => {
             setTimeout(() => {
                 resolve(casesData)   

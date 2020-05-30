@@ -32,6 +32,7 @@ class Covid19StateStore {
     }
     @action.bound
     setGetCovid19APIResponse(response) {
+       console.log(response)
         this.stateTotalData = response;
 
     }
@@ -71,13 +72,13 @@ class Covid19StateStore {
 
     }
     @action.bound
-    stateCasesApi() {
-        const usersPromise = this.covid19Service.getCasesDataAPI()
+    async stateCasesApi() {
+        const usersPromise = await this.covid19Service.getCasesDataAPI()
         let promise = new Promise(function (resolve, reject) {
             setTimeout(() => resolve(usersPromise), 2000);
         });
         this.setGetCovid19APIStatus(API_FETCHING)
-         return promise.then(response => {
+        return promise.then(response => {
             this.setGetCovid19APIStatus(API_SUCCESS)
             this.setGetCovid19APIResponse(response)
         })
@@ -86,13 +87,13 @@ class Covid19StateStore {
     @action.bound
     async districtCasesApi() {
         const usersPromise = await this.covid19Service.getCasesDistrictDataAPI()
-        let promise =  new Promise(function (resolve, reject) {
+        let promise = new Promise(function (resolve, reject) {
             setTimeout(() => resolve(usersPromise), 1000);
         });
         this.setGetCovid19APIStatus(API_FETCHING)
         return promise.then(response => {
             this.setGetCovid19APIStatus(API_SUCCESS)
-             this.setGetCovid19APIResponseDistrict(response)
+            this.setGetCovid19APIResponseDistrict(response)
         })
     }
 

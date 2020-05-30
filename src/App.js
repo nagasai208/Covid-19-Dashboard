@@ -8,7 +8,6 @@ import "./App.css";
 import { Provider } from "mobx-react";
 import stores from '../src/stores'
 import LoginPageRoute from "./Authentication/routes/LoginInPageRoute";
-import Covid19DashBoard from "./Covid19Dashboard/components/Covid19DashBoard";
 import DashBoardRoute from "./Covid19Dashboard/routes/DashboardRoute/DashBoardRoute";
 
 

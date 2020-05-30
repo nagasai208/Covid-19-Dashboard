@@ -43,7 +43,6 @@ class LoginPageRoute extends React.Component {
         event.preventDefault();
     }
     render() {
-        const { authenticationStore } = this.props;
         const { passwordErrorMessage, userNameErrorMessage } = this.props.authenticationStore
         if (this.token) {
             return (
@@ -54,7 +53,7 @@ class LoginPageRoute extends React.Component {
             <LoginPage onChangeUserName={this.onChangeUserName} onChangePassword={this.onChangePassword}
                 onClickLogin={this.onClickLogin} userNameErrorMessage={userNameErrorMessage} passwordErrorMessage={passwordErrorMessage}
                 clicked={this.clicked}
-                authenticationStore={authenticationStore} />
+                 />
         )
     }
 }

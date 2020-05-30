@@ -4,6 +4,7 @@ import tw from 'tailwind.macro';
 const InputTag = styled.input`
 ${tw``};
 width:280px;
+outline:none;
 background-color:${props => props.error ? '' : '#fed7d7'}`
 
 const InputTagDiv = styled.div`

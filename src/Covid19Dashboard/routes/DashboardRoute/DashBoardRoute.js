@@ -1,7 +1,7 @@
 import React from 'react';
 import { observer, inject } from "mobx-react";
 import { observable, action, toJS } from "mobx";
-import { withRouter } from "react-router-dom";
+import { withRouter, Redirect } from "react-router-dom";
 import { getAccessToken } from "../../../Authentication/utils/StorageUtils";
 import { clearUserSession } from "../../../Authentication/utils/StorageUtils";
 import Covid19DashBoard from "../../components/Covid19DashBoard";
@@ -25,34 +25,34 @@ class DashBoardRoute extends React.Component {
     @action.bound
     doNetworkCalls = async () => {
         this.props.covid19StateStore.stateCasesApi()
-        await this.props.covid19StateStore.districtCasesApi()
-       
+        this.props.covid19StateStore.districtCasesApi()
+
     }
     onClickSignOut = () => {
         this.token = clearUserSession();
     }
     @action.bound
     onClickDaily() {
-        this.doNetworkCalls()
+        //this.doNetworkCalls()
         this.dailyDataGraphs = true;
         this.cumulativeGraphs = false;
     }
     @action.bound
     onClickCumulative() {
-        this.doNetworkCalls()
+        //this.doNetworkCalls()
         this.cumulativeGraphs = true;
         this.dailyDataGraphs = false;
     }
 
     @action.bound
-     onClickZOnal() {
-        this.doNetworkCalls()
+    onClickZOnal() {
+        //this.doNetworkCalls()
         this.districtAnalysis = true;
     }
     @action.bound
     async onClickZOnalDashBoard() {
         await this.props.covid19StateStore.zonalWiseDistrictData()
-        this.doNetworkCalls()
+        //this.doNetworkCalls()
         this.districtAnalysis = false;
     }
     render() {
@@ -60,7 +60,7 @@ class DashBoardRoute extends React.Component {
         const { covid19StateStore } = this.props;
         const { history } = this.props;
         if (this.token === undefined) {
-            history.push("/login")
+            return <Redirect to={{ pathname: '/login' }} />
         }
         return (
             <Covid19DashBoard key={Math.random()} onClickSignOut={this.onClickSignOut} onClickDaily={this.onClickDaily}
