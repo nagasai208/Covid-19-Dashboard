@@ -49,6 +49,14 @@ const PasswordHeading = styled.p`
   ${tw`mt-5  text-gray-600 mb-1 `};
   font-size:14px;`
 
+const DotHaveAccountHeading = styled.p`
+${tw`mt-3 ml-10`}
+  font-size:14px;
+  color:#171f46;`;
+
+const SignUp = styled.a`
+${tw`ml-1`}`
+
 export {
-  LoginPageBodyDiv, LoginMainDiv, Img, Heading, ErrorMessage, PasswordHeading, UserNameHeading
+  LoginPageBodyDiv, LoginMainDiv, Img, Heading, ErrorMessage, PasswordHeading, UserNameHeading, DotHaveAccountHeading, SignUp
 }

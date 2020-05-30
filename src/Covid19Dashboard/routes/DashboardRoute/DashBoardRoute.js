@@ -65,7 +65,7 @@ class DashBoardRoute extends React.Component {
                 dailyDataGraphs={this.dailyDataGraphs} onClickCumulative={this.onClickCumulative}
                 cumulativeGraphs={this.cumulativeGraphs} onClickZOnalDashBoard={this.onClickZOnalDashBoard}
                 onClickZOnal={this.onClickZOnal} districtAnalysis={this.districtAnalysis} stateTotalData={stateTotalData}
-                covid19StateStore={covid19StateStore} doNetworkCalls={this.doNetworkCalls} />
+                covid19StateStore={covid19StateStore} doNetworkCalls={this.doNetworkCalls}  />
         )
     }
 }

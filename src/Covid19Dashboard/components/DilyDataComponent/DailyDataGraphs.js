@@ -14,7 +14,7 @@ class DailyDataGraphs extends Component {
                     <GraphsHeading>{strings.dailyConfirmedCases}</GraphsHeading>
                     {
                         cumulativeDistrictData !== undefined && 
-                        <Graphs cumulativeDistrictData={cumulativeDistrictData} casesType="activeCases"/>
+                        <Graphs cumulativeDistrictData={cumulativeDistrictData} casesType="activeCases" color={"Tomato"}/>
 
                     }
                     
@@ -24,7 +24,7 @@ class DailyDataGraphs extends Component {
                     <GraphsHeading>{strings.dailyRecoveredCases}</GraphsHeading>
                     {
                         cumulativeDistrictData !== undefined &&
-                        <Graphs cumulativeDistrictData={cumulativeDistrictData} casesType="totalRecoveredCases" />
+                        <Graphs cumulativeDistrictData={cumulativeDistrictData} casesType="totalRecoveredCases" color={"MediumSeaGreen"}/>
 
                     }
                 </DailyDataGraphsDiv>
@@ -32,7 +32,7 @@ class DailyDataGraphs extends Component {
                     <GraphsHeading>{strings.dailyDeaths}</GraphsHeading>
                     {
                         cumulativeDistrictData !== undefined &&
-                        <Graphs cumulativeDistrictData={cumulativeDistrictData} casesType="totalDeaths" />
+                        <Graphs cumulativeDistrictData={cumulativeDistrictData} casesType="totalDeaths" color={"Orange"} />
 
                     }
                 </DailyDataGraphsDiv>

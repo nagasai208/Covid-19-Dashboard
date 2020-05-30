@@ -10,5 +10,7 @@
     "errorMessageUserName":"enter username",
     "errorMessagePAssword":"enter password",
     "typeText":"text",
-    "typePassword":"password"
+    "typePassword":"password",
+    "dontHaveAnAccount":"Don’t have an account?",
+    "signUp":"Signup"
 }

@@ -5,7 +5,7 @@ import casesData from '../../fixtures/covid19Data';
 
 
 
-class Covi19Service {
+class Covid19Service {
     api
     constructor() {
         this.api = create({
@@ -21,5 +21,5 @@ class Covi19Service {
     }
 }
 export {
-    Covi19Service
+    Covid19Service
 }

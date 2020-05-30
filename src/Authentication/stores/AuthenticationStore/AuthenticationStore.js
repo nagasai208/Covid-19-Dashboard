@@ -45,6 +45,7 @@ class AuthenticationStore {
                 }
             }
             else {
+                this.passwordErrorMessage = '';
                 this.userNameErrorMessage = 'invalid username';
             }
         })
@@ -61,16 +62,16 @@ class AuthenticationStore {
         this.getUserSignInAPIStatus = apistatus
     }
     @action.bound
-    requestData(userName, password) {
-        this.requestObject = [{
-            name: userName, password: password
-        }]
-
+    requestData() {
+        this.requestObject = {
+            userName:this.userName,password:this.password
+        }
     }
 
     @action.bound
     userLogin() {
-        const usersPromise = this.authAPIService.loginApi(this.requestObject)
+        this.requestData();
+        const usersPromise = this.authAPIService.loginAPI(this.requestObject)
         let promise = new Promise(function (resolve) {
             setTimeout(() => resolve(usersPromise), 1000);
         });

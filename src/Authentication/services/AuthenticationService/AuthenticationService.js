@@ -10,8 +10,7 @@ class AuthenticationService {
     }
 
 
-    loginApi(requestObject) {
-        alert(1)
+    loginAPI(requestObject) {
         return networkCallWithApisauce(
             this.api,
             '',

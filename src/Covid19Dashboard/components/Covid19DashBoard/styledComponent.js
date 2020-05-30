@@ -40,8 +40,14 @@ ${tw`flex  flex-wrap justify-center`}`;
 const DistrictWiseZonalDiv = styled.div`
 ${tw`text-white m-5 text-center`}`
 
+const ZonalDashBoard = styled.div`
+`
+const TotalDataDiv = styled.div`
+`;
+const HomePageDataZonalDashboard = styled.div``;
+
 
 export {
     DashboardMainDiv, CasesDiv, MapAndGarphsDiv, OnclickCasesDiv, MapsAadGraphTotalDiv, OnlyGraphs,
-    FooterData, TableDiv, PositiveGraphsDiv, DistrictWiseZonalMainDiv, DistrictWiseZonalDiv
+    FooterData, TableDiv, PositiveGraphsDiv, DistrictWiseZonalMainDiv, DistrictWiseZonalDiv, ZonalDashBoard, TotalDataDiv, HomePageDataZonalDashboard
 }

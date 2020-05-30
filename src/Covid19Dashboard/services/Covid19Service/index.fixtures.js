@@ -1,6 +1,7 @@
 import casesData from '../../fixtures/covid19Data.json';
-class Covi19Service {
+class Covid19Service {
     getCasesDataAPI() {
+        console.log(4)
         return new Promise(resolve => {
             setTimeout(() => {
                 resolve(casesData)   
@@ -10,4 +11,4 @@ class Covi19Service {
     }
 }
 
-export { Covi19Service };
+export { Covid19Service };

@@ -8,8 +8,7 @@ export default class Graphs extends PureComponent {
     static jsfiddleUrl = 'https://jsfiddle.net/alidingling/30763kr7/';
 
     render() {
-        const { cumulativeDistrictData, casesType } = this.props;
-        console.log(casesType, 'hhh')
+        const { cumulativeDistrictData, casesType,color } = this.props;
         return (
             <BarChart
                 width={400}
@@ -24,7 +23,7 @@ export default class Graphs extends PureComponent {
                 <YAxis />
                 <Tooltip />
                 <Legend />
-                <Bar dataKey={casesType} fill="#8884d8" />
+                <Bar dataKey={casesType} fill={color} />
             </BarChart>
         );
     }

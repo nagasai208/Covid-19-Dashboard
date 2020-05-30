@@ -1,9 +1,9 @@
 {
-    "stateName": "Andhra Predesh",
+    "stateName": "Andhra Pradesh",
     "districts": [
         {
             "districtId": 0,
-            "districtName": "Kurnnol",
+            "districtName": "Kurnool",
             "totalCases": 10,
             "totalDeaths": 2,
             "totalRecoveredCases": 6,
@@ -91,7 +91,7 @@
         },
         {
             "districtId": 11,
-            "districtName": "Anathapuram",
+            "districtName": "Ananthapuram",
             "totalCases": 100,
             "totalDeaths": 20,
             "totalRecoveredCases": 70,
@@ -99,7 +99,7 @@
         },
         {
             "districtId": 12,
-            "districtName": "Chittore",
+            "districtName": "Chittor",
             "totalCases": 400,
             "totalDeaths": 20,
             "totalRecoveredCases": 350,

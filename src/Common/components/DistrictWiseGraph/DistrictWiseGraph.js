@@ -6,23 +6,22 @@ export default class DistrictWiseGraph extends PureComponent {
     static jsfiddleUrl = 'https://jsfiddle.net/alidingling/hbqxcu35/';
 
     render() {
-        const { totalDistictsData } = this.props;
-        console.log(totalDistictsData)
+        const { data } = this.props;
         return (
             <div>
                 <LineChart
                     width={500}
                     height={200}
-                    data={totalDistictsData}
+                    data={data.daily_cumulative}
                     margin={{
                         top: 10, right: 30, left: 0, bottom: 0,
                     }}
                 >
                     <CartesianGrid strokeDasharray="3 3" />
                     <XAxis dataKey="date" />
-                    <YAxis  />
+                    <YAxis />
                     <Tooltip />
-                    <Line connectNulls type="monotone" dataKey="activeCases" stroke="#8884d8" fill="#8884d8" />
+                    <Line connectNulls type="monotone" dataKey="total_cases" stroke="#8884d8" fill="#8884d8" />
                 </LineChart>
             </div>
         );

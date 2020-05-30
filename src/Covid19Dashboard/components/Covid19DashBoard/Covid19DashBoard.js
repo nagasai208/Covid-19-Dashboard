@@ -13,20 +13,20 @@ import CumulativeDataComponent from "../CumulateDataComponent";
 import ConfirmedCasesGraphComponent from '../ConfirmedCasesGraph'
 import {
     DashboardMainDiv, CasesDiv, MapAndGarphsDiv, OnclickCasesDiv, MapsAadGraphTotalDiv,
-    OnlyGraphs, PositiveGraphsDiv, FooterData, TableDiv, DistrictWiseZonalMainDiv, DistrictWiseZonalDiv
+    OnlyGraphs, PositiveGraphsDiv, FooterData, TableDiv, DistrictWiseZonalMainDiv, DistrictWiseZonalDiv, ZonalDashBoard, TotalDataDiv,
+    HomePageDataZonalDashboard
 } from './styledComponent'
 
 @observer
 class Covid19DashBoard extends React.Component {
-
     renderList = observer(() => {
         const { dailyDataGraphs, onClickDaily, onClickCumulative, cumulativeGraphs,
-            districtAnalysis, stateTotalData, covid19StateStore, doNetworkCalls } = this.props;
+            districtAnalysis, stateTotalData, covid19StateStore } = this.props;
         return districtAnalysis === true ?
-            <div>
-                <div>
+            <HomePageDataZonalDashboard>
+                <TotalDataDiv>
                     <HeaderComponent stateTotalData={stateTotalData} key={Math.random()} onClickDaily={onClickDaily} onClickCumulative={onClickCumulative} />
-                </div>
+                </TotalDataDiv>
                 <MapsAadGraphTotalDiv>
                     <MapAndGarphsDiv>
                         <TotalCases key={Math.random()} stateTotalData={stateTotalData} />
@@ -41,12 +41,12 @@ class Covid19DashBoard extends React.Component {
                     </MapAndGarphsDiv>
                     <OnlyGraphs>
                         {
-                            dailyDataGraphs === true  &&
-                            <DailyDataGraphs key={Math.random()} covid19StateStore={covid19StateStore} />
+                            dailyDataGraphs ?
+                                <DailyDataGraphs key={Math.random()} covid19StateStore={covid19StateStore} /> : null
                         }
                         {
-                            cumulativeGraphs === true &&
-                            <CumulativeDataComponent key={Math.random()} covid19StateStore={covid19StateStore} />
+                            cumulativeGraphs ?
+                            <CumulativeDataComponent key={Math.random()} covid19StateStore={covid19StateStore} />:null
                         }
                     </OnlyGraphs>
 
@@ -60,15 +60,16 @@ class Covid19DashBoard extends React.Component {
                     </PositiveGraphsDiv>
                 </FooterData>
 
-            </div> :
+            </HomePageDataZonalDashboard> :
             <DistrictWiseZonalMainDiv>
                 {
-                    covid19StateStore.totalDistictsData.map((item) => {
+                    covid19StateStore.zonalDistrictData !== undefined &&
+                    covid19StateStore.zonalDistrictData.districts.map((item) => {
                         return <DistrictWiseZonalMainDiv>
                             <DistrictWiseZonalDiv>
-                                <p>{`${strings.cumulativeConfirmCases}-${item.districtName}`}</p>
-                                <DistrictWiseGraph totalDistictsData={covid19StateStore.totalDistictsData} />
-                                <p>{item.districtName}</p>
+                                <p>{`${strings.cumulativeConfirmCases}-${item.district_name}`}</p>
+                                <DistrictWiseGraph data={item} />
+                                <p>{item.district_name}</p>
                             </DistrictWiseZonalDiv>
                         </DistrictWiseZonalMainDiv>
 
@@ -83,10 +84,10 @@ class Covid19DashBoard extends React.Component {
         return (
             <DashboardMainDiv>
                 <SignOutRoute key={Math.random()} onClickSignOut={onClickSignOut} />
-                <div>
+                <ZonalDashBoard>
                     <SecondaryButton key={Math.random()} onClick={onClickZOnal} btnName={strings.zonalDashboard} />
                     <SecondaryButton key={Math.random()} onClick={onClickZOnalDashBoard} btnName={strings.districtWiseCasesAnalysis} />
-                </div>
+                </ZonalDashBoard>
                 <LoadingWrapperWithFailure
                     apiStatus={covid19StateStore.getCovid19CasesAPIStatus}
                     apiError={covid19StateStore.getCovid19CasesAPIError}

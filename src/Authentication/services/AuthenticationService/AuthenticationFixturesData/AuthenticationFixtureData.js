@@ -1,7 +1,7 @@
 import AuthenticationData from '../../../fixtures/LoginDetails.json';
 
 class AuthenticationService {
-    loginApi() {
+    loginAPI() {
         return new Promise(resolve => {
             setTimeout(() => {
                 resolve(AuthenticationData)

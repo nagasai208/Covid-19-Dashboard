@@ -1,2 +1,2 @@
-import { Covi19Service } from "./Covid19Service";
-export default Covi19Service;
+import { Covid19Service } from "./Covid19Service";
+export default Covid19Service;
