@@ -77,7 +77,7 @@
             "districtId": 9,
             "districtName": "Nellore",
             "totalCases": 150,
-            "total_deaths": 20,
+            "totalDeaths": 20,
             "totalRecoveredCases": 130,
             "activeCases": 15
         },
@@ -106,8 +106,8 @@
             "activeCases": 30
         }
     ],
-    "totalCases": 360,
-    "totalDeaths": 37,
-    "totalRecoveredCases": 276,
-    "activeCases": 37
+    "totalCases": 1814,
+    "totalDeaths": 207,
+    "totalRecoveredCases": 1391,
+    "activeCases": 216
 }

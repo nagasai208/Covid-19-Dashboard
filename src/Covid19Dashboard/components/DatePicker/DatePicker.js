@@ -5,7 +5,7 @@ import "react-datepicker/dist/react-datepicker.css";
 import 'bootstrap/dist/css/bootstrap.min.css';
 import { observable } from "mobx";
 import { observer } from "mobx-react";
-import { DatePickerDiv } from './styledComponent';
+import { DatePickerDiv } from './styledComponents';
 @observer
 class DatePickerComponent extends Component {
     @observable startDate
@@ -16,7 +16,7 @@ class DatePickerComponent extends Component {
     }
 
     handleChange = (date) => {
-        this.startDate = date;
+        this.startDate = date;  
     }
 
     onFormSubmit=(e)=> {

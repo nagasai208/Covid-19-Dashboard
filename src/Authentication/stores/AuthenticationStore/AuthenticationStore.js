@@ -41,7 +41,7 @@ class AuthenticationStore {
                 }
                 else {
                     this.userNameErrorMessage = '';
-                    this.passwordErrorMessage = 'invalid Password'
+                    this.passwordErrorMessage = 'Incorrect password'
                 }
             }
             else {

@@ -28,7 +28,7 @@ class LoginPageRoute extends React.Component {
         if (this.props.authenticationStore.userName === '') {
             this.props.authenticationStore.userNameErrorMessage = strings.errorMessageUserName;
         }
-         if (this.props.authenticationStore.password === '') {
+         else if (this.props.authenticationStore.password === '') {
             this.props.authenticationStore.passwordErrorMessage = strings.errorMessagePAssword;
         }
         else {

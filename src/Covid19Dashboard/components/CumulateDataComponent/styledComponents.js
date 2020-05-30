@@ -5,7 +5,8 @@ const CumulativeDataGraphsDiv = styled.div`
 ${tw`bg-gray-800 m-2 p-5 text-white `};`
 const GraphsHeading = styled.div`
 ${tw`text-white text-sm`}`
+const CumulatiGraphMainDiv = styled.div``
 
 export {
-    CumulativeDataGraphsDiv, GraphsHeading
+    CumulativeDataGraphsDiv, GraphsHeading, CumulatiGraphMainDiv
 }

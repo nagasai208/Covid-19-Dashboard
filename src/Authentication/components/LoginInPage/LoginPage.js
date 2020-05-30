@@ -7,23 +7,25 @@ import { imgUrl } from '../../constants/Imgurl'
 import {
     LoginPageBodyDiv, LoginMainDiv, Img, Heading, ErrorMessage,
     PasswordHeading, UserNameHeading, DotHaveAccountHeading, SignUp
-} from './styledComponent';
+} from './styledComponents';
 @observer
 class LoginPage extends React.Component {
     render() {
-        const { onChangeUserName, onChangePassword, onClickLogin, passwordErrorMessage, userNameErrorMessage, clicked } = this.props;
+        const { onChangeUserName, onChangePassword, onClickLogin,
+            passwordErrorMessage, userNameErrorMessage, clicked } = this.props;
         return (
             <LoginPageBodyDiv>
                 <LoginMainDiv>    
                     <Img src={imgUrl}/>
                     <Heading>{strings.HiTherePleseSignup}</Heading>
                     <UserNameHeading>{strings.userName}</UserNameHeading>
-                    <Input type={strings.typeText} placeholder={strings.userNamePlaceHolder} onChange={onChangeUserName}  />
+                    <Input type={strings.typeText} error={userNameErrorMessage===''?true:false} placeholder={strings.userNamePlaceHolder} onChange={onChangeUserName}  />
                     {userNameErrorMessage !== ''  ?
                         <ErrorMessage>{userNameErrorMessage}</ErrorMessage> :<ErrorMessage></ErrorMessage>
                 }
                     <PasswordHeading>{strings.password}</PasswordHeading>
-                    <Input type={strings.typePassword} placeholder={strings.passwordPlaceHolder} onChange={onChangePassword} />
+                    <Input type={strings.typePassword} placeholder={strings.passwordPlaceHolder}
+                        onChange={onChangePassword} error={passwordErrorMessage === '' ? true : false} />
                 {
                         passwordErrorMessage !== ''?
                         <ErrorMessage>{passwordErrorMessage}</ErrorMessage>:<ErrorMessage></ErrorMessage>

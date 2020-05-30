@@ -6,6 +6,10 @@ import {
 } from "@ib/api-constants";
 import Covid19StateStore from ".";
 import Covid19Service from '../../services/Covid19Service';
+import covid19Data from '../../fixtures/covid19Data.json';
+import covid19DistrictData from '../../fixtures/covid19DistrictData.json';
+import covid19DistrictWiseZonalData from '../../fixtures/covid19DistrictWiseZonalData.json';
+
 describe("CovidStore Tests", () => {
     let covid19API;
     let covid19Store;
@@ -30,12 +34,10 @@ describe("CovidStore Tests", () => {
     it("should test  data fetching state", () => {
         const onSuccess = jest.fn();
         const onFailure = jest.fn();
-
         const requestObject = {
             username: "test-user",
             password: "test-password",
         };
-
         const mockLoadingPromise = new Promise(function (resolve, reject) { });
         const mockSignInAPI = jest.fn();
         mockSignInAPI.mockReturnValue(mockLoadingPromise);
@@ -46,4 +48,18 @@ describe("CovidStore Tests", () => {
         expect(onSuccess).not.toBeCalled();
         expect(onFailure).not.toBeCalled();
     });
+    it("Status", async () => {
+        await covid19Store.stateCasesApi();
+        expect(covid19Store.getCovid19CasesAPIStatus).toBe(API_SUCCESS)
+    });
+
+    it("Status", async () => {
+        await covid19Store.stateCasesApi();
+        expect(covid19Store.getCovid19CasesAPIError).toBe(null)
+    });
+
+
+
 })
+
+

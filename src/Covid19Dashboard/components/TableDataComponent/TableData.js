@@ -2,7 +2,7 @@ import React, { Component } from 'react'
 import { observer } from "mobx-react"
 import { action, toJS } from "mobx"
 import strings from '../../i18n/strings.json';
-import { TableTag, TableMainData, TabledRow, TabledHeading, TabledData } from './styledComponent';
+import { TableTag, TableMainData, TabledRow, TabledHeading, TabledData } from './styledComponents';
 @observer
 class TableData extends Component {
     @action.bound

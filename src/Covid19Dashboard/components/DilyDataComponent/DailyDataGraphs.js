@@ -2,7 +2,7 @@ import React, { Component } from 'react'
 import { observer } from "mobx-react"
 import Graphs from "../../../Common/components/Graphs/Graphs";
 import strings from '../../i18n/strings.json';
-import { DailyDataGraphsDiv, GraphsHeading} from './styledComponent';
+import { DailyDataGraphsDiv, GraphsHeading} from './styledComponents';
 
 @observer
 class DailyDataGraphs extends Component {

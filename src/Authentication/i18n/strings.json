@@ -2,7 +2,7 @@
     "HiTherePleseSignup":"Hi there, please sign In",
     "userName":"USERNAME",
     "password":"PASSWORD",
-    "login":"LOGIN",
+    "login":"Sign In",
     "userNameErrorMessage":"plese enter valid username",
     "passwordErrorMessage":"Incorrect password",
     "userNamePlaceHolder":"Enter username",

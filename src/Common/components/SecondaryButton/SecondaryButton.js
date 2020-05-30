@@ -1,5 +1,5 @@
 import React from 'react';
-import { Button } from './styledComponent';
+import { Button } from './styledComponents';
 
 
 class SecondaryButton extends React.Component {

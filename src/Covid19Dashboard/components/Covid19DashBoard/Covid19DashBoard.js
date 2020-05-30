@@ -15,7 +15,7 @@ import {
     DashboardMainDiv, CasesDiv, MapAndGarphsDiv, OnclickCasesDiv, MapsAadGraphTotalDiv,
     OnlyGraphs, PositiveGraphsDiv, FooterData, TableDiv, DistrictWiseZonalMainDiv, DistrictWiseZonalDiv, ZonalDashBoard, TotalDataDiv,
     HomePageDataZonalDashboard
-} from './styledComponent'
+} from './styledComponents'
 
 @observer
 class Covid19DashBoard extends React.Component {

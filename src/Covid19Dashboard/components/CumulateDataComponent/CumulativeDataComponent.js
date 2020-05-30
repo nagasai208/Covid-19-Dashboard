@@ -2,13 +2,13 @@ import React, { Component } from 'react'
 import { observer } from "mobx-react";
 import CumulativeGraph from "../../../Common/components/CumulativeGraph/CumulativeGraph";
 import strings from '../../i18n/strings.json';
-import { CumulativeDataGraphsDiv, GraphsHeading } from './styledComponent';
+import { CumulativeDataGraphsDiv, GraphsHeading, CumulatiGraphMainDiv } from './styledComponents';
 @observer
  class CumulativeDataComponent extends Component {
     render() {
         const { cumulativeDistrictData } = this.props.covid19StateStore;
         return (
-            <div>
+            <CumulatiGraphMainDiv>
                 <CumulativeDataGraphsDiv>
                     <GraphsHeading>{strings.cumulativeReport}</GraphsHeading>
                     {cumulativeDistrictData!==undefined &&
@@ -24,7 +24,7 @@ import { CumulativeDataGraphsDiv, GraphsHeading } from './styledComponent';
                         <CumulativeGraph cumulativeDistrictData={cumulativeDistrictData} />
                     }
                 </CumulativeDataGraphsDiv>
-            </div>
+            </CumulatiGraphMainDiv>
         )
     }
 }

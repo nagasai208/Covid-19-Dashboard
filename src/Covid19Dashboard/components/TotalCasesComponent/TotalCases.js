@@ -1,7 +1,7 @@
 import React, { Component } from 'react'
 import strings from '../../i18n/strings.json';
 import { observer } from "mobx-react";
-import { TotalCasesMainDiv, CasesCount, ConfirmedCases, ActiveCases, RecoveredCases, Deaths } from './styledComponent';
+import { TotalCasesMainDiv, CasesCount, ConfirmedCases, ActiveCases, RecoveredCases, Deaths } from './styledComponents';
 
 @observer
  class TotalCases extends Component {

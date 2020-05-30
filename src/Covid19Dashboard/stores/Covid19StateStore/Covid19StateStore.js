@@ -33,6 +33,10 @@ class Covid19StateStore {
     @action.bound
     setGetCovid19APIResponse(response) {
         this.stateTotalData = response;
+
+    }
+    @action.bound
+    setGetCovid19APIResponseZonalWiseDistrictData(response) {
         this.zonalDistrictData = covid19ZonalWiseData;
 
     }
@@ -73,7 +77,7 @@ class Covid19StateStore {
             setTimeout(() => resolve(usersPromise), 2000);
         });
         this.setGetCovid19APIStatus(API_FETCHING)
-        promise.then(response => {
+         return promise.then(response => {
             this.setGetCovid19APIStatus(API_SUCCESS)
             this.setGetCovid19APIResponse(response)
         })
@@ -81,14 +85,27 @@ class Covid19StateStore {
 
     @action.bound
     async districtCasesApi() {
-        const usersPromise = await this.covid19Service.getCasesDataAPI()
+        const usersPromise = await this.covid19Service.getCasesDistrictDataAPI()
         let promise =  new Promise(function (resolve, reject) {
             setTimeout(() => resolve(usersPromise), 1000);
         });
         this.setGetCovid19APIStatus(API_FETCHING)
-        promise.then(response => {
+        return promise.then(response => {
             this.setGetCovid19APIStatus(API_SUCCESS)
              this.setGetCovid19APIResponseDistrict(response)
+        })
+    }
+
+    @action.bound
+    async zonalWiseDistrictData() {
+        const usersPromise = await this.covid19Service.getCasesZonalDistrictWiseDataAPI()
+        let promise = new Promise(function (resolve, reject) {
+            setTimeout(() => resolve(usersPromise), 1000);
+        });
+        this.setGetCovid19APIStatus(API_FETCHING)
+        return promise.then(response => {
+            this.setGetCovid19APIStatus(API_SUCCESS)
+            this.setGetCovid19APIResponseZonalWiseDistrictData(response)
         })
     }
 

@@ -24,8 +24,9 @@ class DashBoardRoute extends React.Component {
     }
     @action.bound
     doNetworkCalls = async () => {
-        await this.props.covid19StateStore.stateCasesApi()
+        this.props.covid19StateStore.stateCasesApi()
         await this.props.covid19StateStore.districtCasesApi()
+       
     }
     onClickSignOut = () => {
         this.token = clearUserSession();
@@ -44,12 +45,13 @@ class DashBoardRoute extends React.Component {
     }
 
     @action.bound
-    onClickZOnal() {
+     onClickZOnal() {
         this.doNetworkCalls()
         this.districtAnalysis = true;
     }
     @action.bound
-    onClickZOnalDashBoard() {
+    async onClickZOnalDashBoard() {
+        await this.props.covid19StateStore.zonalWiseDistrictData()
         this.doNetworkCalls()
         this.districtAnalysis = false;
     }
@@ -65,7 +67,7 @@ class DashBoardRoute extends React.Component {
                 dailyDataGraphs={this.dailyDataGraphs} onClickCumulative={this.onClickCumulative}
                 cumulativeGraphs={this.cumulativeGraphs} onClickZOnalDashBoard={this.onClickZOnalDashBoard}
                 onClickZOnal={this.onClickZOnal} districtAnalysis={this.districtAnalysis} stateTotalData={stateTotalData}
-                covid19StateStore={covid19StateStore} doNetworkCalls={this.doNetworkCalls}  />
+                covid19StateStore={covid19StateStore} doNetworkCalls={this.doNetworkCalls} />
         )
     }
 }
