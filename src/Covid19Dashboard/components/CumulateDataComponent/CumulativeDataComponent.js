@@ -4,22 +4,22 @@ import CumulativeGraph from "../../../Common/components/CumulativeGraph/Cumulati
 import strings from '../../i18n/strings.json';
 import { CumulativeDataGraphsDiv, GraphsHeading, CumulatiGraphMainDiv } from './styledComponents';
 @observer
- class CumulativeDataComponent extends Component {
+class CumulativeDataComponent extends Component {
     render() {
         const { cumulativeDistrictData } = this.props.covid19StateStore;
         return (
             <CumulatiGraphMainDiv>
                 <CumulativeDataGraphsDiv>
                     <GraphsHeading>{strings.cumulativeReport}</GraphsHeading>
-                    {cumulativeDistrictData!==undefined &&
+                    {
 
                         <CumulativeGraph cumulativeDistrictData={cumulativeDistrictData} />
                     }
-                    
+
                 </CumulativeDataGraphsDiv>
                 <CumulativeDataGraphsDiv>
                     <GraphsHeading>{strings.cumulativeConfirmCases}</GraphsHeading>
-                    {cumulativeDistrictData !== undefined &&
+                    {
 
                         <CumulativeGraph cumulativeDistrictData={cumulativeDistrictData} />
                     }

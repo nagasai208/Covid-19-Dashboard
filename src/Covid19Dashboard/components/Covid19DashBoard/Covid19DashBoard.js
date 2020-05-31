@@ -46,7 +46,7 @@ class Covid19DashBoard extends React.Component {
                         }
                         {
                             cumulativeGraphs ?
-                            <CumulativeDataComponent key={Math.random()} covid19StateStore={covid19StateStore} />:null
+                                <CumulativeDataComponent key={Math.random()} covid19StateStore={covid19StateStore} /> : null
                         }
                     </OnlyGraphs>
 
@@ -63,7 +63,7 @@ class Covid19DashBoard extends React.Component {
             </HomePageDataZonalDashboard> :
             <DistrictWiseZonalMainDiv>
                 {
-                    covid19StateStore.zonalDistrictData !== undefined &&
+                    // covid19StateStore.zonalDistrictData !== undefined &&
                     covid19StateStore.zonalDistrictData.districts.map((item) => {
                         return <DistrictWiseZonalMainDiv>
                             <DistrictWiseZonalDiv>

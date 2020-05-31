@@ -8,7 +8,7 @@ class TableData extends Component {
     @action.bound
     SortedData(event) {
         const { covid19StateStore } = this.props;
-        covid19StateStore.sortedData()
+        covid19StateStore.sortedData(event.target.id)
         }
     @action.bound
     renderList(item,index) {
@@ -30,13 +30,12 @@ class TableData extends Component {
                     <TabledRow>
                         <TabledHeading id="districtName" onClick={this.SortedData}>{strings.districtName}</TabledHeading>
                         <TabledHeading id='2' onClick={this.SortedData}>{strings.confirmed}</TabledHeading>
-                        <TabledHeading id='3' onClick={this.SortedData}>{strings.active}</TabledHeading>
+                        <TabledHeading id='activeCases' onClick={this.SortedData}>{strings.active}</TabledHeading>
                         <TabledHeading id='4' onClick={this.SortedData}>{strings.recovered}</TabledHeading>
                         <TabledHeading id='5' onClick={this.SortedData}>{strings.deaths}</TabledHeading>
                     </TabledRow>
 
                     {
-                        totalDistictsData !== undefined &&
                         totalDistictsData.map((item,index) => {
                             return this.renderList(item,index)
                         })

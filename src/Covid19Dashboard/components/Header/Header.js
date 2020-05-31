@@ -2,8 +2,9 @@ import React, { Component } from 'react';
 import SecondaryButton from "../../../Common/components/SecondaryButton";
 import strings from '../../i18n/strings.json';
 import DatePickerRoute from "../../routes/DatePickerRoute"
-import { HeadeMainDiv, StateName, Date, DateHeading, CasesButton} from './styledComponents';
-
+import { HeadeMainDiv, StateName, Date, DateHeading, CasesButton } from './styledComponents';
+import { observer } from "mobx-react";
+@observer
 class HeaderComponent extends Component {
     render() {
         const { onClickDaily, onClickCumulative, stateTotalData } = this.props;

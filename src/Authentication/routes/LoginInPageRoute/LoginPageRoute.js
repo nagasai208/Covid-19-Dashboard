@@ -4,7 +4,6 @@ import { Redirect } from "react-router-dom";
 import { observer, inject } from "mobx-react";
 import LoginPage from "../../components/LoginInPage";
 import strings from '../../i18n/strings.json';
-import { getAccessToken } from "../../utils/StorageUtils";
 @inject('authenticationStore')
 @observer
 class LoginPageRoute extends React.Component {
@@ -12,17 +11,18 @@ class LoginPageRoute extends React.Component {
     @observable token
     constructor(props) {
         super(props)
-        this.token = getAccessToken()
 
     }
     componentWillMount() {
         this.props.authenticationStore.clearStore();
     }
     onChangeUserName = (event) => {
-        this.props.authenticationStore.userName = event.target.value;
+        let value = event.target.value;
+        this.props.authenticationStore.onChangeUserName(value)
     }
     onChangePassword = (event) => {
-        this.props.authenticationStore.password = event.target.value;
+        let value = event.target.value;
+        this.props.authenticationStore.onChangePassword(value);
     }
     onClickLogin = async (event) => {
         if (this.props.authenticationStore.userName === '') {
@@ -38,13 +38,12 @@ class LoginPageRoute extends React.Component {
             if ((this.props.authenticationStore.passwordErrorMessage !== '') || (this.props.authenticationStore.userNameErrorMessage !== '')) {
                 this.clicked = false;
             }
-            this.token = getAccessToken();
         }
         event.preventDefault();
     }
     render() {
-        const { passwordErrorMessage, userNameErrorMessage } = this.props.authenticationStore
-        if (this.token) {
+        const { passwordErrorMessage, userNameErrorMessage, accessToken } = this.props.authenticationStore;
+        if (accessToken) {
             return (
                 <Redirect to={{ pathname: '/covid19-dashboard' }} />
             )
@@ -57,6 +56,7 @@ class LoginPageRoute extends React.Component {
         )
     }
 }
+
 
 export {
     LoginPageRoute

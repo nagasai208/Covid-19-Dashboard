@@ -8,7 +8,9 @@ import "./App.css";
 import { Provider } from "mobx-react";
 import stores from '../src/stores'
 import LoginPageRoute from "./Authentication/routes/LoginInPageRoute";
-import DashBoardRoute from "./Covid19Dashboard/routes/DashboardRoute/DashBoardRoute";
+import covid19DashboardRoute from "./Covid19Dashboard/routes/DashboardRoute/DashBoardRoute";
+import dashBoardRoute from "./Covid19Dashboard/routes";
+import loginAppRoute from "./Authentication/routes";
 
 
 class App extends React.Component {
@@ -17,15 +19,9 @@ class App extends React.Component {
       <Provider {...stores}>
         <Router basename={process.env.PUBLIC_URL} >
           <Switch>
-            <Route exact path="/page-1">
-              <Page1 />
-            </Route>
-            <Route exact path="/login">
-              <LoginPageRoute />
-            </Route>
-            <Route exact path="/covid19-dashboard">
-              <DashBoardRoute />
-            </Route>
+            {covid19DashboardRoute}
+            {dashBoardRoute}
+            {loginAppRoute}
             <Route path="/">
               <LoginPageRoute />
             </Route>

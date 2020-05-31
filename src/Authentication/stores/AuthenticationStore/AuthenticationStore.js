@@ -1,7 +1,7 @@
 import { observable, action } from "mobx";
 import { API_INITIAL, API_FETCHING, API_SUCCESS } from "@ib/api-constants";
 import { bindPromiseWithOnSuccess } from "@ib/mobx-promise"
-import { setAccessToken } from "../../utils/StorageUtils";
+import { setAccessToken, getAccessToken, clearUserSession } from "../../utils/StorageUtils";
 
 
 class AuthenticationStore {
@@ -11,6 +11,7 @@ class AuthenticationStore {
     @observable password
     @observable userNameErrorMessage
     @observable passwordErrorMessage
+    @observable accessToken;
     requestObject;
     authAPIService
 
@@ -27,6 +28,7 @@ class AuthenticationStore {
         this.password = '';
         this.passwordErrorMessage = '';
         this.userNameErrorMessage = '';
+        this.accessToken = getAccessToken()
     }
     @action.bound
     clearStore() {
@@ -38,6 +40,7 @@ class AuthenticationStore {
             if (this.userName === eachResponse.userName) {
                 if (this.password === eachResponse.password) {
                     setAccessToken(1)
+                    this.accessToken = getAccessToken()
                 }
                 else {
                     this.userNameErrorMessage = '';
@@ -49,7 +52,22 @@ class AuthenticationStore {
                 this.userNameErrorMessage = 'invalid username';
             }
         })
-       
+
+    }
+
+    @action.bound
+    signOut() {
+        this.accessToken = clearUserSession();
+        this.init();
+    }
+    @action.bound
+    onChangeUserName(value) {
+        this.userName = value;
+    }
+
+    @action.bound
+    onChangePassword(value) {
+        this.password = value;
     }
 
     @action.bound
@@ -64,24 +82,18 @@ class AuthenticationStore {
     @action.bound
     requestData() {
         this.requestObject = {
-            userName:this.userName,password:this.password
+            userName: this.userName, password: this.password
         }
     }
 
     @action.bound
     userLogin() {
-        this.requestData();
         const usersPromise = this.authAPIService.loginAPI(this.requestObject)
-        let promise = new Promise(function (resolve) {
-            setTimeout(() => resolve(usersPromise), 1000);
-        });
-        this.setGetUserSignInAPIStatus(API_FETCHING)
-        return promise.then(response => {
-            this.setGetUserSignInAPIStatus(API_SUCCESS)
-            this.setUserSignInAPIResponse(response)
-        })
+        return bindPromiseWithOnSuccess(usersPromise)
+            .to(this.setGetUserSignInAPIStatus, this.setUserSignInAPIResponse)
+            .catch(this.getUserSignInAPIStatus)
     }
-   
+
 }
 
 

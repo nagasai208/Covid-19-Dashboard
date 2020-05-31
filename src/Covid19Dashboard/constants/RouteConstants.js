@@ -1,0 +1,1 @@
+export const COVID19_DASHBOARD = '/covid19-dashboard';
