@@ -12,4 +12,4 @@ class AuthenticationService {
 }
 
 
-export default AuthenticationService
+export { AuthenticationService }

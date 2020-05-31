@@ -4,7 +4,7 @@ import {
     API_FETCHING,
     API_INITIAL,
 } from "@ib/api-constants";
-import AuthenticationService from "../../services/AuthenticationService/AuthenticationFixturesData/AuthenticationFixtureData";
+import AuthenticationService from "../../services/AuthenticationService/AuthenticationFixturesData/Authentication.fixtures";
 import AuthenticationStore from "./";
 import userDetails from '../../fixtures/LoginDetails.json';
 

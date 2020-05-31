@@ -1,7 +1,7 @@
-import casesData from '../../fixtures/covid19Data.json';
-import cumulativeDistrictData from '../../fixtures/covid19DistrictData.json';
-import covid19ZonalWiseData from '../../fixtures/covid19DistrictWiseZonalData';
-class Covid19Service {
+import casesData from '../../../fixtures/covid19Data.json';
+import cumulativeDistrictData from '../../../fixtures/covid19DistrictData.json';
+import covid19ZonalWiseData from '../../../fixtures/covid19DistrictWiseZonalData';
+class Covid19ServiceFixturesData {
     getCasesDataAPI() {
         return new Promise(resolve => {
             setTimeout(() => {
@@ -29,4 +29,4 @@ class Covid19Service {
     }
 }
 
-export { Covid19Service };
+export default  Covid19ServiceFixturesData ;

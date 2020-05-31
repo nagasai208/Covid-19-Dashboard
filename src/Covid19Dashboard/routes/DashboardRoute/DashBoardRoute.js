@@ -39,6 +39,8 @@ class DashBoardRoute extends React.Component {
 
     @action.bound
     onClickZOnal() {
+        this.props.covid19StateStore.stateCasesApi()
+        this.props.covid19StateStore.districtCasesApi()
         this.districtAnalysis = true;
     }
     @action.bound

@@ -4,6 +4,7 @@ import { Redirect } from "react-router-dom";
 import { observer, inject } from "mobx-react";
 import LoginPage from "../../components/LoginInPage";
 import strings from '../../i18n/strings.json';
+import { COVID19_DASHBOARD} from '../../../Covid19Dashboard/constants/RouteConstants'
 @inject('authenticationStore')
 @observer
 class LoginPageRoute extends React.Component {
@@ -28,7 +29,7 @@ class LoginPageRoute extends React.Component {
         if (this.props.authenticationStore.userName === '') {
             this.props.authenticationStore.userNameErrorMessage = strings.errorMessageUserName;
         }
-         else if (this.props.authenticationStore.password === '') {
+        else if (this.props.authenticationStore.password === '') {
             this.props.authenticationStore.passwordErrorMessage = strings.errorMessagePAssword;
         }
         else {
@@ -45,7 +46,7 @@ class LoginPageRoute extends React.Component {
         const { passwordErrorMessage, userNameErrorMessage, accessToken } = this.props.authenticationStore;
         if (accessToken) {
             return (
-                <Redirect to={{ pathname: '/covid19-dashboard' }} />
+                <Redirect to={COVID19_DASHBOARD} />
             )
         }
         return (

@@ -11,8 +11,6 @@ import LoginPageRoute from "./Authentication/routes/LoginInPageRoute";
 import covid19DashboardRoute from "./Covid19Dashboard/routes/DashboardRoute/DashBoardRoute";
 import dashBoardRoute from "./Covid19Dashboard/routes";
 import loginAppRoute from "./Authentication/routes";
-
-
 class App extends React.Component {
   render() {
     return (

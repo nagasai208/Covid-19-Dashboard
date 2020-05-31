@@ -12,8 +12,19 @@ import DailyDataGraphs from "../DilyDataComponent";
 import CumulativeDataComponent from "../CumulateDataComponent";
 import ConfirmedCasesGraphComponent from '../ConfirmedCasesGraph'
 import {
-    DashboardMainDiv, CasesDiv, MapAndGarphsDiv, OnclickCasesDiv, MapsAadGraphTotalDiv,
-    OnlyGraphs, PositiveGraphsDiv, FooterData, TableDiv, DistrictWiseZonalMainDiv, DistrictWiseZonalDiv, ZonalDashBoard, TotalDataDiv,
+    DashboardMainDiv,
+    CasesDiv,
+    MapAndGarphsDiv,
+    OnclickCasesDiv,
+    MapsAadGraphTotalDiv,
+    OnlyGraphs,
+    PositiveGraphsDiv,
+    FooterData,
+    TableDiv,
+    DistrictWiseZonalMainDiv,
+    DistrictWiseZonalDiv,
+    ZonalDashBoard,
+    TotalDataDiv,
     HomePageDataZonalDashboard
 } from './styledComponents'
 
@@ -63,7 +74,6 @@ class Covid19DashBoard extends React.Component {
             </HomePageDataZonalDashboard> :
             <DistrictWiseZonalMainDiv>
                 {
-                    // covid19StateStore.zonalDistrictData !== undefined &&
                     covid19StateStore.zonalDistrictData.districts.map((item) => {
                         return <DistrictWiseZonalMainDiv>
                             <DistrictWiseZonalDiv>
