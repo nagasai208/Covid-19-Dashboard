@@ -10,10 +10,14 @@ import { COVID19_DASHBOARD} from '../../../Covid19Dashboard/constants/RouteConst
 class LoginPageRoute extends React.Component {
     @observable clicked = false;
     @observable token
-    loginPageRef = React.createRef()
+    userNameRef = React.createRef();
+    passwordRef = React.createRef();
     constructor(props) {
         super(props)
 
+    }
+    componentDidMount() {
+        this.userNameRef.current.focus();
     }
     componentWillMount() {
         this.props.authenticationStore.clearStore();
@@ -28,10 +32,14 @@ class LoginPageRoute extends React.Component {
     }
     onClickLogin = async (event) => {
         if (this.props.authenticationStore.userName === '') {
+            event.preventDefault();
             this.props.authenticationStore.userNameErrorMessage = strings.errorMessageUserName;
+            this.userNameRef.current.focus();
         }
-        else if (this.props.authenticationStore.password === '') {
-            this.props.authenticationStore.passwordErrorMessage = strings.errorMessagePAssword;
+        if (this.props.authenticationStore.password === '') {
+            event.preventDefault();
+             this.props.authenticationStore.passwordErrorMessage = strings.errorMessagePAssword;
+            this.passwordRef.current.focus()
         }
         else {
             this.clicked = true;
@@ -53,7 +61,7 @@ class LoginPageRoute extends React.Component {
         return (
             <LoginPage onChangeUserName={this.onChangeUserName} onChangePassword={this.onChangePassword}
                 onClickLogin={this.onClickLogin} userNameErrorMessage={userNameErrorMessage}
-                passwordErrorMessage={passwordErrorMessage} ref={this.loginPageRef}
+                passwordErrorMessage={passwordErrorMessage} userNameRef={this.userNameRef} passwordRef = {this.passwordRef}
                 clicked={this.clicked}
                  />
         )

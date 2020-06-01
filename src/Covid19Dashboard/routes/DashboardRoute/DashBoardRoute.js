@@ -9,6 +9,7 @@ class DashBoardRoute extends React.Component {
     @observable dailyDataGraphs = false;
     @observable cumulativeGraphs = true;
     @observable districtAnalysis = true;
+    @observable onClickColor = '';
     constructor(props) {
         super(props);
     }
@@ -52,14 +53,33 @@ class DashBoardRoute extends React.Component {
         this.props.covid19StateStore.districtWiseDataAnalysis()
         this.districtAnalysis = false;
     }
+    @action.bound
+    onClickActive(event) {
+        this.onClickColor = event.target.id;
+    }
+    @action.bound
+    onClickConfirmed(event) {
+        this.onClickColor = event.target.id;
+    }
+    @action.bound
+    onClickRecovered(event) {
+        this.onClickColor = event.target.id;
+    }
+    @action.bound
+    onClickDeaths(event) {
+        this.onClickColor = event.target.id;
+    }
     render() {
         const { covid19StateStore } = this.props;
         return (
             <Covid19DashBoard key={Math.random()} onClickSignOut={this.onClickSignOut} onClickDaily={this.onClickDaily}
                 dailyDataGraphs={this.dailyDataGraphs} onClickCumulative={this.onClickCumulative}
                 cumulativeGraphs={this.cumulativeGraphs} onClickDistrictWiseAnalysis={this.onClickDistrictWiseAnalysis}
-                onClickZOnalDasboard={this.onClickZOnalDasboard} districtAnalysis={this.districtAnalysis} 
-                covid19StateStore={covid19StateStore} doNetworkCalls={this.doNetworkCalls} />
+                onClickZOnalDasboard={this.onClickZOnalDasboard} districtAnalysis={this.districtAnalysis}
+                covid19StateStore={covid19StateStore} doNetworkCalls={this.doNetworkCalls} onClickConfirmed={this.onClickConfirmed}
+                onClickActive={this.onClickActive} onClickRecovered={this.onClickRecovered} onClickDeaths={this.onClickDeaths}
+                onClickColor={this.onClickColor}
+            />
         )
     }
 }

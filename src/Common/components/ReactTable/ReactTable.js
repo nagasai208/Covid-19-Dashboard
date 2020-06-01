@@ -2,6 +2,8 @@ import React from "react";
 import ReactTable from "react-table";
 import "react-table/react-table.css";
 import './ReactTableStyles.css';
+import { observer } from "mobx-react";
+@observer
 class ReactTableData extends React.Component {
     constructor() {
         super();
@@ -46,8 +48,10 @@ class ReactTableData extends React.Component {
                                     Header: "Deaths",
                                     accessor: "totalDeaths"
                                 }
-                            ]
+                            ],
+                            
                         },
+                        
                     ]}
                     defaultSorted={[
                         {

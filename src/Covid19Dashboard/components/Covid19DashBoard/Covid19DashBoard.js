@@ -25,28 +25,30 @@ import {
     DistrictWiseZonalDiv,
     ZonalDashBoard,
     TotalDataDiv,
-    HomePageDataZonalDashboard
+    HomePageDataZonalDashboard, OnClickActive, OnClickCOnfirmed, OnClickRecovered, OnClickDeaths
 } from './styledComponents'
 
 @observer
 class Covid19DashBoard extends React.Component {
     renderList = observer(() => {
         const { dailyDataGraphs, onClickDaily, onClickCumulative, cumulativeGraphs,
-            districtAnalysis, covid19StateStore } = this.props;
+            districtAnalysis, covid19StateStore, onClickDeaths, onClickRecovered,
+            onClickActive, onClickConfirmed, onClickColor } = this.props;
         return districtAnalysis === true ?
             <HomePageDataZonalDashboard>
                 <TotalDataDiv>
-                    <HeaderComponent stateTotalData={covid19StateStore.stateTotalReport} key={Math.random()} onClickDaily={onClickDaily} onClickCumulative={onClickCumulative} />
+                    <HeaderComponent stateTotalData={covid19StateStore.stateTotalReport}
+                        key={Math.random()} onClickDaily={onClickDaily} onClickCumulative={onClickCumulative} />
                 </TotalDataDiv>
                 <MapsAadGraphTotalDiv>
                     <MapAndGarphsDiv>
                         <TotalCases key={Math.random()} stateTotalData={covid19StateStore.stateTotalReport} />
                         <CasesDiv>
                             <OnclickCasesDiv>
-                                <a href="#">{strings.confirmed}</a>
-                                <a href="#">{strings.active}</a>
-                                <a href="#">{strings.recovered}</a>
-                                <a href="#">{strings.deaths}</a>
+                                <OnClickCOnfirmed id='confirmed' color={onClickColor} onClick={onClickConfirmed}>{strings.confirmed}</OnClickCOnfirmed>
+                                <OnClickActive id='active' color={onClickColor} onClick={onClickActive}>{strings.active}</OnClickActive>
+                                <OnClickRecovered id='recovered' color={onClickColor} onClick={onClickRecovered}>{strings.recovered}</OnClickRecovered>
+                                <OnClickDeaths id='deaths' color={onClickColor}  onClick={onClickDeaths}>{strings.deaths}</OnClickDeaths>
                             </OnclickCasesDiv>
                         </CasesDiv>
                     </MapAndGarphsDiv>

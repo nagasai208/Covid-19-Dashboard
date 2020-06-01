@@ -11,8 +11,6 @@ import {
 } from './styledComponents';
 @observer
 class LoginPage extends React.Component {
-    userNameRef = React.createRef();
-    passwordRef = React.createRef()
     @computed
     get userNameError() {
         return this.props.userNameErrorMessage === '' ? true : false;
@@ -23,15 +21,15 @@ class LoginPage extends React.Component {
     }
     render() {
         const { onChangeUserName, onChangePassword, onClickLogin,
-            passwordErrorMessage, userNameErrorMessage, clicked } = this.props;
+            passwordErrorMessage, userNameErrorMessage, clicked,userNameRef,passwordRef } = this.props;
         return (
             <LoginPageBodyDiv>
                 <LoginMainDiv>
                     <Img src={imgUrl} />
                     <Heading>{strings.HiTherePleseSignup}</Heading>
                     <UserNameHeading>{strings.userName}</UserNameHeading>
-                    <Input type={strings.typeText} error={this.userNameError} 
-                        placeholder={strings.userNamePlaceHolder}
+                    <Input type={strings.typeText} error={this.userNameError}
+                        placeholder={strings.userNamePlaceHolder} inputRef={userNameRef}
                         onChange={onChangeUserName} />
                     {
                         userNameErrorMessage !== '' ?
@@ -39,7 +37,7 @@ class LoginPage extends React.Component {
                     }
                     <PasswordHeading>{strings.password}</PasswordHeading>
                     <Input type={strings.typePassword} placeholder={strings.passwordPlaceHolder} ref={this.passwordRef}
-                        onChange={onChangePassword} error={this.passwordError} />
+                        onChange={onChangePassword} error={this.passwordError} inputRef={passwordRef} />
                     {
                         passwordErrorMessage !== '' ?
                             <ErrorMessage>{passwordErrorMessage}</ErrorMessage> : <ErrorMessage></ErrorMessage>

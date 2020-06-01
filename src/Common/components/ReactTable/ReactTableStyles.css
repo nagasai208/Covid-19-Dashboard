@@ -1,4 +1,3 @@
-tr:nth-child(even) { 
-            background-color:red; 
+.rt-tr-group:nth-of-type(odd) { 
+            background-color:#1a202c;
         } 
-.left-inner-container:nth-of-type(3n+1) {background-color: #ff5e39;}

@@ -10,7 +10,6 @@ import stores from '../src/stores'
 import LoginPageRoute from "./Authentication/routes/LoginInPageRoute";
 import covid19DashboardRoute from "./Covid19Dashboard/routes/DashboardRoute/DashBoardRoute";
 import dashBoardRoute from "./Covid19Dashboard/routes";
-import loginAppRoute from "./Authentication/routes";
 class App extends React.Component {
   render() {
     return (
@@ -19,7 +18,6 @@ class App extends React.Component {
           <Switch>
             {covid19DashboardRoute}
             {dashBoardRoute}
-            {loginAppRoute}
             <Route path="/">
               <LoginPageRoute />
             </Route>
@@ -29,5 +27,4 @@ class App extends React.Component {
     )
   }
 }
-
 export default App;

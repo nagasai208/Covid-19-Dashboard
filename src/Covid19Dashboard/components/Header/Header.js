@@ -11,7 +11,7 @@ class HeaderComponent extends Component {
         return (
             <HeadeMainDiv>
                 <StateName>{stateTotalData.stateName}</StateName>
-                <Date><DateHeading>{strings.date}:</DateHeading> <DatePickerRoute /></Date>
+                    <Date><DateHeading>{strings.date}:</DateHeading> <DatePickerRoute /></Date>
                 <CasesButton>
                     <SecondaryButton onClick={onClickCumulative} btnName={strings.cumulative} />
                     <SecondaryButton onClick={onClickDaily} btnName={strings.dialy} />

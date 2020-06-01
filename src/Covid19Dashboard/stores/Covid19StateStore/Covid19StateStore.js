@@ -79,10 +79,21 @@ class Covid19StateStore {
     @computed
     get totalDistictsData() {
         return this.stateTotalReport.districts;
-    } 
+    }
+    @computed
+    get totalMandals() {
+        return this.stateTotalReport.mandals;
+    }
+    
     @computed
     get sortedGraph() {
-       return   this.stateTotalReport.districts.sort((firstValue, secondValue) => (firstValue.activeCases > secondValue.activeCases ? 1 : -1))
+       return   this.stateTotalReport.districts.sort((firstValue, secondValue) => (firstValue.activeCases > secondValue.activeCases ? -1 : 1))
+
+    }
+
+    @computed
+    get sortedMandalsGraph() {
+        return this.stateTotalReport.mandals.sort((firstValue, secondValue) => (firstValue.activeCases > secondValue.activeCases ? 1 : -1))
 
     }
 

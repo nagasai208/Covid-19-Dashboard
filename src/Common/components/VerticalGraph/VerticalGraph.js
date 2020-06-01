@@ -20,11 +20,11 @@ export default class ConfirmedCasesGraph extends PureComponent {
                 }}
             >
                 <CartesianGrid stroke="#f5f5f5" />
-                <XAxis type="activeCases" />
+                <XAxis type="number" />
                 <YAxis dataKey="districtName" type="category" />
                 <Tooltip />
                 <Legend />
-                <Bar dataKey="activeCases" barSize={20} fill="#ff5e39" />
+                <Bar dataKey="activeCases" name="positive" barSize={20} fill="#f56565" />
             </ComposedChart>
         );
     }
