@@ -5,10 +5,10 @@ import { ConfirmedCasesDiv } from './styledComponents';
 @observer
 class ConfirmedCasesGraphComponent extends Component {
     render() {
-        const { totalDistictsData } = this.props.covid19StateStore;
+        const { sortedGraph } = this.props.covid19StateStore;
         return (
             <ConfirmedCasesDiv>
-                <ConfirmedCasesGraph totalDistictsData={totalDistictsData} />
+                <ConfirmedCasesGraph positiveCasesGraph={sortedGraph} />
             </ConfirmedCasesDiv>
         )
     }

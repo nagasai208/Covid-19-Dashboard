@@ -5,10 +5,8 @@ import {
 } from '../constants/RouteConstants';
 import LoginPageRoute from "./LoginInPageRoute";
 
-
-
 const loginAppRoute = [
-    <Route key={Math.random()}path={LOGIN} component={LoginPageRoute} />
+    <Route key={Math.random()} path={LOGIN} component={LoginPageRoute} />
 ]
 
 export default loginAppRoute;

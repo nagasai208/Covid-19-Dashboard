@@ -6,14 +6,14 @@ import { CumulativeDataGraphsDiv, GraphsHeading, CumulatiGraphMainDiv } from './
 @observer
 class CumulativeDataComponent extends Component {
     render() {
-        const { cumulativeDistrictData } = this.props.covid19StateStore;
+        const { cumulativeReport,cumulativeTotalReport } = this.props.covid19StateStore;
         return (
             <CumulatiGraphMainDiv>
                 <CumulativeDataGraphsDiv>
                     <GraphsHeading>{strings.cumulativeReport}</GraphsHeading>
                     {
 
-                        <CumulativeGraph cumulativeDistrictData={cumulativeDistrictData} />
+                        <CumulativeGraph cumulativeReport={cumulativeReport} />
                     }
 
                 </CumulativeDataGraphsDiv>
@@ -21,7 +21,7 @@ class CumulativeDataComponent extends Component {
                     <GraphsHeading>{strings.cumulativeConfirmCases}</GraphsHeading>
                     {
 
-                        <CumulativeGraph cumulativeDistrictData={cumulativeDistrictData} />
+                        <CumulativeGraph cumulativeReport={cumulativeTotalReport} />
                     }
                 </CumulativeDataGraphsDiv>
             </CumulatiGraphMainDiv>

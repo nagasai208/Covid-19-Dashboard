@@ -32,15 +32,15 @@ import {
 class Covid19DashBoard extends React.Component {
     renderList = observer(() => {
         const { dailyDataGraphs, onClickDaily, onClickCumulative, cumulativeGraphs,
-            districtAnalysis, stateTotalData, covid19StateStore } = this.props;
+            districtAnalysis, covid19StateStore } = this.props;
         return districtAnalysis === true ?
             <HomePageDataZonalDashboard>
                 <TotalDataDiv>
-                    <HeaderComponent stateTotalData={stateTotalData} key={Math.random()} onClickDaily={onClickDaily} onClickCumulative={onClickCumulative} />
+                    <HeaderComponent stateTotalData={covid19StateStore.stateTotalReport} key={Math.random()} onClickDaily={onClickDaily} onClickCumulative={onClickCumulative} />
                 </TotalDataDiv>
                 <MapsAadGraphTotalDiv>
                     <MapAndGarphsDiv>
-                        <TotalCases key={Math.random()} stateTotalData={stateTotalData} />
+                        <TotalCases key={Math.random()} stateTotalData={covid19StateStore.stateTotalReport} />
                         <CasesDiv>
                             <OnclickCasesDiv>
                                 <a href="#">{strings.confirmed}</a>
@@ -74,7 +74,7 @@ class Covid19DashBoard extends React.Component {
             </HomePageDataZonalDashboard> :
             <DistrictWiseZonalMainDiv>
                 {
-                    covid19StateStore.zonalDistrictData.districts.map((item) => {
+                    covid19StateStore.districtWiseAnalysis.districts.map((item) => {
                         return <DistrictWiseZonalMainDiv>
                             <DistrictWiseZonalDiv>
                                 <p>{`${strings.cumulativeConfirmCases}-${item.district_name}`}</p>
@@ -90,13 +90,13 @@ class Covid19DashBoard extends React.Component {
     })
     render() {
         const { onClickSignOut,
-            onClickZOnalDashBoard, onClickZOnal, doNetworkCalls, covid19StateStore } = this.props;
+            onClickDistrictWiseAnalysis, onClickZOnalDasboard, doNetworkCalls, covid19StateStore } = this.props;
         return (
             <DashboardMainDiv>
                 <SignOutRoute key={Math.random()} onClickSignOut={onClickSignOut} />
                 <ZonalDashBoard>
-                    <SecondaryButton key={Math.random()} onClick={onClickZOnal} btnName={strings.zonalDashboard} />
-                    <SecondaryButton key={Math.random()} onClick={onClickZOnalDashBoard} btnName={strings.districtWiseCasesAnalysis} />
+                    <SecondaryButton key={Math.random()} onClick={onClickZOnalDasboard} btnName={strings.zonalDashboard} />
+                    <SecondaryButton key={Math.random()} onClick={onClickDistrictWiseAnalysis} btnName={strings.districtWiseCasesAnalysis} />
                 </ZonalDashBoard>
                 <LoadingWrapperWithFailure
                     apiStatus={covid19StateStore.getCovid19CasesAPIStatus}

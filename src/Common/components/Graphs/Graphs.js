@@ -8,12 +8,12 @@ export default class Graphs extends PureComponent {
     static jsfiddleUrl = 'https://jsfiddle.net/alidingling/30763kr7/';
 
     render() {
-        const { cumulativeDistrictData, casesType,color } = this.props;
+        const { dailyReport, casesType,color } = this.props;
         return (
             <BarChart
                 width={400}
                 height={200}
-                data={cumulativeDistrictData.kurnool}
+                data={dailyReport.kurnool}
                 margin={{
                     top: 5, right: 30, left: 20, bottom: 5,
                 }}

@@ -20,8 +20,13 @@ class DashBoardRoute extends React.Component {
     }
     @action.bound
     doNetworkCalls =  () => {
-         this.props.covid19StateStore.stateCasesApi()
-         this.props.covid19StateStore.districtCasesApi()
+        this.props.covid19StateStore.stateWidedReport()
+        this.props.covid19StateStore.districtWiseDataAnalysis()
+        this.props.covid19StateStore.stateWidedCumulativeReport()
+        this.props.covid19StateStore.stateWidedDailyReport()
+        this.props.covid19StateStore.districtWiseCumulativeReport()
+        this.props.covid19StateStore.districtWiseDailyReport()
+
     }
     onClickSignOut = () => {
         this.props.authenticationStore.signOut();
@@ -38,14 +43,13 @@ class DashBoardRoute extends React.Component {
     }
 
     @action.bound
-    onClickZOnal() {
-        this.props.covid19StateStore.stateCasesApi()
-        this.props.covid19StateStore.districtCasesApi()
+    onClickZOnalDasboard() {
+        this.props.covid19StateStore.stateWidedReport()
         this.districtAnalysis = true;
     }
     @action.bound
-     onClickZOnalDashBoard() {
-         this.props.covid19StateStore.zonalWiseDistrictData()
+    onClickDistrictWiseAnalysis() {
+        this.props.covid19StateStore.districtWiseDataAnalysis()
         this.districtAnalysis = false;
     }
     render() {
@@ -53,8 +57,8 @@ class DashBoardRoute extends React.Component {
         return (
             <Covid19DashBoard key={Math.random()} onClickSignOut={this.onClickSignOut} onClickDaily={this.onClickDaily}
                 dailyDataGraphs={this.dailyDataGraphs} onClickCumulative={this.onClickCumulative}
-                cumulativeGraphs={this.cumulativeGraphs} onClickZOnalDashBoard={this.onClickZOnalDashBoard}
-                onClickZOnal={this.onClickZOnal} districtAnalysis={this.districtAnalysis} stateTotalData={covid19StateStore.stateTotalData}
+                cumulativeGraphs={this.cumulativeGraphs} onClickDistrictWiseAnalysis={this.onClickDistrictWiseAnalysis}
+                onClickZOnalDasboard={this.onClickZOnalDasboard} districtAnalysis={this.districtAnalysis} 
                 covid19StateStore={covid19StateStore} doNetworkCalls={this.doNetworkCalls} />
         )
     }

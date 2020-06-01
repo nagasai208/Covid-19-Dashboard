@@ -38,24 +38,5 @@ describe("AuthStore Tests", () => {
         expect(onSuccess).not.toBeCalled();
         expect(onFailure).not.toBeCalled();
     });
-    it("should test loginAPI  state", async () => {
-        const onSuccess = jest.fn();
-        const onFailure = jest.fn();
-        const requestObject = {
-            username: "test-user",
-            password: "test-password",
-        };
-
-        const mockFailurePromise = new Promise(function (resolve, reject) {
-            reject(new Error("error"));
-        });
-
-        const mockSignInAPI = jest.fn();
-        mockSignInAPI.mockReturnValue(mockFailurePromise);
-        authAPI.loginAPI = mockSignInAPI;
-        authStore = new AuthenticationStore(authAPI);
-        authStore.userLogin(requestObject, onSuccess, onFailure);
-        expect(authStore.getUserSignInAPIStatus).toBe(API_FETCHING);
-        expect(authStore.getUserSignInAPIError).toBe(null);
-    });
+   
 });

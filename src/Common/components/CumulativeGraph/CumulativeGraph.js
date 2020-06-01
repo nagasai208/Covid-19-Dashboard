@@ -36,7 +36,7 @@ export default class CumulativeGraph extends PureComponent {
     }
 
     render() {
-        const { cumulativeDistrictData } = this.props;
+        const { cumulativeReport } = this.props;
         const { opacity } = this.state;
 
         return (
@@ -44,7 +44,7 @@ export default class CumulativeGraph extends PureComponent {
                 <LineChart
                     width={400}
                     height={300}
-                    data={cumulativeDistrictData.kurnool}
+                    data={cumulativeReport.kurnool}
                     margin={{
                         top: 5, right: 30, left: 20, bottom: 5,
                     }}

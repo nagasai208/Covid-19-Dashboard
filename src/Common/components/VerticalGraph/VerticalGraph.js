@@ -8,13 +8,13 @@ export default class ConfirmedCasesGraph extends PureComponent {
     static jsfiddleUrl = 'https://jsfiddle.net/alidingling/shjsn5su/';
 
     render() {
-        const { totalDistictsData } = this.props;
+        const { positiveCasesGraph } = this.props;
         return (
             <ComposedChart
                 layout="vertical"
                 width={600}
                 height={600}
-                data={totalDistictsData}
+                data={positiveCasesGraph}
                 margin={{
                     top: 20, right: 0, bottom: 20, left: 80,
                 }}
@@ -24,7 +24,7 @@ export default class ConfirmedCasesGraph extends PureComponent {
                 <YAxis dataKey="districtName" type="category" />
                 <Tooltip />
                 <Legend />
-                <Bar dataKey="activeCases" barSize={20} fill="#ff6347" />
+                <Bar dataKey="activeCases" barSize={20} fill="#ff5e39" />
             </ComposedChart>
         );
     }

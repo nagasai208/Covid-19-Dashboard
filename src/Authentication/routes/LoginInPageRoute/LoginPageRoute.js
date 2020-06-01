@@ -10,6 +10,7 @@ import { COVID19_DASHBOARD} from '../../../Covid19Dashboard/constants/RouteConst
 class LoginPageRoute extends React.Component {
     @observable clicked = false;
     @observable token
+    loginPageRef = React.createRef()
     constructor(props) {
         super(props)
 
@@ -51,7 +52,8 @@ class LoginPageRoute extends React.Component {
         }
         return (
             <LoginPage onChangeUserName={this.onChangeUserName} onChangePassword={this.onChangePassword}
-                onClickLogin={this.onClickLogin} userNameErrorMessage={userNameErrorMessage} passwordErrorMessage={passwordErrorMessage}
+                onClickLogin={this.onClickLogin} userNameErrorMessage={userNameErrorMessage}
+                passwordErrorMessage={passwordErrorMessage} ref={this.loginPageRef}
                 clicked={this.clicked}
                  />
         )

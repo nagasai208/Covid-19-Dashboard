@@ -1,16 +1,21 @@
-import casesData from '../../../fixtures/covid19Data.json';
+import stateWideData from '../../../fixtures/stateWideData.json';
 import cumulativeDistrictData from '../../../fixtures/covid19DistrictData.json';
-import covid19ZonalWiseData from '../../../fixtures/covid19DistrictWiseZonalData';
+import covid19ZonalWiseData from '../../../fixtures/districtWiseCasesDataAnalysis';
+
+import stateWideCumulativeReport from '../../../fixtures/stateWideCumulativeData.json';
+import stateWideDailyReport from '../../../fixtures/stateWideDailyData.json';
+import districtWideCumulativeReport from '../../../fixtures/districtWideCumulativeData.json';
+import districtWideDailyReport from '../../../fixtures/districtWideDailyData.json';
 class Covid19ServiceFixturesData {
-    getCasesDataAPI() {
+    getStateWideAPI() {
         return new Promise(resolve => {
             setTimeout(() => {
-                resolve(casesData)   
-            },1000)
+                resolve(stateWideData)
+            }, 1000)
         })
 
     }
-    getCasesDistrictDataAPI() {
+    getStateWideCumulativeAPI() {
         return new Promise(resolve => {
             setTimeout(() => {
                 resolve(cumulativeDistrictData)
@@ -18,7 +23,30 @@ class Covid19ServiceFixturesData {
         })
 
     }
+    getStatewideDailyReport() {
+        return new Promise(resolve => {
+            setTimeout(() => {
+                resolve(cumulativeDistrictData)
+            }, 1000)
+        })
 
+    }
+    getDistrictWiseCumulativeAPI() {
+        return new Promise(resolve => {
+            setTimeout(() => {
+                resolve(districtWideCumulativeReport)
+            }, 1000)
+        })
+
+    }
+    getDistrictWideDailyAPI() {
+        return new Promise(resolve => {
+            setTimeout(() => {
+                resolve(districtWideDailyReport)
+            }, 1000)
+        })
+
+    }
     getCasesZonalDistrictWiseDataAPI() {
         return new Promise(resolve => {
             setTimeout(() => {
@@ -29,4 +57,4 @@ class Covid19ServiceFixturesData {
     }
 }
 
-export default  Covid19ServiceFixturesData ;
+export default Covid19ServiceFixturesData;

@@ -7,13 +7,13 @@ import { DailyDataGraphsDiv, GraphsHeading} from './styledComponents';
 @observer
 class DailyDataGraphs extends Component {
     render() {
-        const { cumulativeDistrictData } = this.props.covid19StateStore;
+        const { dailyReport } = this.props.covid19StateStore;
         return (
             <div>
                 <DailyDataGraphsDiv>
                     <GraphsHeading>{strings.dailyConfirmedCases}</GraphsHeading>
                     {
-                        <Graphs cumulativeDistrictData={cumulativeDistrictData} casesType="activeCases" color={"Tomato"}/>
+                        <Graphs dailyReport={dailyReport} casesType="activeCases" color={"Tomato"}/>
 
                     }
                     
@@ -22,14 +22,14 @@ class DailyDataGraphs extends Component {
                 <DailyDataGraphsDiv>
                     <GraphsHeading>{strings.dailyRecoveredCases}</GraphsHeading>
                     {
-                        <Graphs cumulativeDistrictData={cumulativeDistrictData} casesType="totalRecoveredCases" color={"MediumSeaGreen"}/>
+                        <Graphs dailyReport={dailyReport} casesType="totalRecoveredCases" color={"MediumSeaGreen"}/>
 
                     }
                 </DailyDataGraphsDiv>
                 <DailyDataGraphsDiv>
                     <GraphsHeading>{strings.dailyDeaths}</GraphsHeading>
                     {
-                        <Graphs cumulativeDistrictData={cumulativeDistrictData} casesType="totalDeaths" color={"Orange"} />
+                        <Graphs dailyReport={dailyReport} casesType="totalDeaths" color={"Orange"} />
 
                     }
                 </DailyDataGraphsDiv>

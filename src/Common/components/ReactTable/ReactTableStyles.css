@@ -1,0 +1,4 @@
+tr:nth-child(even) { 
+            background-color:red; 
+        } 
+.left-inner-container:nth-of-type(3n+1) {background-color: #ff5e39;}

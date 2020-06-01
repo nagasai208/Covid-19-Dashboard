@@ -79,19 +79,14 @@ class AuthenticationStore {
     setGetUserSignInAPIStatus(apistatus) {
         this.getUserSignInAPIStatus = apistatus
     }
-    @action.bound
-    requestData() {
-        this.requestObject = {
-            userName: this.userName, password: this.password
-        }
-    }
+ 
 
     @action.bound
     userLogin() {
-        const usersPromise = this.authAPIService.loginAPI(this.requestObject)
+        const usersPromise = this.authAPIService.loginAPI(this.userName,this.password)
         return bindPromiseWithOnSuccess(usersPromise)
             .to(this.setGetUserSignInAPIStatus, this.setUserSignInAPIResponse)
-            .catch(this.getUserSignInAPIStatus)
+            .catch(this.getUserSignInAPIError)
     }
 
 }

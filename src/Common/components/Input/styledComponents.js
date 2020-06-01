@@ -8,7 +8,7 @@ outline:none;
 background-color:${props => props.error ? '' : '#fed7d7'}`
 
 const InputTagDiv = styled.div`
-${tw`flex`};
+${tw`flex `};
 border:${props => props.error ? '1px solid #718096' : '1px solid red'};
 border-radius:2px;
 width:320px;

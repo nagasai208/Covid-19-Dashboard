@@ -5,7 +5,7 @@ import {
     API_INITIAL,
 } from "@ib/api-constants";
 import Covid19StateStore from ".";
-import Covid19Service from '../../services/Covid19Service';
+import Covid19Service from '../../services/Covid19Service/Covid19FixturesData';
 import covid19Data from '../../fixtures/covid19Data.json';
 import covid19DistrictData from '../../fixtures/covid19DistrictData.json';
 import covid19DistrictWiseZonalData from '../../fixtures/covid19DistrictWiseZonalData.json';
@@ -47,15 +47,6 @@ describe("CovidStore Tests", () => {
         expect(covid19Store.getCovid19CasesAPIStatus).toBe(API_FETCHING);
         expect(onSuccess).not.toBeCalled();
         expect(onFailure).not.toBeCalled();
-    });
-    it("Status", async () => {
-        await covid19Store.stateCasesApi();
-        expect(covid19Store.getCovid19CasesAPIStatus).toBe(API_SUCCESS)
-    });
-
-    it("Status", async () => {
-        await covid19Store.stateCasesApi();
-        expect(covid19Store.getCovid19CasesAPIError).toBe(null)
     });
 
 
