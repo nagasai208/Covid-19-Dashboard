@@ -2,45 +2,34 @@ import React, { PureComponent } from 'react';
 import {
     LineChart, Line, XAxis, YAxis, CartesianGrid, Tooltip, Legend,
 } from 'recharts';
-
-export default class CumulativeDistrictGraph extends PureComponent {
+import withScreenSizeDetectors from '../../hoc/withScreenSizeDetectors/withScreenSizeDetectors';
+import { observer } from "mobx-react";
+import { observable } from 'mobx';
+@observer
+class CumulativeDistrictGraph extends PureComponent {
+    @observable width;
     static jsfiddleUrl = 'https://jsfiddle.net/alidingling/1p40zzfe/';
-
-    state = {
-        opacity: {
-            uv: 1,
-            pv: 1,
-            xv: 1,
-            zv: 1,
-        },
-    };
-
-    handleMouseEnter = (o) => {
-        const { dataKey } = o;
-        const { opacity } = this.state;
-
-        this.setState({
-            opacity: { ...opacity, [dataKey]: 0.5 },
-        });
+    componentDidMount() {
+        this.displayType();
     }
-
-    handleMouseLeave = (o) => {
-        const { dataKey } = o;
-        const { opacity } = this.state;
-
-        this.setState({
-            opacity: { ...opacity, [dataKey]: 1 },
-        });
+    displayType = () => {
+        if (this.props.isMobile()) {
+            this.width = 250;
+        }
+        else if (this.props.isTablet()) {
+            this.width = 400;
+        }
+        else if (this.props.isDesktop()) {
+            this.width = 500;
+        }
     }
-
     render() {
+        window.onresize = this.displayType;
         const { totalDistictsData } = this.props;
-        const { opacity } = this.state;
-
         return (
             <div>
                 <LineChart
-                    width={400}
+                    width={this.width}
                     height={300}
                     data={totalDistictsData}
                     margin={{
@@ -51,13 +40,15 @@ export default class CumulativeDistrictGraph extends PureComponent {
                     <XAxis dataKey="name" />
                     <YAxis />
                     <Tooltip />
-                    <Legend onMouseEnter={this.handleMouseEnter} onMouseLeave={this.handleMouseLeave} />
-                    <Line type="monotone" dataKey="totalCases" strokeOpacity={opacity.pv} stroke="#ff6347" activeDot={{ r: 8 }} />
-                    <Line type="monotone" dataKey="totalDeaths" strokeOpacity={opacity.uv} stroke="Orange" />
-                    <Line type="monotone" dataKey="totalRecoveredCases" strokeOpacity={opacity.pv} stroke="MediumSeaGreen" activeDot={{ r: 8 }} />
-                    <Line type="monotone" dataKey="activeCases" strokeOpacity={opacity.uv} stroke="#82ca9d" />
+                    <Legend />
+                    <Line type="monotone" dataKey="totalCases" stroke="#ff6347" activeDot={{ r: 8 }} />
+                    <Line type="monotone" dataKey="totalDeaths" stroke="Orange" />
+                    <Line type="monotone" dataKey="totalRecoveredCases" stroke="MediumSeaGreen" activeDot={{ r: 8 }} />
+                    <Line type="monotone" dataKey="activeCases" stroke="#82ca9d" />
                 </LineChart>
             </div>
         );
     }
 }
+
+export default withScreenSizeDetectors(CumulativeDistrictGraph);

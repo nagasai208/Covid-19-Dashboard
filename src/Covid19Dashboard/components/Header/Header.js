@@ -7,11 +7,11 @@ import { observer } from "mobx-react";
 @observer
 class HeaderComponent extends Component {
     render() {
-        const { onClickDaily, onClickCumulative, stateTotalData } = this.props;
+        const { onClickDaily, onClickCumulative, stateTotalData, onChangeDate } = this.props;
         return (
             <HeadeMainDiv>
                 <StateName>{stateTotalData.stateName}</StateName>
-                    <Date><DateHeading>{strings.date}:</DateHeading> <DatePickerRoute /></Date>
+                <Date><DateHeading>{strings.date}:</DateHeading> <DatePickerRoute onChangeDate={onChangeDate} /></Date>
                 <CasesButton>
                     <SecondaryButton onClick={onClickCumulative} btnName={strings.cumulative} />
                     <SecondaryButton onClick={onClickDaily} btnName={strings.dialy} />

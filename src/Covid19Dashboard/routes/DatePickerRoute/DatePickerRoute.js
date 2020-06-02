@@ -5,8 +5,9 @@ import { observable } from "mobx";
 @observer
 class DatePickerRoute extends Component {
     render() {
+        const { onChangeDate } = this.props;
         return (
-           <DatePickerComponent  />
+            <DatePickerComponent onChangeDate={onChangeDate} />
         )
     }
 }

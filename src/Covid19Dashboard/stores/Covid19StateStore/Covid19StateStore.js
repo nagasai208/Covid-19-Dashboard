@@ -11,6 +11,7 @@ class Covid19StateStore {
     @observable cumulativeTotalReport;
     @observable cumulativeReport;
     @observable dailyReport
+    @observable currentDate;
 
     constructor(covid19Service) {
         this.covid19Service = covid19Service;
@@ -26,6 +27,7 @@ class Covid19StateStore {
         this.cumulativeReport = [];
         this.cumulativeTotalReport = [];
         this.districtWiseAnalysis = [];
+        this.currentDate = new Date();
     }
 
     clearStore() {
@@ -61,11 +63,6 @@ class Covid19StateStore {
     setGetCovid19APIResponseZonalWiseDistrictDataAnalysis(response) {
         this.districtWiseAnalysis = response;
     }
-
-
-
-
-
     @action.bound
     setGetCovid19APIStatus(status) {
         this.getCovid19CasesAPIStatus = status;
@@ -97,8 +94,11 @@ class Covid19StateStore {
 
     }
 
-
-
+    @action.bound
+    onChangeDate(date) {
+        this.currentDate = date;
+        
+        }
     @action.bound
     stateWidedReport() {
         const usersPromise = this.covid19Service.getStateWideAPI()

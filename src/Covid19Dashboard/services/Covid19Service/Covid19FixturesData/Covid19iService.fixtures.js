@@ -1,7 +1,6 @@
 import stateWideData from '../../../fixtures/stateWideData.json';
 import cumulativeDistrictData from '../../../fixtures/covid19DistrictData.json';
 import covid19ZonalWiseData from '../../../fixtures/districtWiseCasesDataAnalysis';
-
 import stateWideCumulativeReport from '../../../fixtures/stateWideCumulativeData.json';
 import stateWideDailyReport from '../../../fixtures/stateWideDailyData.json';
 import districtWideCumulativeReport from '../../../fixtures/districtWideCumulativeData.json';

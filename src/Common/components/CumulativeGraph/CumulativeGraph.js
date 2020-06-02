@@ -3,42 +3,15 @@ import {
     LineChart, Line, XAxis, YAxis, CartesianGrid, Tooltip, Legend,
 } from 'recharts';
 import { observable } from "mobx";
-
+import { observer } from "mobx-react";
+@observer
 export default class CumulativeGraph extends PureComponent {
-    @observable data=[]
     static jsfiddleUrl = 'https://jsfiddle.net/alidingling/1p40zzfe/';
 
-    state = {
-        opacity: {
-            uv: 1,
-            pv: 1,
-            xv: 1,
-            zv: 1,
-        },
-    };
-
-    handleMouseEnter = (o) => {
-        const { dataKey } = o;
-        const { opacity } = this.state;
-
-        this.setState({
-            opacity: { ...opacity, [dataKey]: 0.5 },
-        });
-    }
-
-    handleMouseLeave = (o) => {
-        const { dataKey } = o;
-        const { opacity } = this.state;
-
-        this.setState({
-            opacity: { ...opacity, [dataKey]: 1 },
-        });
-    }
+   
 
     render() {
         const { cumulativeReport } = this.props;
-        const { opacity } = this.state;
-
         return (
             <div>
                 <LineChart
@@ -53,11 +26,11 @@ export default class CumulativeGraph extends PureComponent {
                     <XAxis dataKey="date" />
                     <YAxis  />
                     <Tooltip />
-                    <Legend onMouseEnter={this.handleMouseEnter} onMouseLeave={this.handleMouseLeave} />
-                    <Line type="monotone" dataKey="totalCases" strokeOpacity={opacity.pv} stroke="#ff6347" activeDot={{ r: 8 }} />
-                    <Line type="monotone" dataKey="totalDeaths" strokeOpacity={opacity.uv} stroke="Orange" />
-                    <Line type="monotone" dataKey="totalRecoveredCases" strokeOpacity={opacity.pv} stroke="MediumSeaGreen" activeDot={{ r: 8 }} />
-                    <Line type="monotone" dataKey="activeCases" strokeOpacity={opacity.uv} stroke="#82ca9d" />
+                    <Legend  />
+                    <Line type="monotone" dataKey="totalCases"  stroke="#ff6347" activeDot={{ r: 8 }} />
+                    <Line type="monotone" dataKey="totalDeaths"  stroke="Orange" />
+                    <Line type="monotone" dataKey="totalRecoveredCases"  stroke="MediumSeaGreen" activeDot={{ r: 8 }} />
+                    <Line type="monotone" dataKey="activeCases"  stroke="#82ca9d" />
                 </LineChart>
             </div>
         );

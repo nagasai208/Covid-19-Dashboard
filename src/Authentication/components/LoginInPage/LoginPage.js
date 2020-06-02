@@ -11,6 +11,9 @@ import {
 } from './styledComponents';
 @observer
 class LoginPage extends React.Component {
+    componentDidMount() {
+        this.props.userNameRef.current.focus();
+    }
     @computed
     get userNameError() {
         return this.props.userNameErrorMessage === '' ? true : false;

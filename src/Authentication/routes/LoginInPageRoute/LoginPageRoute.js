@@ -16,9 +16,7 @@ class LoginPageRoute extends React.Component {
         super(props)
 
     }
-    componentDidMount() {
-        this.userNameRef.current.focus();
-    }
+    
     componentWillMount() {
         this.props.authenticationStore.clearStore();
     }

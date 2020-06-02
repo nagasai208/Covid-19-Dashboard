@@ -25,8 +25,9 @@ import {
     DistrictWiseZonalDiv,
     ZonalDashBoard,
     TotalDataDiv,
-    HomePageDataZonalDashboard, OnClickActive, OnClickCOnfirmed, OnClickRecovered, OnClickDeaths
+    HomePageDataZonalDashboard, OnClickActive, OnClickCOnfirmed, OnClickRecovered, OnClickDeaths,MapMainDiv,
 } from './styledComponents'
+//  import GeoJsonLayer from "../MapComponent/StateMap";
 
 @observer
 class Covid19DashBoard extends React.Component {
@@ -37,7 +38,7 @@ class Covid19DashBoard extends React.Component {
         return districtAnalysis === true ?
             <HomePageDataZonalDashboard>
                 <TotalDataDiv>
-                    <HeaderComponent stateTotalData={covid19StateStore.stateTotalReport}
+                    <HeaderComponent stateTotalData={covid19StateStore.stateTotalReport} onChangeDate={covid19StateStore.onChangeDate}
                         key={Math.random()} onClickDaily={onClickDaily} onClickCumulative={onClickCumulative} />
                 </TotalDataDiv>
                 <MapsAadGraphTotalDiv>
@@ -50,6 +51,9 @@ class Covid19DashBoard extends React.Component {
                                 <OnClickRecovered id='recovered' color={onClickColor} onClick={onClickRecovered}>{strings.recovered}</OnClickRecovered>
                                 <OnClickDeaths id='deaths' color={onClickColor}  onClick={onClickDeaths}>{strings.deaths}</OnClickDeaths>
                             </OnclickCasesDiv>
+                            <MapMainDiv>
+                                <h1>Hello</h1>
+                            </MapMainDiv>
                         </CasesDiv>
                     </MapAndGarphsDiv>
                     <OnlyGraphs>
@@ -111,6 +115,4 @@ class Covid19DashBoard extends React.Component {
     }
 }
 
-export {
-    Covid19DashBoard
-}
+export { Covid19DashBoard };

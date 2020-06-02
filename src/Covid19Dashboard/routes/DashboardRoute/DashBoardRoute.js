@@ -69,6 +69,7 @@ class DashBoardRoute extends React.Component {
     onClickDeaths(event) {
         this.onClickColor = event.target.id;
     }
+
     render() {
         const { covid19StateStore } = this.props;
         return (
@@ -78,7 +79,7 @@ class DashBoardRoute extends React.Component {
                 onClickZOnalDasboard={this.onClickZOnalDasboard} districtAnalysis={this.districtAnalysis}
                 covid19StateStore={covid19StateStore} doNetworkCalls={this.doNetworkCalls} onClickConfirmed={this.onClickConfirmed}
                 onClickActive={this.onClickActive} onClickRecovered={this.onClickRecovered} onClickDeaths={this.onClickDeaths}
-                onClickColor={this.onClickColor}
+                onClickColor={this.onClickColor} 
             />
         )
     }

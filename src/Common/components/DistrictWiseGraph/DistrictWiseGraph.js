@@ -2,15 +2,35 @@ import React, { PureComponent } from 'react';
 import {
     LineChart, Line, XAxis, YAxis, CartesianGrid, Tooltip, Legend,
 } from 'recharts';
-export default class DistrictWiseGraph extends PureComponent {
+import withScreenSizeDetectors from '../../hoc/withScreenSizeDetectors/withScreenSizeDetectors';
+import { observer } from "mobx-react";
+import { observable } from 'mobx';
+@observer
+ class DistrictWiseGraph extends PureComponent {
+    @observable width
     static jsfiddleUrl = 'https://jsfiddle.net/alidingling/hbqxcu35/';
+    componentDidMount() {
+        this.displayType();
+    }
+    displayType = () => {
+        if (this.props.isMobile()) {
+            this.width = 300;
+        }
+        else if (this.props.isTablet()) {
+            this.width = 400;
+        }
+        else if (this.props.isDesktop()) {
+            this.width = 600;
+        }
+    }
 
     render() {
+        window.onresize = this.displayType;
         const { data } = this.props;
         return (
             <div>
                 <LineChart
-                    width={500}
+                    width={this.width}
                     height={200}
                     data={data.daily_cumulative}
                     margin={{
@@ -27,4 +47,4 @@ export default class DistrictWiseGraph extends PureComponent {
         );
     }
 }
-
+export default withScreenSizeDetectors(DistrictWiseGraph);

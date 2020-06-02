@@ -1,6 +1,6 @@
 import React, { Component } from 'react'
 import { observer } from "mobx-react"
-import Graphs from "../../../Common/components/Graphs/Graphs";
+import DialyReportGraphs from "../../../Common/components/DialyReportGraphs/DialyReportGraphs";
 import strings from '../../i18n/strings.json';
 import { DailyDataGraphsDiv, GraphsHeading} from './styledComponents';
 
@@ -13,7 +13,7 @@ class DailyDataGraphs extends Component {
                 <DailyDataGraphsDiv>
                     <GraphsHeading>{strings.dailyConfirmedCases}</GraphsHeading>
                     {
-                        <Graphs dailyReport={dailyReport} casesType="activeCases" color={"Tomato"}/>
+                        <DialyReportGraphs dailyReport={dailyReport} casesType="activeCases" color={"Tomato"}/>
 
                     }
                     
@@ -22,14 +22,14 @@ class DailyDataGraphs extends Component {
                 <DailyDataGraphsDiv>
                     <GraphsHeading>{strings.dailyRecoveredCases}</GraphsHeading>
                     {
-                        <Graphs dailyReport={dailyReport} casesType="totalRecoveredCases" color={"MediumSeaGreen"}/>
+                        <DialyReportGraphs dailyReport={dailyReport} casesType="totalRecoveredCases" color={"MediumSeaGreen"}/>
 
                     }
                 </DailyDataGraphsDiv>
                 <DailyDataGraphsDiv>
                     <GraphsHeading>{strings.dailyDeaths}</GraphsHeading>
                     {
-                        <Graphs dailyReport={dailyReport} casesType="totalDeaths" color={"Orange"} />
+                        <DialyReportGraphs dailyReport={dailyReport} casesType="totalDeaths" color={"Orange"} />
 
                     }
                 </DailyDataGraphsDiv>
