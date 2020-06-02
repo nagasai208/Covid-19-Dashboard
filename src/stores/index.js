@@ -20,5 +20,4 @@ export default {
   counterStore,
   authenticationStore,
   covid19StateStore,
-
 }
