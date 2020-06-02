@@ -1,12 +1,8 @@
 import React from 'react'
 import { BrowserRouter as Router, Switch, Route } from 'react-router-dom'
-
-import HomePage from './components/HomePage'
-import Page1 from './components/Page1'
-
 import "./App.css";
 import { Provider } from "mobx-react";
-import stores from '../src/stores'
+import stores from './Common/stores'
 import LoginPageRoute from "./Authentication/routes/LoginInPageRoute";
 import covid19DashboardRoute from "./Covid19Dashboard/routes/DashboardRoute/DashBoardRoute";
 import dashBoardRoute from "./Covid19Dashboard/routes";

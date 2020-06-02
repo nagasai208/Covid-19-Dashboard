@@ -36,8 +36,13 @@ class LoginPageRoute extends React.Component {
         }
         if (this.props.authenticationStore.password === '') {
             event.preventDefault();
-             this.props.authenticationStore.passwordErrorMessage = strings.errorMessagePAssword;
-            this.passwordRef.current.focus()
+            this.props.authenticationStore.passwordErrorMessage = strings.errorMessagePAssword;
+            if (this.props.authenticationStore.userName === '') {
+                this.userNameRef.current.focus();   
+            }
+            else {
+                this.passwordRef.current.focus()
+            }
         }
         else {
             this.clicked = true;

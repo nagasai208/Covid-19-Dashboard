@@ -63,11 +63,13 @@ class AuthenticationStore {
     @action.bound
     onChangeUserName(value) {
         this.userName = value;
+        this.userNameErrorMessage = '';
     }
 
     @action.bound
     onChangePassword(value) {
         this.password = value;
+        this.passwordErrorMessage = '';
     }
 
     @action.bound

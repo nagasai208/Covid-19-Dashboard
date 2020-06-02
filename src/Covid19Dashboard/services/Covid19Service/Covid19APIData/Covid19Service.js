@@ -1,5 +1,5 @@
 import { create } from "apisauce";
-import { apiMethods } from "../../../../constants/APIConstants";
+import { apiMethods } from "../../../../Common/constants/APIConstants";
 import { networkCallWithApisauce } from "../../../../utils/APIUtils";
 import casesData from '../../fixtures/covid19Data';
 

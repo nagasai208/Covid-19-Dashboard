@@ -3,7 +3,7 @@ import TableData from "../TableDataComponent";
 import { observer } from "mobx-react";
 import SignOutRoute from "../../routes/SignOUtRoute";
 import SecondaryButton from "../../../Common/components/SecondaryButton";
-import LoadingWrapperWithFailure from "../../../components/common/LoadingWrapperWithFailure";
+import LoadingWrapperWithFailure from "../common/LoadingWrapperWithFailure";
 import DistrictWiseGraph from "../../../Common/components/DistrictWiseGraph/DistrictWiseGraph";
 import strings from '../../i18n/strings.json';
 import HeaderComponent from "../Header";
@@ -25,7 +25,7 @@ import {
     DistrictWiseZonalDiv,
     ZonalDashBoard,
     TotalDataDiv,
-    HomePageDataZonalDashboard, OnClickActive, OnClickCOnfirmed, OnClickRecovered, OnClickDeaths,MapMainDiv,
+    HomePageDataZonalDashboard, OnClickActive, OnClickCOnfirmed, OnClickRecovered, OnClickDeaths, MapMainDiv,
 } from './styledComponents'
 //  import GeoJsonLayer from "../MapComponent/StateMap";
 
@@ -49,7 +49,7 @@ class Covid19DashBoard extends React.Component {
                                 <OnClickCOnfirmed id='confirmed' color={onClickColor} onClick={onClickConfirmed}>{strings.confirmed}</OnClickCOnfirmed>
                                 <OnClickActive id='active' color={onClickColor} onClick={onClickActive}>{strings.active}</OnClickActive>
                                 <OnClickRecovered id='recovered' color={onClickColor} onClick={onClickRecovered}>{strings.recovered}</OnClickRecovered>
-                                <OnClickDeaths id='deaths' color={onClickColor}  onClick={onClickDeaths}>{strings.deaths}</OnClickDeaths>
+                                <OnClickDeaths id='deaths' color={onClickColor} onClick={onClickDeaths}>{strings.deaths}</OnClickDeaths>
                             </OnclickCasesDiv>
                             <MapMainDiv>
                                 <h1>Hello</h1>
