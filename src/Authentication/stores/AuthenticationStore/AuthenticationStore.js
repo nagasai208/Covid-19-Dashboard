@@ -36,23 +36,8 @@ class AuthenticationStore {
     }
     @action.bound
     setUserSignInAPIResponse(response) {
-        response.map(eachResponse => {
-            if (this.userName === eachResponse.userName) {
-                if (this.password === eachResponse.password) {
-                    setAccessToken(1)
-                    this.accessToken = getAccessToken()
-                }
-                else {
-                    this.userNameErrorMessage = '';
-                    this.passwordErrorMessage = 'Incorrect password'
-                }
-            }
-            else {
-                this.passwordErrorMessage = '';
-                this.userNameErrorMessage = 'invalid username';
-            }
-        })
-
+        setAccessToken(response.access_token)
+        this.accessToken = getAccessToken()
     }
 
     @action.bound
@@ -84,16 +69,14 @@ class AuthenticationStore {
  
 
     @action.bound
-    userLogin() {
-        const usersPromise = this.authAPIService.loginAPI(this.userName,this.password)
+    userLogin(requestObject) {
+        const usersPromise = this.authAPIService.loginAPI(requestObject)
         return bindPromiseWithOnSuccess(usersPromise)
             .to(this.setGetUserSignInAPIStatus, this.setUserSignInAPIResponse)
-            .catch(this.getUserSignInAPIError)
+            .catch(this.setGetUserSignInAPIError)
     }
 
 }
-
-
 export {
     AuthenticationStore
 }

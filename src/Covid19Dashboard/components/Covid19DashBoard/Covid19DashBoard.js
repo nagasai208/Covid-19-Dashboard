@@ -1,10 +1,8 @@
 import React from 'react';
 import TableData from "../TableDataComponent";
-import { observer } from "mobx-react";
-import SignOutRoute from "../../routes/SignOUtRoute";
+import { observer, inject } from "mobx-react";
 import SecondaryButton from "../../../Common/components/SecondaryButton";
 import LoadingWrapperWithFailure from "../common/LoadingWrapperWithFailure";
-import DistrictWiseGraph from "../../../Common/components/DistrictWiseGraph/DistrictWiseGraph";
 import strings from '../../i18n/strings.json';
 import HeaderComponent from "../Header";
 import TotalCases from "../TotalCasesComponent";
@@ -27,8 +25,9 @@ import {
     TotalDataDiv,
     HomePageDataZonalDashboard, OnClickActive, OnClickCOnfirmed, OnClickRecovered, OnClickDeaths, MapMainDiv,
 } from './styledComponents'
-//  import GeoJsonLayer from "../MapComponent/StateMap";
-
+import SignOutButton from "../SignOut";
+import DistrictWiseGraphComponent from "../DistrictWiseGraphComponent";
+import MapComponent from "../MapComponent";
 @observer
 class Covid19DashBoard extends React.Component {
     renderList = observer(() => {
@@ -45,14 +44,14 @@ class Covid19DashBoard extends React.Component {
                     <MapAndGarphsDiv>
                         <TotalCases key={Math.random()} stateTotalData={covid19StateStore.stateTotalReport} />
                         <CasesDiv>
-                            <OnclickCasesDiv>
-                                <OnClickCOnfirmed id='confirmed' color={onClickColor} onClick={onClickConfirmed}>{strings.confirmed}</OnClickCOnfirmed>
-                                <OnClickActive id='active' color={onClickColor} onClick={onClickActive}>{strings.active}</OnClickActive>
+                            <OnclickCasesDiv>    
+                                <OnClickCOnfirmed id='confirmed' color={onClickColor} onClick={onClickConfirmed} >{strings.confirmed}</OnClickCOnfirmed>
+                                <OnClickActive id='active' color={onClickColor} onClick={ onClickActive} >{strings.active}</OnClickActive>
                                 <OnClickRecovered id='recovered' color={onClickColor} onClick={onClickRecovered}>{strings.recovered}</OnClickRecovered>
                                 <OnClickDeaths id='deaths' color={onClickColor} onClick={onClickDeaths}>{strings.deaths}</OnClickDeaths>
                             </OnclickCasesDiv>
                             <MapMainDiv>
-                                <h1>Hello</h1>
+                                <MapComponent />
                             </MapMainDiv>
                         </CasesDiv>
                     </MapAndGarphsDiv>
@@ -80,16 +79,7 @@ class Covid19DashBoard extends React.Component {
             </HomePageDataZonalDashboard> :
             <DistrictWiseZonalMainDiv>
                 {
-                    covid19StateStore.districtWiseAnalysis.districts.map((item) => {
-                        return <DistrictWiseZonalMainDiv>
-                            <DistrictWiseZonalDiv>
-                                <p>{`${strings.cumulativeConfirmCases}-${item.district_name}`}</p>
-                                <DistrictWiseGraph data={item} />
-                                <p>{item.district_name}</p>
-                            </DistrictWiseZonalDiv>
-                        </DistrictWiseZonalMainDiv>
-
-                    })
+                    <DistrictWiseGraphComponent covid19StateStore={covid19StateStore} />
                 }
 
             </DistrictWiseZonalMainDiv>
@@ -99,14 +89,14 @@ class Covid19DashBoard extends React.Component {
             onClickDistrictWiseAnalysis, onClickZOnalDasboard, doNetworkCalls, covid19StateStore } = this.props;
         return (
             <DashboardMainDiv>
-                <SignOutRoute key={Math.random()} onClickSignOut={onClickSignOut} />
+                <SignOutButton key={Math.random()} onClickSignOut={onClickSignOut} />
                 <ZonalDashBoard>
                     <SecondaryButton key={Math.random()} onClick={onClickZOnalDasboard} btnName={strings.zonalDashboard} />
                     <SecondaryButton key={Math.random()} onClick={onClickDistrictWiseAnalysis} btnName={strings.districtWiseCasesAnalysis} />
                 </ZonalDashBoard>
                 <LoadingWrapperWithFailure
-                    apiStatus={covid19StateStore.getCovid19CasesAPIStatus}
-                    apiError={covid19StateStore.getCovid19CasesAPIError}
+                    apiStatus={covid19StateStore.getCovid19StateAPIStatus}
+                    apiError={covid19StateStore.getCovid19StateAPIError}
                     onRetryClick={doNetworkCalls}
                     renderSuccessUI={this.renderList}
                 />

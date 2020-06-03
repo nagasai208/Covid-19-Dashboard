@@ -4,9 +4,10 @@ import {
 } from 'recharts';
 import withScreenSizeDetectors from '../../hoc/withScreenSizeDetectors/withScreenSizeDetectors';
 import { observer } from "mobx-react";
-import { observable } from 'mobx';
+import { observable, toJS } from 'mobx';
+
 @observer
- class DistrictWiseGraph extends PureComponent {
+class DistrictWiseGraph extends PureComponent {
     @observable width
     static jsfiddleUrl = 'https://jsfiddle.net/alidingling/hbqxcu35/';
     componentDidMount() {
@@ -20,19 +21,19 @@ import { observable } from 'mobx';
             this.width = 400;
         }
         else if (this.props.isDesktop()) {
-            this.width = 600;
+            this.width = 500;
         }
     }
-
     render() {
         window.onresize = this.displayType;
-        const { data } = this.props;
+        const { covid19StateStore, data } = this.props;
         return (
+
             <div>
                 <LineChart
                     width={this.width}
                     height={200}
-                    data={data.daily_cumulative}
+                    data={toJS(data.daily_cumulative)}
                     margin={{
                         top: 10, right: 30, left: 0, bottom: 0,
                     }}
@@ -41,9 +42,10 @@ import { observable } from 'mobx';
                     <XAxis dataKey="date" />
                     <YAxis />
                     <Tooltip />
-                    <Line connectNulls type="monotone" dataKey="total_cases" stroke="#8884d8" fill="#8884d8" />
+                    <Line connectNulls type="monotone" name={data.district_name} dataKey="total_cases" stroke="#8884d8" fill="#8884d8" />
                 </LineChart>
             </div>
+                
         );
     }
 }

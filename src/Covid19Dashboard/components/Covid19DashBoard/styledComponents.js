@@ -11,7 +11,7 @@ ${tw`flex flex-col justify-around mt-5`};
 width:100%`
 
 const OnclickCasesDiv = styled.div`
-${tw`flex  justify-around mt-5 text-white flex-wrap `}`
+${tw`flex  justify-around mt-5 text-white flex-wrap  h-10`}`
 
 
 
@@ -52,36 +52,51 @@ ${tw`w-full flex flex-wrap`}
 `;
 const HomePageDataZonalDashboard = styled.div``;
 
-const OnClickActive = styled.p`
+const  OnClickCOnfirmed = styled.p`
 ${tw`text-lg `}
-color:${props => props.color === 'active' ? 'orange' : 'white'};
+color:${props => props.color === 'confirmed' ? '#e03131' : 'white'};
 cursor:pointer;
-border-bottom:${props => props.color === 'active' ? '2px solid orange' : ''}
+border-bottom:${props => props.color === 'confirmed' ? '2px solid #e03131' : ''};
+:hover{
+    color:#e03131;
+    border-bottom:2px solid #e03131;
+}
 `
 
-const OnClickCOnfirmed = styled.p`
+const OnClickActive = styled.p`
 ${tw`text-lg `};
-color:${props => props.color ==='confirmed' ? 'red' : 'white'};
-border-bottom:${props => props.color === 'confirmed' ? '2px solid red' : ''};
+color:${props => props.color === 'active' ? '#1971c2' : 'white'};
+border-bottom:${props => props.color === 'active' ? '2px solid #1971c2' : ''};
 cursor:pointer;
-`;
-const OnClickRecovered = styled.p`
-${tw`text-lg`}
-color:${props => props.color === 'recovered' ? 'green' : 'white'};
-cursor:pointer;
-border-bottom:${props => props.color === 'recovered' ? '2px solid green' : ''}
-`;
+:hover{
+    color:#1971c2;
+    border-bottom:2px solid #1971c2;
+}`;
+
 
 const OnClickDeaths = styled.p`
 ${tw`text-lg`}
-color:${props => props.color ==='deaths' ? 'blue' : 'white'};
+color:${props => props.color === 'deaths' ? '#2f9e44' : 'white'};
 cursor:pointer;
-border-bottom:${props => props.color === 'deaths' ? '2px solid blue' : ''};
-`;
+border-bottom:${props => props.color === 'deaths' ? '2px solid #2f9e44' : ''};
+:hover{
+    color:#2f9e44;
+    border-bottom:2px solid #2f9e44;
+}`;
+
+const OnClickRecovered = styled.p`
+${tw`text-lg`}
+color:${props => props.color === 'recovered' ? '#e67700;' : 'white'};
+cursor:pointer;
+border-bottom:${props => props.color === 'recovered' ? '2px solid #e67700' : ''};
+:hover{
+    color:#e67700;;
+    border-bottom:2px solid #e67700;`;
 
 
 const MapMainDiv = styled.div`
-${tw`border border-white-800 mt-5 `};`
+${tw`mt-5`};
+`;
 
 export {
     DashboardMainDiv, CasesDiv, MapAndGarphsDiv, OnclickCasesDiv, MapsAadGraphTotalDiv, OnlyGraphs,

@@ -1,15 +1,10 @@
 import { create } from "apisauce";
-import { apiMethods } from "../../../../Common/constants/APIConstants";
 import { networkCallWithApisauce } from "../../../../utils/APIUtils";
-import casesData from '../../fixtures/covid19Data';
-
-
-
+import { apiMethods } from "../../../constants/APIConstants";
 class Covid19Service {
     api
     constructor() {
-        this.api = create({
-            baseURL: 'https://5ea1a14db9f5ca00166c1f27.mockapi.io/api/' })
+        this.api = create({ baseURL: baseUrl });
     }
     getStateWideAPI() {
         return networkCallWithApisauce(

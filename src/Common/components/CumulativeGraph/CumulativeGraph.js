@@ -8,7 +8,7 @@ import { observer } from "mobx-react";
 export default class CumulativeGraph extends PureComponent {
     static jsfiddleUrl = 'https://jsfiddle.net/alidingling/1p40zzfe/';
 
-   
+
 
     render() {
         const { cumulativeReport } = this.props;
@@ -24,15 +24,18 @@ export default class CumulativeGraph extends PureComponent {
                 >
                     <CartesianGrid strokeDasharray="3 3" />
                     <XAxis dataKey="date" />
-                    <YAxis  />
+                    <YAxis />
                     <Tooltip />
-                    <Legend  />
-                    <Line type="monotone" dataKey="totalCases"  stroke="#ff6347" activeDot={{ r: 8 }} />
-                    <Line type="monotone" dataKey="totalDeaths"  stroke="Orange" />
-                    <Line type="monotone" dataKey="totalRecoveredCases"  stroke="MediumSeaGreen" activeDot={{ r: 8 }} />
-                    <Line type="monotone" dataKey="activeCases"  stroke="#82ca9d" />
+                    <Legend />
+                    <Line type="monotone" name='confirmed' dataKey="totalCases" stroke="rgb(224, 49, 49)" activeDot={{ r: 8 }} />
+                    <Line type="monotone" name='active' dataKey="totalDeaths" stroke="rgb(25, 113, 194)" />
+                    <Line type="monotone" name='recovered' dataKey="totalRecoveredCases" stroke="rgb(47, 158, 68)" activeDot={{ r: 8 }} />
+                    <Line type="monotone" name='deaths' dataKey="activeCases" stroke="rgb(230, 119, 0)" />
                 </LineChart>
             </div>
         );
     }
 }
+
+
+

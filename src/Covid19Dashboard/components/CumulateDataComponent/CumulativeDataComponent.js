@@ -3,6 +3,7 @@ import { observer } from "mobx-react";
 import CumulativeGraph from "../../../Common/components/CumulativeGraph/CumulativeGraph";
 import strings from '../../i18n/strings.json';
 import { CumulativeDataGraphsDiv, GraphsHeading, CumulatiGraphMainDiv } from './styledComponents';
+import CumulativeAllDistrictGraph from "../../../Common/components/CumulativeAllDistrictGraph/CumulativeAllDistrictGraph";
 @observer
 class CumulativeDataComponent extends Component {
     render() {
@@ -21,7 +22,8 @@ class CumulativeDataComponent extends Component {
                     <GraphsHeading>{strings.cumulativeConfirmCases}</GraphsHeading>
                     {
 
-                        <CumulativeGraph cumulativeReport={cumulativeTotalReport} />
+                        <CumulativeAllDistrictGraph cumulativeReport={cumulativeTotalReport} />
+    
                     }
                 </CumulativeDataGraphsDiv>
             </CumulatiGraphMainDiv>

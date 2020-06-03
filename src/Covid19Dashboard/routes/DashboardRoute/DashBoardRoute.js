@@ -20,13 +20,13 @@ class DashBoardRoute extends React.Component {
         this.props.covid19StateStore.clearStore();
     }
     @action.bound
-    doNetworkCalls =  () => {
-        this.props.covid19StateStore.stateWidedReport()
-        this.props.covid19StateStore.districtWiseDataAnalysis()
-        this.props.covid19StateStore.stateWidedCumulativeReport()
-        this.props.covid19StateStore.stateWidedDailyReport()
-        this.props.covid19StateStore.districtWiseCumulativeReport()
-        this.props.covid19StateStore.districtWiseDailyReport()
+    doNetworkCalls =async () => {
+        await this.props.covid19StateStore.stateWidedReport()
+        //this.props.covid19StateStore.districtWiseDataAnalysis()
+         this.props.covid19StateStore.stateWidedCumulativeReport()
+         this.props.covid19StateStore.stateWidedDailyReport()
+         this.props.covid19StateStore.districtWiseCumulativeReport()
+          this.props.covid19StateStore.districtWiseDailyReport()
 
     }
     onClickSignOut = () => {
@@ -49,7 +49,7 @@ class DashBoardRoute extends React.Component {
         this.districtAnalysis = true;
     }
     @action.bound
-    onClickDistrictWiseAnalysis() {
+     onClickDistrictWiseAnalysis() {
         this.props.covid19StateStore.districtWiseDataAnalysis()
         this.districtAnalysis = false;
     }

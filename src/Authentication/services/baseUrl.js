@@ -1,0 +1,1 @@
+export const baseUrl = 'https://virtserver.swaggerhub.com/covid8/Covid_Dashboard/1.0.0/';

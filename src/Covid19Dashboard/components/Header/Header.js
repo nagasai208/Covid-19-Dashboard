@@ -1,9 +1,9 @@
 import React, { Component } from 'react';
 import SecondaryButton from "../../../Common/components/SecondaryButton";
 import strings from '../../i18n/strings.json';
-import DatePickerRoute from "../../routes/DatePickerRoute"
 import { HeadeMainDiv, StateName, Date, DateHeading, CasesButton } from './styledComponents';
 import { observer } from "mobx-react";
+import DatePickerComponent from "../DatePicker";
 @observer
 class HeaderComponent extends Component {
     render() {
@@ -11,7 +11,7 @@ class HeaderComponent extends Component {
         return (
             <HeadeMainDiv>
                 <StateName>{stateTotalData.stateName}</StateName>
-                <Date><DateHeading>{strings.date}:</DateHeading> <DatePickerRoute onChangeDate={onChangeDate} /></Date>
+                <Date><DateHeading>{strings.date}:</DateHeading> <DatePickerComponent onChangeDate={onChangeDate} /></Date>
                 <CasesButton>
                     <SecondaryButton onClick={onClickCumulative} btnName={strings.cumulative} />
                     <SecondaryButton onClick={onClickDaily} btnName={strings.dialy} />
