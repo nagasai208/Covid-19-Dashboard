@@ -17,8 +17,8 @@ describe("AuthStore Tests", () => {
         authStore = new AuthenticationStore(authAPI);
     });
     it("should test initialising auth store", () => {
-        expect(authStore.getUserSignInAPIStatus).toBe(API_INITIAL);
-        expect(authStore.getUserSignInAPIError).toBe(null);
+        expect(authStore.getUserLogInAPIStatus).toBe(API_INITIAL);
+        expect(authStore.getUserLogInAPIError).toBe(null);
     });
     it("should test loginAPI data fetching state", () => {
         const onSuccess = jest.fn();
@@ -28,13 +28,12 @@ describe("AuthStore Tests", () => {
             username: "test-user",
             password: "test-password",
         };
-
         const mockLoadingPromise = new Promise(function (resolve, reject) { });
         const mockSignInAPI = jest.fn();
         mockSignInAPI.mockReturnValue(mockLoadingPromise);
         authAPI.loginAPI = mockSignInAPI;
         authStore.userLogin(requestObject, onSuccess, onFailure);
-        expect(authStore.getUserSignInAPIStatus).toBe(API_FETCHING);
+        expect(authStore.getUserLogInAPIStatus).toBe(API_FETCHING);
         expect(onSuccess).not.toBeCalled();
         expect(onFailure).not.toBeCalled();
     });

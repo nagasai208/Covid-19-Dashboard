@@ -76,22 +76,22 @@ cursor:pointer;
 
 const OnClickDeaths = styled.p`
 ${tw`text-lg`}
-color:${props => props.color === 'deaths' ? '#2f9e44' : 'white'};
+color:${props => props.color === 'deaths' ? '#e67700' : 'white'};
 cursor:pointer;
-border-bottom:${props => props.color === 'deaths' ? '2px solid #2f9e44' : ''};
+border-bottom:${props => props.color === 'deaths' ? '2px solid #e67700' : ''};
 :hover{
-    color:#2f9e44;
-    border-bottom:2px solid #2f9e44;
+    color:#e67700;
+    border-bottom:2px solid #e67700;
 }`;
 
 const OnClickRecovered = styled.p`
 ${tw`text-lg`}
-color:${props => props.color === 'recovered' ? '#e67700;' : 'white'};
+color:${props => props.color === 'recovered' ? '#2f9e44' : 'white'};
 cursor:pointer;
-border-bottom:${props => props.color === 'recovered' ? '2px solid #e67700' : ''};
+border-bottom:${props => props.color === 'recovered' ? '2px solid #2f9e44' : ''};
 :hover{
-    color:#e67700;;
-    border-bottom:2px solid #e67700;`;
+    color:#2f9e44;
+    border-bottom:2px solid #2f9e44`;
 
 
 const MapMainDiv = styled.div`

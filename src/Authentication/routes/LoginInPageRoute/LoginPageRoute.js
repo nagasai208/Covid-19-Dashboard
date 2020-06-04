@@ -13,7 +13,6 @@ class LoginPageRoute extends React.Component {
     passwordRef = React.createRef();
     constructor(props) {
         super(props)
-
     }
 
     componentWillMount() {
@@ -28,7 +27,6 @@ class LoginPageRoute extends React.Component {
         this.props.authenticationStore.onChangePassword(value);
     }
     onClickLogin = async (event) => {
-        console.log('buttonClicked')
         if (this.props.authenticationStore.userName === '') {
             event.preventDefault();
             this.props.authenticationStore.userNameErrorMessage = strings.errorMessageUserName;

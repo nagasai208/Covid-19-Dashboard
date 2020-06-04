@@ -1,3 +1,13 @@
 .rt-tr-group:nth-of-type(odd) { 
             background-color:#1a202c;
         } 
+
+.ReactTable .rt-thead .rt-th.-sort-asc,
+.ReactTable .rt-thead .rt-td.-sort-asc {
+  box-shadow: inset 0 3px 0 0 whitesmoke;
+}
+
+.ReactTable .rt-thead .rt-th.-sort-desc,
+.ReactTable .rt-thead .rt-td.-sort-desc {
+  box-shadow: inset 0 -3px 0 0 whitesmoke;
+}

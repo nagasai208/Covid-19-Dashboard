@@ -38,7 +38,7 @@ margin-left:75px;
   color: var(--dark-blue-grey);`
 
 const ErrorMessage = styled.p`
-  ${tw`text-red-600`};
+  ${tw`text-red-600 h-2 mt-1`};
   font-size:12px;`;
 
 const UserNameHeading = styled.p`

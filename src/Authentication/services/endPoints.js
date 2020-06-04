@@ -1,1 +1,1 @@
-export const endPoint = 'login/v1';
+export const endPoint = '/login/v1/';

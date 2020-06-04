@@ -9,7 +9,7 @@ class DashBoardRoute extends React.Component {
     @observable dailyDataGraphs = false;
     @observable cumulativeGraphs = true;
     @observable districtAnalysis = true;
-    @observable onClickColor = '';
+    @observable onClickColor = 'confirmed';
     constructor(props) {
         super(props);
     }
@@ -20,13 +20,14 @@ class DashBoardRoute extends React.Component {
         this.props.covid19StateStore.clearStore();
     }
     @action.bound
-    doNetworkCalls =async () => {
+    doNetworkCalls = async () => {
+        this.props.covid19StateStore.stateWidedDailyReport()
+        this.props.covid19StateStore.stateWideCumulativeReport();
+        this.props.covid19StateStore.stateWidedDailyCumulativeReport()
         await this.props.covid19StateStore.stateWidedReport()
-        //this.props.covid19StateStore.districtWiseDataAnalysis()
-         this.props.covid19StateStore.stateWidedCumulativeReport()
-         this.props.covid19StateStore.stateWidedDailyReport()
-         this.props.covid19StateStore.districtWiseCumulativeReport()
-          this.props.covid19StateStore.districtWiseDailyReport()
+        
+         //this.props.covid19StateStore.districtWiseCumulativeReport()
+          //this.props.covid19StateStore.districtWiseDailyReport()
 
     }
     onClickSignOut = () => {

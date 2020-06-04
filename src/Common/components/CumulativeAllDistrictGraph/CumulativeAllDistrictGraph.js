@@ -5,9 +5,7 @@ import {
 import { observer } from "mobx-react";
 @observer
 export default class CumulativeAllDistrictGraph extends PureComponent {
-    static jsfiddleUrl = 'https://jsfiddle.net/alidingling/1p40zzfe/';
-
-
+    // static jsfiddleUrl = 'https://jsfiddle.net/alidingling/1p40zzfe/';
 
     render() {
         const { cumulativeReport } = this.props;
@@ -16,7 +14,7 @@ export default class CumulativeAllDistrictGraph extends PureComponent {
                 <LineChart
                     width={400}
                     height={300}
-                    data={cumulativeReport.kurnool}
+                    data={cumulativeReport.Each_Day_cases}
                     margin={{
                         top: 5, right: 30, left: 20, bottom: 5,
                     }}
@@ -26,10 +24,12 @@ export default class CumulativeAllDistrictGraph extends PureComponent {
                     <YAxis />
                     <Tooltip />
                     <Legend />
-                    <Line type="monotone" dataKey="totalCases" stroke="#ff6347" activeDot={{ r: 8 }} />
-                    <Line type="monotone" dataKey="totalDeaths" stroke="Orange" />
-                    <Line type="monotone" dataKey="totalRecoveredCases" stroke="MediumSeaGreen" activeDot={{ r: 8 }} />
-                    <Line type="monotone" dataKey="activeCases" stroke="#82ca9d" />
+                    {
+                        cumulativeReport.district_name.map(item => {
+                            return < Line type="monotone" dataKey={item} stroke="#ff6366" />
+                            
+                        })
+    }
                 </LineChart>
             </div>
         );

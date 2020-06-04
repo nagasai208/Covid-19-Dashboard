@@ -32,23 +32,23 @@ class Covid19StateStore {
     init() {
         this.getCovid19StateAPIStatus = API_INITIAL
         this.getCovid19StateAPIError = null;
-       
+
         this.getCovid19StateCumulativeAPIStatus = API_INITIAL
         this.getCovid19StateCumulativeAPIError = null;
-       
+
         this.getCovid19StateDailyAPIStatus = API_INITIAL
         this.getCovid19StateDailyAPIError = null;
-       
+
         this.getCovid19DistrictCumulativeAPIStatus = API_INITIAL
         this.getCovid19DistrictCumulativeAPIError = null;
-       
+
         this.getCovid19DistrictDailyAPIStatus = API_INITIAL
         this.getCovid19DistrictDailyAPIError = null;
-       
+
         this.getCovid19DistrictWiseAnalysisAPIStatus = API_INITIAL
-        this.getCovid19DistrictWiseAnalysisAPIError = null;  
-        
-        
+        this.getCovid19DistrictWiseAnalysisAPIError = null;
+
+
         this.stateTotalReport = [];
         this.dailyReport = [];
         this.cumulativeReport = [];
@@ -61,37 +61,12 @@ class Covid19StateStore {
         this.init()
     }
 
+
+
     @action.bound
     setGetStatewideReport(response) {
         this.stateTotalReport = response;
     }
-    @action.bound
-    setGetStatewideCumulativeReport(response) {
-        this.cumulativeReport = response;
-        this.cumulativeTotalReport = response;
-    }
-
-    @action.bound
-    setGetStatewideDailyReport(response) {
-        this.dailyReport = response;
-    }
-
-    @action.bound
-    setGetDistrictwideCumulativeReport(response) {
-        //this.cumulativeReport = response;
-    }
-
-    @action.bound
-    setGetDistrictwideDailyReport(response) {
-        //this.dailyReport = response;
-    }
-    @action.bound
-    setGetCovid19APIResponseZonalWiseDistrictDataAnalysis(response) {
-        this.districtWiseAnalysis = response;
-    }
-
-
-
     @action.bound
     setGetCovid19StateAPIStatus(status) {
         this.getCovid19StateAPIStatus = status;
@@ -103,19 +78,42 @@ class Covid19StateStore {
 
     }
 
-
     @action.bound
-    setGetCovid19StateCumulativeAPIStatus(status) {
+    setGetStateWideDailyCumulativeReportResponse(response) {
+        this.cumulativeReport = response;
+    }
+    @action.bound
+    setGetStateWideDailyCumulativeReportStatus(status) {
         this.getCovid19StateCumulativeAPIStatus = status;
     }
 
     @action.bound
-    setGetCovid19StateCumulativeAPIError(error) {
+    setGetStateWideDailyCumulativeReportError(error) {
         this.getCovid19StateCumulativeAPIError = error
 
     }
 
 
+    @action.bound
+    setGetStateWideCumulativeResponse(response) {
+        this.cumulativeTotalReport = response;
+    }
+
+    @action.bound
+    setGetStateWideCumulativeReportStatus(status) {
+        this.getCovid19DistrictWiseAnalysisAPIStatus = status;
+    }
+
+    @action.bound
+    setGetStateWideCumulativeAPIError(error) {
+        this.getCovid19DistrictWiseAnalysisAPIError = error
+    }
+
+
+    @action.bound
+    setGetStatewideDailyReport(response) {
+        this.dailyReport = response;
+    }
     @action.bound
     setGetCovid19StateDailyAPIStatus(status) {
         this.getCovid19StateDailyAPIStatus = status;
@@ -127,6 +125,26 @@ class Covid19StateStore {
 
     }
 
+    @action.bound
+    setGetCovid19APIResponseZonalWiseDistrictDataAnalysis(response) {
+        this.districtWiseAnalysis = response;
+    }
+
+    @action.bound
+    setGetCovid19DistrictWiseAnalysisAPIStatus(status) {
+        this.getCovid19DistrictWiseAnalysisAPIStatus = status;
+    }
+
+    @action.bound
+    setGetCovid19DistrictAnalysisAPIError(error) {
+        this.getCovid19DistrictWiseAnalysisAPIError = error
+    }
+
+
+    @action.bound
+    setGetDistrictwideCumulativeReportResponse(response) {
+        //this.cumulativeReport = response;
+    }
 
     @action.bound
     setGetCovid19DistrictCumulativeAPIStatus(status) {
@@ -140,7 +158,25 @@ class Covid19StateStore {
     }
 
 
+    @action.bound
+    setGetDistrictDailywideCumulativeReportResponse(response) {
+        //this.dailyReport = response;
+    }
+    @action.bound
+    setGetDistrictDailyCumulativeAPIStatus(status) {
+        this.getCovid19DistrictDailyAPIStatus = status;
+    }
 
+    @action.bound
+    setGetDistrictDailyCumulativeAPIError(error) {
+        this.getCovid19DistrictDailyAPIError = error
+
+    }
+
+    @action.bound
+    setGetDistrictwideDailyReportResponse(response) {
+        //this.dailyReport = response;
+    }
     @action.bound
     setGetCovid19DistrictDailyAPIStatus(status) {
         this.getCovid19DistrictDailyAPIStatus = status;
@@ -152,16 +188,17 @@ class Covid19StateStore {
 
     }
 
-    @action.bound
-    setGetCovid19DistrictWiseAnalysisAPIStatus(status) {
-        this.getCovid19DistrictWiseAnalysisAPIStatus = status;
-    }
 
-    @action.bound
-    setGetCovid19DistrictAnalysisAPIError(error) {
-        this.getCovid19DistrictWiseAnalysisAPIError = error
+  
 
-    }
+
+
+    
+
+
+
+
+
     @computed
     get totalDistictsData() {
         return this.stateTotalReport.districts;
@@ -170,10 +207,10 @@ class Covid19StateStore {
     get totalMandals() {
         return this.stateTotalReport.mandals;
     }
-    
+
     @computed
     get sortedGraph() {
-       return   this.stateTotalReport.districts.sort((firstValue, secondValue) => (firstValue.activeCases > secondValue.activeCases ? -1 : 1))
+        return this.stateTotalReport.districts.sort((firstValue, secondValue) => (firstValue.activeCases > secondValue.activeCases ? -1 : 1))
 
     }
 
@@ -187,8 +224,8 @@ class Covid19StateStore {
     onChangeDate(date) {
         this.currentDate = date;
         this.stateWidedReport();
-        
-        }
+
+    }
     @action.bound
     stateWidedReport() {
         const usersPromise = this.covid19Service.getStateWideAPI()
@@ -197,11 +234,20 @@ class Covid19StateStore {
             .catch(this.setGetCovid19StateAPIError)
     }
 
-    stateWidedCumulativeReport() {
+    stateWidedDailyCumulativeReport() {
         const usersPromise = this.covid19Service.getStateWideCumulativeAPI()
         return bindPromiseWithOnSuccess(usersPromise)
-            .to(this.setGetCovid19StateCumulativeAPIStatus, this.setGetStatewideCumulativeReport)
-            .catch(this.setGetCovid19StateCumulativeAPIError)
+            .to(this.setGetStateWideDailyCumulativeReportStatus, this.setGetStateWideDailyCumulativeReportResponse)
+            .catch(this.setGetStateWideDailyCumulativeReportError)
+    }
+
+    @action.bound
+    stateWideCumulativeReport() {
+        const usersPromise = this.covid19Service.getSetStateWideAllDistrictCumuLativeConfirmedCases()
+        return bindPromiseWithOnSuccess(usersPromise)
+            .to(this.setGetStateWideCumulativeReportStatus, this.setGetStateWideCumulativeResponse)
+            .catch(this.setGetStateWideCumulativeAPIError)
+
     }
 
     stateWidedDailyReport() {
@@ -211,20 +257,6 @@ class Covid19StateStore {
             .catch(this.setGetCovid19StateDailyAPIError)
     }
 
-    @action.bound
-    districtWiseCumulativeReport() {
-        const usersPromise = this.covid19Service.getDistrictWiseCumulativeAPI()
-        return bindPromiseWithOnSuccess(usersPromise)
-            .to(this.setGetCovid19DistrictCumulativeAPIStatus, this.setGetDistrictwideCumulativeReport)
-            .catch(this.setGetCovid19DistrictCumulativeAPIError)
-    }
-    @action.bound
-    districtWiseDailyReport() {
-        const usersPromise = this.covid19Service.getDistrictWideDailyAPI()
-        return bindPromiseWithOnSuccess(usersPromise)
-            .to(this.setGetCovid19DistrictDailyAPIStatus, this.setGetDistrictwideDailyReport)
-            .catch(this.setGetCovid19DistrictDailyAPIError)
-    }
 
     @action.bound
     districtWiseDataAnalysis() {
@@ -234,6 +266,37 @@ class Covid19StateStore {
             .catch(this.setGetCovid19DistrictAnalysisAPIError)
 
     }
+
+
+    
+
+
+    @action.bound
+    districtWiseCumulativeReport() {
+        const usersPromise = this.covid19Service.getDistrictWiseCumulativeAPI()
+        return bindPromiseWithOnSuccess(usersPromise)
+            .to(this.setGetCovid19DistrictCumulativeAPIStatus, this.setGetDistrictwideCumulativeReportResponse)
+            .catch(this.setGetCovid19DistrictCumulativeAPIError)
+    }
+
+
+    @action.bound
+    districtWiseDailyCumulativeReport() {
+        const usersPromise = this.covid19Service.getDistrictWiseDailyCumulativeAPI()
+        return bindPromiseWithOnSuccess(usersPromise)
+            .to(this.setGetDistrictDailyCumulativeAPIStatus, this.setGetDistrictDailywideCumulativeReportResponse)
+            .catch(this.setGetDistrictDailyCumulativeAPIError)
+    }
+    @action.bound
+    districtWiseDailyReport() {
+        const usersPromise = this.covid19Service.getDistrictWiseDailyAPI()
+        return bindPromiseWithOnSuccess(usersPromise)
+            .to(this.setGetCovid19DistrictDailyAPIStatus, this.setGetDistrictwideDailyReportResponse)
+            .catch(this.setGetCovid19DistrictDailyAPIError)
+    }
+
+   
+
 
 }
 

@@ -6,7 +6,7 @@ ${tw`bg-gray-800 text-white  m-2`};`;
 
 
 const GraphsHeading = styled.div`
-${tw`text-white text-sm`}`
+${tw`text-white text-sm ml-5 mb-5`}`
 
 
 export {

@@ -1,0 +1,539 @@
+
+{
+    "state_name": "Andhra pradesh",
+    "districts": [
+        {
+            "district_id": 0,
+            "district_name": "Srikakulam",
+            "daily_cumulative": [
+                {
+                    "date": "20-may",
+                    "total_cases": 0,
+                    "total_deaths": 0,
+                    "total_recovered_cases": 0,
+                    "active_cases": 0
+                },
+                {
+                    "date": "21-may",
+                    "total_cases": 0,
+                    "total_deaths": 0,
+                    "total_recovered_cases": 0,
+                    "active_cases": 0
+                },
+                {
+                    "date": "22-may",
+                    "total_cases": 0,
+                    "total_deaths": 0,
+                    "total_recovered_cases": 0,
+                    "active_cases": 0
+                },
+                {
+                    "date": "23-may",
+                    "total_cases": 0,
+                    "total_deaths": 0,
+                    "total_recovered_cases": 0,
+                    "active_cases": 0
+                },
+                {
+                    "date": "24-may",
+                    "total_cases": 0,
+                    "total_deaths": 0,
+                    "total_recovered_cases": 0,
+                    "active_cases": 0
+                }
+            ]
+        },
+        {
+            "district_id": 2,
+            "district_name": "vijayanagaram",
+            "daily_cumulative": [
+                {
+                    "date": "20-may",
+                    "total_cases": 0,
+                    "total_deaths": 0,
+                    "total_recovered_cases": 0,
+                    "active_cases": 0
+                },
+                {
+                    "date": "21-may",
+                    "total_cases": 0,
+                    "total_deaths": 0,
+                    "total_recovered_cases": 0,
+                    "active_cases": 0
+                },
+                {
+                    "date": "22-may",
+                    "total_cases": 0,
+                    "total_deaths": 0,
+                    "total_recovered_cases": 0,
+                    "active_cases": 0
+                },
+                {
+                    "date": "23-may",
+                    "total_cases": 0,
+                    "total_deaths": 0,
+                    "total_recovered_cases": 0,
+                    "active_cases": 0
+                },
+                {
+                    "date": "24-may",
+                    "total_cases": 0,
+                    "total_deaths": 0,
+                    "total_recovered_cases": 0,
+                    "active_cases": 0
+                }
+            ]
+        },
+        {
+            "district_id": 2,
+            "district_name": "visakhapatnam",
+            "daily_cumulative": [
+                {
+                    "date": "20-may",
+                    "total_cases": 0,
+                    "total_deaths": 0,
+                    "total_recovered_cases": 0,
+                    "active_cases": 0
+                },
+                {
+                    "date": "21-may",
+                    "total_cases": 0,
+                    "total_deaths": 0,
+                    "total_recovered_cases": 0,
+                    "active_cases": 0
+                },
+                {
+                    "date": "22-may",
+                    "total_cases": 0,
+                    "total_deaths": 0,
+                    "total_recovered_cases": 0,
+                    "active_cases": 0
+                },
+                {
+                    "date": "23-may",
+                    "total_cases": 0,
+                    "total_deaths": 0,
+                    "total_recovered_cases": 0,
+                    "active_cases": 0
+                },
+                {
+                    "date": "24-may",
+                    "total_cases": 0,
+                    "total_deaths": 0,
+                    "total_recovered_cases": 0,
+                    "active_cases": 0
+                }
+            ]
+        },
+        {
+            "district_id": 3,
+            "district_name": "eastgodavari",
+            "daily_cumulative": [
+                {
+                    "date": "20-may",
+                    "total_cases": 0,
+                    "total_deaths": 0,
+                    "total_recovered_cases": 0,
+                    "active_cases": 0
+                },
+                {
+                    "date": "21-may",
+                    "total_cases": 0,
+                    "total_deaths": 0,
+                    "total_recovered_cases": 0,
+                    "active_cases": 0
+                },
+                {
+                    "date": "22-may",
+                    "total_cases": 0,
+                    "total_deaths": 0,
+                    "total_recovered_cases": 0,
+                    "active_cases": 0
+                },
+                {
+                    "date": "23-may",
+                    "total_cases": 0,
+                    "total_deaths": 0,
+                    "total_recovered_cases": 0,
+                    "active_cases": 0
+                },
+                {
+                    "date": "24-may",
+                    "total_cases": 0,
+                    "total_deaths": 0,
+                    "total_recovered_cases": 0,
+                    "active_cases": 0
+                }
+            ]
+        },
+        {
+            "district_id": 4,
+            "district_name": "westgodavari",
+            "daily_cumulative": [
+                {
+                    "date": "20-may",
+                    "total_cases": 0,
+                    "total_deaths": 0,
+                    "total_recovered_cases": 0,
+                    "active_cases": 0
+                },
+                {
+                    "date": "21-may",
+                    "total_cases": 0,
+                    "total_deaths": 0,
+                    "total_recovered_cases": 0,
+                    "active_cases": 0
+                },
+                {
+                    "date": "22-may",
+                    "total_cases": 0,
+                    "total_deaths": 0,
+                    "total_recovered_cases": 0,
+                    "active_cases": 0
+                },
+                {
+                    "date": "23-may",
+                    "total_cases": 0,
+                    "total_deaths": 0,
+                    "total_recovered_cases": 0,
+                    "active_cases": 0
+                },
+                {
+                    "date": "24-may",
+                    "total_cases": 0,
+                    "total_deaths": 0,
+                    "total_recovered_cases": 0,
+                    "active_cases": 0
+                }
+            ]
+        },
+        {
+            "district_id": 5,
+            "district_name": "krishna",
+            "daily_cumulative": [
+                {
+                    "date": "20-may",
+                    "total_cases": 0,
+                    "total_deaths": 0,
+                    "total_recovered_cases": 0,
+                    "active_cases": 0
+                },
+                {
+                    "date": "21-may",
+                    "total_cases": 0,
+                    "total_deaths": 0,
+                    "total_recovered_cases": 0,
+                    "active_cases": 0
+                },
+                {
+                    "date": "22-may",
+                    "total_cases": 0,
+                    "total_deaths": 0,
+                    "total_recovered_cases": 0,
+                    "active_cases": 0
+                },
+                {
+                    "date": "23-may",
+                    "total_cases": 0,
+                    "total_deaths": 0,
+                    "total_recovered_cases": 0,
+                    "active_cases": 0
+                },
+                {
+                    "date": "24-may",
+                    "total_cases": 0,
+                    "total_deaths": 0,
+                    "total_recovered_cases": 0,
+                    "active_cases": 0
+                }
+            ]
+        },
+        {
+            "district_id": 6,
+            "district_name": "guntur",
+            "daily_cumulative": [
+                {
+                    "date": "20-may",
+                    "total_cases": 0,
+                    "total_deaths": 0,
+                    "total_recovered_cases": 0,
+                    "active_cases": 0
+                },
+                {
+                    "date": "21-may",
+                    "total_cases": 0,
+                    "total_deaths": 0,
+                    "total_recovered_cases": 0,
+                    "active_cases": 0
+                },
+                {
+                    "date": "22-may",
+                    "total_cases": 0,
+                    "total_deaths": 0,
+                    "total_recovered_cases": 0,
+                    "active_cases": 0
+                },
+                {
+                    "date": "23-may",
+                    "total_cases": 0,
+                    "total_deaths": 0,
+                    "total_recovered_cases": 0,
+                    "active_cases": 0
+                },
+                {
+                    "date": "24-may",
+                    "total_cases": 0,
+                    "total_deaths": 0,
+                    "total_recovered_cases": 0,
+                    "active_cases": 0
+                }
+            ]
+        },
+        {
+            "district_id": 7,
+            "district_name": "ongole",
+            "daily_cumulative": [
+                {
+                    "date": "20-may",
+                    "total_cases": 0,
+                    "total_deaths": 0,
+                    "total_recovered_cases": 0,
+                    "active_cases": 0
+                },
+                {
+                    "date": "21-may",
+                    "total_cases": 0,
+                    "total_deaths": 0,
+                    "total_recovered_cases": 0,
+                    "active_cases": 0
+                },
+                {
+                    "date": "22-may",
+                    "total_cases": 0,
+                    "total_deaths": 0,
+                    "total_recovered_cases": 0,
+                    "active_cases": 0
+                },
+                {
+                    "date": "23-may",
+                    "total_cases": 0,
+                    "total_deaths": 0,
+                    "total_recovered_cases": 0,
+                    "active_cases": 0
+                },
+                {
+                    "date": "24-may",
+                    "total_cases": 0,
+                    "total_deaths": 0,
+                    "total_recovered_cases": 0,
+                    "active_cases": 0
+                }
+            ]
+        },
+        {
+            "district_id": 8,
+            "district_name": "nellore",
+            "daily_cumulative": [
+                {
+                    "date": "20-may",
+                    "total_cases": 0,
+                    "total_deaths": 0,
+                    "total_recovered_cases": 0,
+                    "active_cases": 0
+                },
+                {
+                    "date": "21-may",
+                    "total_cases": 0,
+                    "total_deaths": 0,
+                    "total_recovered_cases": 0,
+                    "active_cases": 0
+                },
+                {
+                    "date": "22-may",
+                    "total_cases": 0,
+                    "total_deaths": 0,
+                    "total_recovered_cases": 0,
+                    "active_cases": 0
+                },
+                {
+                    "date": "23-may",
+                    "total_cases": 0,
+                    "total_deaths": 0,
+                    "total_recovered_cases": 0,
+                    "active_cases": 0
+                },
+                {
+                    "date": "24-may",
+                    "total_cases": 0,
+                    "total_deaths": 0,
+                    "total_recovered_cases": 0,
+                    "active_cases": 0
+                }
+            ]
+        },
+        {
+            "district_id": 9,
+            "district_name": "chittoor",
+            "daily_cumulative": [
+                {
+                    "date": "20-may",
+                    "total_cases": 0,
+                    "total_deaths": 0,
+                    "total_recovered_cases": 0,
+                    "active_cases": 0
+                },
+                {
+                    "date": "21-may",
+                    "total_cases": 0,
+                    "total_deaths": 0,
+                    "total_recovered_cases": 0,
+                    "active_cases": 0
+                },
+                {
+                    "date": "22-may",
+                    "total_cases": 0,
+                    "total_deaths": 0,
+                    "total_recovered_cases": 0,
+                    "active_cases": 0
+                },
+                {
+                    "date": "23-may",
+                    "total_cases": 0,
+                    "total_deaths": 0,
+                    "total_recovered_cases": 0,
+                    "active_cases": 0
+                },
+                {
+                    "date": "24-may",
+                    "total_cases": 0,
+                    "total_deaths": 0,
+                    "total_recovered_cases": 0,
+                    "active_cases": 0
+                }
+            ]
+        },
+        {
+            "district_id": 10,
+            "district_name": "kurnool",
+            "daily_cumulative": [
+                {
+                    "date": "20-may",
+                    "total_cases": 0,
+                    "total_deaths": 0,
+                    "total_recovered_cases": 0,
+                    "active_cases": 0
+                },
+                {
+                    "date": "21-may",
+                    "total_cases": 0,
+                    "total_deaths": 0,
+                    "total_recovered_cases": 0,
+                    "active_cases": 0
+                },
+                {
+                    "date": "22-may",
+                    "total_cases": 0,
+                    "total_deaths": 0,
+                    "total_recovered_cases": 0,
+                    "active_cases": 0
+                },
+                {
+                    "date": "23-may",
+                    "total_cases": 0,
+                    "total_deaths": 0,
+                    "total_recovered_cases": 0,
+                    "active_cases": 0
+                },
+                {
+                    "date": "24-may",
+                    "total_cases": 0,
+                    "total_deaths": 0,
+                    "total_recovered_cases": 0,
+                    "active_cases": 0
+                }
+            ]
+        },
+        {
+            "district_id": 11,
+            "district_name": "kadapa",
+            "daily_cumulative": [
+                {
+                    "date": "20-may",
+                    "total_cases": 0,
+                    "total_deaths": 0,
+                    "total_recovered_cases": 0,
+                    "active_cases": 0
+                },
+                {
+                    "date": "21-may",
+                    "total_cases": 0,
+                    "total_deaths": 0,
+                    "total_recovered_cases": 0,
+                    "active_cases": 0
+                },
+                {
+                    "date": "22-may",
+                    "total_cases": 0,
+                    "total_deaths": 0,
+                    "total_recovered_cases": 0,
+                    "active_cases": 0
+                },
+                {
+                    "date": "23-may",
+                    "total_cases": 0,
+                    "total_deaths": 0,
+                    "total_recovered_cases": 0,
+                    "active_cases": 0
+                },
+                {
+                    "date": "24-may",
+                    "total_cases": 0,
+                    "total_deaths": 0,
+                    "total_recovered_cases": 0,
+                    "active_cases": 0
+                }
+            ]
+        },
+        {
+            "district_id": 12,
+            "district_name": "ananthapuram",
+            "daily_cumulative": [
+                {
+                    "date": "20-may",
+                    "total_cases": 0,
+                    "total_deaths": 0,
+                    "total_recovered_cases": 0,
+                    "active_cases": 0
+                },
+                {
+                    "date": "21-may",
+                    "total_cases": 0,
+                    "total_deaths": 0,
+                    "total_recovered_cases": 0,
+                    "active_cases": 0
+                },
+                {
+                    "date": "22-may",
+                    "total_cases": 0,
+                    "total_deaths": 0,
+                    "total_recovered_cases": 0,
+                    "active_cases": 0
+                },
+                {
+                    "date": "23-may",
+                    "total_cases": 0,
+                    "total_deaths": 0,
+                    "total_recovered_cases": 0,
+                    "active_cases": 0
+                },
+                {
+                    "date": "24-may",
+                    "total_cases": 0,
+                    "total_deaths": 0,
+                    "total_recovered_cases": 0,
+                    "active_cases": 0
+                }
+            ]
+        }
+    ]
+}

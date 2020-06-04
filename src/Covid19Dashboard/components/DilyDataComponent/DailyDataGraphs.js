@@ -13,7 +13,7 @@ class DailyDataGraphs extends Component {
                 <DailyDataGraphsDiv>
                     <GraphsHeading>{strings.dailyConfirmedCases}</GraphsHeading>
                     {
-                        <DialyReportGraphs dailyReport={dailyReport} casesType="activeCases" color={"Tomato"}/>
+                        <DialyReportGraphs dailyReport={dailyReport} casesType="active_cases" color={"#e03131"}/>
 
                     }
                     
@@ -22,14 +22,14 @@ class DailyDataGraphs extends Component {
                 <DailyDataGraphsDiv>
                     <GraphsHeading>{strings.dailyRecoveredCases}</GraphsHeading>
                     {
-                        <DialyReportGraphs dailyReport={dailyReport} casesType="totalRecoveredCases" color={"MediumSeaGreen"}/>
+                        <DialyReportGraphs dailyReport={dailyReport} casesType="total_recovered_cases" color={"rgb(47, 158, 68)"}/>
 
                     }
                 </DailyDataGraphsDiv>
                 <DailyDataGraphsDiv>
                     <GraphsHeading>{strings.dailyDeaths}</GraphsHeading>
                     {
-                        <DialyReportGraphs dailyReport={dailyReport} casesType="totalDeaths" color={"Orange"} />
+                        <DialyReportGraphs dailyReport={dailyReport} casesType="total_deaths" color={"#e67700"} />
 
                     }
                 </DailyDataGraphsDiv>

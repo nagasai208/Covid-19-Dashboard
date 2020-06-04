@@ -20,7 +20,6 @@ import {
     FooterData,
     TableDiv,
     DistrictWiseZonalMainDiv,
-    DistrictWiseZonalDiv,
     ZonalDashBoard,
     TotalDataDiv,
     HomePageDataZonalDashboard, OnClickActive, OnClickCOnfirmed, OnClickRecovered, OnClickDeaths, MapMainDiv,
@@ -37,7 +36,9 @@ class Covid19DashBoard extends React.Component {
         return districtAnalysis === true ?
             <HomePageDataZonalDashboard>
                 <TotalDataDiv>
-                    <HeaderComponent stateTotalData={covid19StateStore.stateTotalReport} onChangeDate={covid19StateStore.onChangeDate}
+                    <HeaderComponent stateTotalData={covid19StateStore.stateTotalReport}
+                        dailyDataGraphs={dailyDataGraphs} cumulativeGraphs={cumulativeGraphs}
+                        onChangeDate={covid19StateStore.onChangeDate} 
                         key={Math.random()} onClickDaily={onClickDaily} onClickCumulative={onClickCumulative} />
                 </TotalDataDiv>
                 <MapsAadGraphTotalDiv>
@@ -86,13 +87,13 @@ class Covid19DashBoard extends React.Component {
     })
     render() {
         const { onClickSignOut,
-            onClickDistrictWiseAnalysis, onClickZOnalDasboard, doNetworkCalls, covid19StateStore } = this.props;
+            onClickDistrictWiseAnalysis, onClickZOnalDasboard, doNetworkCalls, covid19StateStore, districtAnalysis } = this.props;
         return (
             <DashboardMainDiv>
-                <SignOutButton key={Math.random()} onClickSignOut={onClickSignOut} />
+                <SignOutButton bgColor='signOut' onClickSignOut={onClickSignOut} />
                 <ZonalDashBoard>
-                    <SecondaryButton key={Math.random()} onClick={onClickZOnalDasboard} btnName={strings.zonalDashboard} />
-                    <SecondaryButton key={Math.random()} onClick={onClickDistrictWiseAnalysis} btnName={strings.districtWiseCasesAnalysis} />
+                    <SecondaryButton   onClick={onClickZOnalDasboard} btnName={strings.zonalDashboard} />
+                    <SecondaryButton  onClick={onClickDistrictWiseAnalysis} btnName={strings.districtWiseCasesAnalysis} />
                 </ZonalDashBoard>
                 <LoadingWrapperWithFailure
                     apiStatus={covid19StateStore.getCovid19StateAPIStatus}

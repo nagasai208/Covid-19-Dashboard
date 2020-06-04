@@ -22,6 +22,17 @@ class Covid19Service {
             apiMethods.get
         )
     }
+
+
+    getSetStateWideAllDistrictCumuLativeConfirmedCases() {
+        return networkCallWithApisauce(
+            this.api,
+            'v1/products',
+            {},
+            apiMethods.get
+        )
+
+    }
     getStatewideDailyReport() {
         return networkCallWithApisauce(
             this.api,

@@ -1,8 +1,9 @@
 import React, { useState } from 'react'
 import ReactMapboxGl, { Layer, Feature, Source, GeoJSONLayer } from 'react-mapbox-gl';
 import { observer } from "mobx-react";
-import stateBoundaries from '../../fixtures/stateBoundries.json';
 import bbox from '@turf/bbox';
+import DeckGL from '@deck.gl/react';
+import stateBoundaries from '../../fixtures/stateBoundries.json';
 import { MapMainDiv } from './styledComponents';
 const Map = ReactMapboxGl({
     accessToken:
@@ -10,6 +11,15 @@ const Map = ReactMapboxGl({
 
 });
 
+const viewState = {
+    longitude: -122.41669,
+    latitude: 37.7853,
+    zoom: 12,
+    pitch: 0,
+    bearing: 0,
+    opacity: 0.8,
+    color:"red",
+};
 @observer
 class MapComponent extends React.Component {
     render() {
@@ -25,18 +35,9 @@ class MapComponent extends React.Component {
 
                     fitBounds={[[boundries[0], boundries[1]], [boundries[2], boundries[3]]]}
                 >
-                    <GeoJSONLayer
-                        type='fill'
-                        data={stateBoundaries}
-                        
-                        symbolLayout={{
-                            "text-field": "{place}",
-                            "text-font": ["Open Sans Semibold", "Arial Unicode MS Bold"],
-                            "text-offset": [0, 0.6],
-                            "text-anchor": "top",
-                        }}
-                        fillPaint={{ 'fill-color': 'rgba(200, 100, 240, 0.4)', 'fill-outline-color': 'rgba(200, 100, 240, 1)' }}/>
-                    <Feature coordinates={[-0.481747846041145, 51.3233379650232]} />
+                    <DeckGL 
+                        viewState={viewState}
+                        />
                 </Map>;
             </MapMainDiv>
         )
@@ -44,3 +45,10 @@ class MapComponent extends React.Component {
 }
 
 export { MapComponent }
+
+
+
+
+// type = 'fill'
+// data = { stateBoundaries }
+// fillPaint = {{ 'fill-color': 'rgba(200, 100, 240, 0.4)', 'fill-outline-color': 'rgba(200, 100, 240, 1)' }}

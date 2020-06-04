@@ -27,12 +27,13 @@ class DialyReportGraphs extends PureComponent {
 
     render() {
         window.onresize = this.displayType;
-        const { dailyReport, casesType,color } = this.props;
+        const { dailyReport, casesType, color } = this.props;
+        console.log(dailyReport,'sai')
         return (
             <BarChart
                 width={this.width}
                 height={200}
-                data={dailyReport.kurnool}
+                data={dailyReport.daily_cases}
                 margin={{
                     top: 5, right: 30, left: 20, bottom: 5,
                 }}

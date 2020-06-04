@@ -2,6 +2,7 @@ import { observable, action } from "mobx";
 import { API_INITIAL, API_FETCHING, API_SUCCESS } from "@ib/api-constants";
 import { bindPromiseWithOnSuccess } from "@ib/mobx-promise"
 import { setAccessToken, getAccessToken, clearUserSession } from "../../utils/StorageUtils";
+import { ResponsiveContainer } from "recharts";
 
 
 class AuthenticationStore {
@@ -35,8 +36,9 @@ class AuthenticationStore {
         this.init()
     }
     @action.bound
-    setUserSignInAPIResponse(response) {
-        setAccessToken(response.access_token)
+    setUserLogInAPIResponse(response) {
+        console.log(response,'response');
+        setAccessToken(response)
         this.accessToken = getAccessToken()
     }
 
@@ -58,13 +60,13 @@ class AuthenticationStore {
     }
 
     @action.bound
-    setGetUserSignInAPIError(authError) {
-        this.getUserSignInAPIError = authError
+    setGetUserLogInAPIError(authError) {
+        this.getUserLogInAPIError = authError
     }
 
     @action.bound
-    setGetUserSignInAPIStatus(apistatus) {
-        this.getUserSignInAPIStatus = apistatus
+    setGetUserLogInAPIStatus(apistatus) {
+        this.getUserLogInAPIStatus = apistatus
     }
  
 
@@ -72,8 +74,8 @@ class AuthenticationStore {
     userLogin(requestObject) {
         const usersPromise = this.authAPIService.loginAPI(requestObject)
         return bindPromiseWithOnSuccess(usersPromise)
-            .to(this.setGetUserSignInAPIStatus, this.setUserSignInAPIResponse)
-            .catch(this.setGetUserSignInAPIError)
+            .to(this.setGetUserLogInAPIStatus, this.setUserLogInAPIResponse)
+            .catch(this.setGetUserLogInAPIError)
     }
 
 }

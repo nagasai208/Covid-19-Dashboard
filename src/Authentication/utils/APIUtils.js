@@ -17,7 +17,6 @@ export const networkCallWithApisauce = async (
    }
    api.setHeader('Content-Type', 'application/json; charset=UTF-8')
    try {
-      console.log("End Point", url)
       response = await getData(api, url, requestObject, type)
    } catch (error) {
       throw error

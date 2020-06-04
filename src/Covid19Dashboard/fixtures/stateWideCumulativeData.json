@@ -1,1 +1,46 @@
-{}
+{
+    "daily_cumulative": [
+        {
+            "date": "20-may",
+            "total_cases": 10,
+            "total_deaths": 5,
+            "total_recovered_cases": 4,
+            "active_cases": 1
+        },
+        {
+            "date": "21-may",
+            "total_cases": 40,
+            "total_deaths": 5,
+            "total_recovered_cases": 25,
+            "active_cases": 10
+        },
+        {
+            "date": "22-may",
+            "total_cases": 100,
+            "total_deaths": 10,
+            "total_recovered_cases": 70,
+            "active_cases": 20
+        },
+        {
+            "date": "23-may",
+            "total_cases": 60,
+            "total_deaths": 10,
+            "total_recovered_cases": 30,
+            "active_cases": 20
+        },
+        {
+            "date": "24-may",
+            "total_cases": 40,
+            "total_deaths": 10,
+            "total_recovered_cases": 20,
+            "active_cases": 5
+        },
+        {
+            "date": "25-may",
+            "total_cases": 40,
+            "total_deaths": 10,
+            "total_recovered_cases": 10,
+            "active_cases": 20
+        }
+    ]
+}
