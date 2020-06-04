@@ -9,7 +9,7 @@ class HeaderComponent extends Component {
         const { onClickDaily, onClickCumulative, stateTotalData, onChangeDate, dailyDataGraphs, cumulativeGraphs } = this.props;
         return (
             <HeadeMainDiv>
-                <StateName>{stateTotalData.stateName}</StateName>
+                <StateName>{stateTotalData.state_name}</StateName>
                 <Date><DateHeading>{strings.date}:</DateHeading> <DatePickerComponent onChangeDate={onChangeDate} /></Date>
                 <CasesButton>
                     <ButtonCumulative color={cumulativeGraphs} onClick={onClickCumulative}> {strings.cumulative} </ButtonCumulative>

@@ -5,8 +5,6 @@ import {
 import { observer } from "mobx-react";
 @observer
 export default class CumulativeAllDistrictGraph extends PureComponent {
-    // static jsfiddleUrl = 'https://jsfiddle.net/alidingling/1p40zzfe/';
-
     render() {
         const { cumulativeReport } = this.props;
         return (
@@ -25,11 +23,11 @@ export default class CumulativeAllDistrictGraph extends PureComponent {
                     <Tooltip />
                     <Legend />
                     {
-                        cumulativeReport.district_name.map(item => {
-                            return < Line type="monotone" dataKey={item} stroke="#ff6366" />
-                            
-                        })
-    }
+                        // cumulativeReport.districts.map(item => {
+                        //     return < Line type="monotone" dataKey={item} stroke="#ff6366" />
+
+                        // })
+                    }
                 </LineChart>
             </div>
         );

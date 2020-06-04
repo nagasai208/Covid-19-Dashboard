@@ -5,13 +5,14 @@ import 'bootstrap/dist/css/bootstrap.min.css';
 import { observable } from "mobx";
 import { observer } from "mobx-react";
 import { DatePickerDiv } from './styledComponents';
+import { inject } from "mobx-react";
+@inject('covid19StateStore')
 @observer
 class DatePickerComponent extends Component {
     @observable startDate
-
     constructor(props) {
         super(props)
-        this.startDate = new Date();
+        this.startDate = this.props.covid19StateStore.currentDate;
     }
 
     handleChange = (date) => {
@@ -33,7 +34,7 @@ class DatePickerComponent extends Component {
                         name="startDate"
                         dateFormat="yyyy-MM-dd"
                     />
-                   
+
                 </DatePickerDiv>
             </form>
         );

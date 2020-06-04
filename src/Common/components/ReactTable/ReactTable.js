@@ -21,7 +21,7 @@ class ReactTableData extends React.Component {
                             columns: [
                                 {
                                     Header: 'DistrictName',
-                                    accessor: 'districtName',
+                                    accessor: 'district_name',
                                     style: {
                                         padding: "10px"
                                     },
@@ -31,27 +31,27 @@ class ReactTableData extends React.Component {
                                 },
                                 {
                                     Header: "Confirmed",
-                                    accessor: "totalCases"
+                                    accessor: "total_cases"
 
                                 },
                                 {
                                     Header: "Active",
-                                    accessor: "activeCases"
+                                    accessor: "active_cases"
 
                                 },
                                 {
                                     Header: "Recorved",
-                                    accessor: "totalRecoveredCases"
+                                    accessor: "total_recovered_cases"
 
                                 },
                                 {
                                     Header: "Deaths",
-                                    accessor: "totalDeaths"
+                                    accessor: "total_deaths"
                                 }
                             ],
-                            
+
                         },
-                        
+
                     ]}
                     defaultSorted={[
                         {

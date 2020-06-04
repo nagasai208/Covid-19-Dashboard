@@ -3,7 +3,7 @@ import { observer, inject } from "mobx-react";
 import { observable, action, toJS } from "mobx";
 import Covid19DashBoard from "../../components/Covid19DashBoard";
 import { ProtectedRoute } from "../../../Common/routes/ProtectedRoute/ProtectedRoute";
-@inject('covid19StateStore','authenticationStore')
+@inject('covid19StateStore', 'authenticationStore')
 @observer
 class DashBoardRoute extends React.Component {
     @observable dailyDataGraphs = false;
@@ -24,10 +24,11 @@ class DashBoardRoute extends React.Component {
         this.props.covid19StateStore.stateWidedDailyReport()
         this.props.covid19StateStore.stateWideCumulativeReport();
         this.props.covid19StateStore.stateWidedDailyCumulativeReport()
-        await this.props.covid19StateStore.stateWidedReport()
-        
-         //this.props.covid19StateStore.districtWiseCumulativeReport()
-          //this.props.covid19StateStore.districtWiseDailyReport()
+        await this.props.covid19StateStore.stateWidReport()
+
+        // this.props.covid19StateStore.districtWideCumulativeReport()
+        //this.props.covid19StateStore.districtWideDailyCumulativeReport()
+        //this.props.covid19StateStore.districtWideDailyReport()
 
     }
     onClickSignOut = () => {
@@ -46,12 +47,12 @@ class DashBoardRoute extends React.Component {
 
     @action.bound
     onClickZOnalDasboard() {
-        this.props.covid19StateStore.stateWidedReport()
+        this.props.covid19StateStore.stateWidReport()
         this.districtAnalysis = true;
     }
     @action.bound
-     onClickDistrictWiseAnalysis() {
-        this.props.covid19StateStore.districtWiseDataAnalysis()
+    onClickDistrictWiseAnalysis() {
+        this.props.covid19StateStore.districtWideDataAnalysis()
         this.districtAnalysis = false;
     }
     @action.bound
@@ -80,7 +81,7 @@ class DashBoardRoute extends React.Component {
                 onClickZOnalDasboard={this.onClickZOnalDasboard} districtAnalysis={this.districtAnalysis}
                 covid19StateStore={covid19StateStore} doNetworkCalls={this.doNetworkCalls} onClickConfirmed={this.onClickConfirmed}
                 onClickActive={this.onClickActive} onClickRecovered={this.onClickRecovered} onClickDeaths={this.onClickDeaths}
-                onClickColor={this.onClickColor} 
+                onClickColor={this.onClickColor}
             />
         )
     }

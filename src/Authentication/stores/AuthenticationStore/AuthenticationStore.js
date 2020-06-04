@@ -3,6 +3,7 @@ import { API_INITIAL, API_FETCHING, API_SUCCESS } from "@ib/api-constants";
 import { bindPromiseWithOnSuccess } from "@ib/mobx-promise"
 import { setAccessToken, getAccessToken, clearUserSession } from "../../utils/StorageUtils";
 import { ResponsiveContainer } from "recharts";
+import { getUserDisplayableErrorMessage } from "../../utils/APIUtils";
 
 
 class AuthenticationStore {
@@ -37,8 +38,7 @@ class AuthenticationStore {
     }
     @action.bound
     setUserLogInAPIResponse(response) {
-        console.log(response,'response');
-        setAccessToken(response)
+        setAccessToken(response.access_token)
         this.accessToken = getAccessToken()
     }
 
@@ -61,14 +61,23 @@ class AuthenticationStore {
 
     @action.bound
     setGetUserLogInAPIError(authError) {
-        this.getUserLogInAPIError = authError
+        let errorMessage = getUserDisplayableErrorMessage(authError);
+        if (errorMessage === 'invalid username')
+        {
+            this.userNameErrorMessage = errorMessage;   
+        }
+        else if (errorMessage === 'incorrect password') {
+            this.passwordErrorMessage = errorMessage;
+        }
+        this.getUserLogInAPIError = authError;
+
     }
 
     @action.bound
     setGetUserLogInAPIStatus(apistatus) {
         this.getUserLogInAPIStatus = apistatus
     }
- 
+
 
     @action.bound
     userLogin(requestObject) {

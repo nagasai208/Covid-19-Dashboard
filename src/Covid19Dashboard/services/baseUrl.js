@@ -1,1 +1,1 @@
-export const baseUrl = 'https://127.0.0.1:8080/api/covid_dashboard/';
+export const baseUrl = 'https://97f86c6ce846.ngrok.io/api/covid_dashboard';

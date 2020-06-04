@@ -40,10 +40,10 @@ class ConfirmedCasesGraph extends PureComponent {
             >
                 <CartesianGrid stroke="#f5f5f5" />
                 <XAxis type="number" />
-                <YAxis dataKey="districtName" type="category" />
+                <YAxis dataKey="district_name" type="category" />
                 <Tooltip />
                 <Legend />
-                <Bar dataKey="activeCases" name="positive" barSize={20} fill="#f56565" />
+                <Bar dataKey="active_cases" name="positive" barSize={20} fill="#f56565" />
             </ComposedChart>
         );
     }

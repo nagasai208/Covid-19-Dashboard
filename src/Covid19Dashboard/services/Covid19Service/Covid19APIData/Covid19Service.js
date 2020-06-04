@@ -1,33 +1,38 @@
 import { create } from "apisauce";
-import { networkCallWithApisauce } from "../../../../utils/APIUtils";
 import { apiMethods } from "../../../constants/APIConstants";
+import { baseUrl } from '../../baseUrl';
+import { compareAsc, format } from 'date-fns';
+import { networkCallWithApisauce } from "../../../../Authentication/utils/APIUtils";
+import { getAuthorizationHeaders } from "@ib/api";
+import { getAccessToken } from "../../../../Authentication/utils/StorageUtils";
+
 class Covid19Service {
     api
     constructor() {
-        this.api = create({ baseURL: baseUrl });
+        this.api = create({ baseURL: baseUrl, headers: getAuthorizationHeaders(getAccessToken()) });
     }
-    getStateWideAPI() {
+    getStateWideAPI(date) {
         return networkCallWithApisauce(
             this.api,
-            'v1/products',
+            `/state/cumulative/v1?till_date=${format((date), 'yyyy-MM-dd')}`,
             {},
             apiMethods.get
         )
     }
-    getStateWideCumulativeAPI() {
+    getStateWideDailyCumulativeAPI() {
         return networkCallWithApisauce(
             this.api,
-            'v1/products',
+            '/state/daily_cumulative_report/v1',
             {},
             apiMethods.get
         )
     }
 
 
-    getSetStateWideAllDistrictCumuLativeConfirmedCases() {
+    getStateWideCumulativeReport() {
         return networkCallWithApisauce(
             this.api,
-            'v1/products',
+            '/state/districts/daily_cumulative_report/v1',
             {},
             apiMethods.get
         )
@@ -36,12 +41,20 @@ class Covid19Service {
     getStatewideDailyReport() {
         return networkCallWithApisauce(
             this.api,
+            '/state/daily_cases/v1',
+            {},
+            apiMethods.get
+        )
+    }
+    getDistrictWideCumulativeAPI() {
+        return networkCallWithApisauce(
+            this.api,
             'v1/products',
             {},
             apiMethods.get
         )
     }
-    getDistrictWiseCumulativeAPI() {
+    getDistrictWideDailyCumulativeAPI() {
         return networkCallWithApisauce(
             this.api,
             'v1/products',
@@ -57,10 +70,10 @@ class Covid19Service {
             apiMethods.get
         )
     }
-    getCasesZonalDistrictWiseDataAPI() {
+    getDistrictsWideAnalysisAPI() {
         return networkCallWithApisauce(
             this.api,
-            'v1/products',
+            '/state/districts/daily_cumulative_report/v1',
             {},
             apiMethods.get
         )

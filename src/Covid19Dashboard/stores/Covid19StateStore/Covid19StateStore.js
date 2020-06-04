@@ -2,6 +2,7 @@ import { observable, action, computed } from "mobx";
 import { API_INITIAL, API_FETCHING, API_SUCCESS, API_FAILED } from "@ib/api-constants";
 import { bindPromiseWithOnSuccess } from "@ib/mobx-promise";
 
+
 class Covid19StateStore {
     @observable getCovid19StateAPIStatus
     @observable getCovid19StateAPIError
@@ -74,7 +75,7 @@ class Covid19StateStore {
 
     @action.bound
     setGetCovid19StateAPIError(error) {
-        this.getCovid19StateAPIError = error
+        this.getCovid19StateAPIError = error;
 
     }
 
@@ -96,6 +97,7 @@ class Covid19StateStore {
 
     @action.bound
     setGetStateWideCumulativeResponse(response) {
+        //console.log(response, 'report')
         this.cumulativeTotalReport = response;
     }
 
@@ -188,17 +190,6 @@ class Covid19StateStore {
 
     }
 
-
-  
-
-
-
-    
-
-
-
-
-
     @computed
     get totalDistictsData() {
         return this.stateTotalReport.districts;
@@ -223,19 +214,23 @@ class Covid19StateStore {
     @action.bound
     onChangeDate(date) {
         this.currentDate = date;
-        this.stateWidedReport();
+        this.stateWidedDailyCumulativeReport()
+        this.stateWideCumulativeReport()
+        this.stateWidedDailyReport();
+        this.districtWideDataAnalysis();
+        this.stateWidReport();
 
     }
     @action.bound
-    stateWidedReport() {
-        const usersPromise = this.covid19Service.getStateWideAPI()
+    stateWidReport() {
+        const usersPromise = this.covid19Service.getStateWideAPI(this.currentDate)
         return bindPromiseWithOnSuccess(usersPromise)
             .to(this.setGetCovid19StateAPIStatus, this.setGetStatewideReport)
             .catch(this.setGetCovid19StateAPIError)
     }
 
     stateWidedDailyCumulativeReport() {
-        const usersPromise = this.covid19Service.getStateWideCumulativeAPI()
+        const usersPromise = this.covid19Service.getStateWideDailyCumulativeAPI()
         return bindPromiseWithOnSuccess(usersPromise)
             .to(this.setGetStateWideDailyCumulativeReportStatus, this.setGetStateWideDailyCumulativeReportResponse)
             .catch(this.setGetStateWideDailyCumulativeReportError)
@@ -243,7 +238,7 @@ class Covid19StateStore {
 
     @action.bound
     stateWideCumulativeReport() {
-        const usersPromise = this.covid19Service.getSetStateWideAllDistrictCumuLativeConfirmedCases()
+        const usersPromise = this.covid19Service.getStateWideCumulativeReport()
         return bindPromiseWithOnSuccess(usersPromise)
             .to(this.setGetStateWideCumulativeReportStatus, this.setGetStateWideCumulativeResponse)
             .catch(this.setGetStateWideCumulativeAPIError)
@@ -259,8 +254,8 @@ class Covid19StateStore {
 
 
     @action.bound
-    districtWiseDataAnalysis() {
-        const usersPromise = this.covid19Service.getCasesZonalDistrictWiseDataAPI()
+    districtWideDataAnalysis() {
+        const usersPromise = this.covid19Service.getDistrictsWideAnalysisAPI()
         return bindPromiseWithOnSuccess(usersPromise)
             .to(this.setGetCovid19DistrictWiseAnalysisAPIStatus, this.setGetCovid19APIResponseZonalWiseDistrictDataAnalysis)
             .catch(this.setGetCovid19DistrictAnalysisAPIError)
@@ -268,12 +263,12 @@ class Covid19StateStore {
     }
 
 
-    
+
 
 
     @action.bound
-    districtWiseCumulativeReport() {
-        const usersPromise = this.covid19Service.getDistrictWiseCumulativeAPI()
+    districtWideCumulativeReport() {
+        const usersPromise = this.covid19Service.getDistrictWideCumulativeAPI()
         return bindPromiseWithOnSuccess(usersPromise)
             .to(this.setGetCovid19DistrictCumulativeAPIStatus, this.setGetDistrictwideCumulativeReportResponse)
             .catch(this.setGetCovid19DistrictCumulativeAPIError)
@@ -281,21 +276,21 @@ class Covid19StateStore {
 
 
     @action.bound
-    districtWiseDailyCumulativeReport() {
-        const usersPromise = this.covid19Service.getDistrictWiseDailyCumulativeAPI()
+    districtWideDailyCumulativeReport() {
+        const usersPromise = this.covid19Service.getDistrictWideDailyCumulativeAPI()
         return bindPromiseWithOnSuccess(usersPromise)
             .to(this.setGetDistrictDailyCumulativeAPIStatus, this.setGetDistrictDailywideCumulativeReportResponse)
             .catch(this.setGetDistrictDailyCumulativeAPIError)
     }
     @action.bound
-    districtWiseDailyReport() {
-        const usersPromise = this.covid19Service.getDistrictWiseDailyAPI()
+    districtWideDailyReport() {
+        const usersPromise = this.covid19Service.getDistrictWideDailyAPI()
         return bindPromiseWithOnSuccess(usersPromise)
             .to(this.setGetCovid19DistrictDailyAPIStatus, this.setGetDistrictwideDailyReportResponse)
             .catch(this.setGetCovid19DistrictDailyAPIError)
     }
 
-   
+
 
 
 }

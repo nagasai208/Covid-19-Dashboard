@@ -28,7 +28,6 @@ class DialyReportGraphs extends PureComponent {
     render() {
         window.onresize = this.displayType;
         const { dailyReport, casesType, color } = this.props;
-        console.log(dailyReport,'sai')
         return (
             <BarChart
                 width={this.width}

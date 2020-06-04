@@ -16,7 +16,7 @@ class Covid19ServiceFixturesData {
         })
 
     }
-    getStateWideCumulativeAPI() {
+    getStateWideDailyCumulativeAPI() {
         return new Promise(resolve => {
             setTimeout(() => {
                 resolve(stateWideCumulativeReport)
@@ -25,7 +25,7 @@ class Covid19ServiceFixturesData {
 
     }
 
-    getSetStateWideAllDistrictCumuLativeConfirmedCases() {
+    getStateWideCumulativeReport() {
         return new Promise(resolve => {
             setTimeout(() => {
                 resolve(stateWideAllDistrictReport)
@@ -43,7 +43,7 @@ class Covid19ServiceFixturesData {
         })
 
     }
-    getDistrictWiseCumulativeAPI() {
+    getDistrictWideCumulativeAPI() {
         return new Promise(resolve => {
             setTimeout(() => {
                 resolve(districtWideCumulativeReport)
@@ -51,7 +51,7 @@ class Covid19ServiceFixturesData {
         })
 
     }
-    getDistrictWiseDailyCumulativeAPI() {
+    getDistrictWideDailyCumulativeAPI() {
         return new Promise(resolve => {
             setTimeout(() => {
                 resolve(cumulativeDistrictData)
@@ -68,7 +68,7 @@ class Covid19ServiceFixturesData {
 
     }
     
-    getCasesZonalDistrictWiseDataAPI() {
+    getDistrictsWideAnalysisAPI() {
         return new Promise(resolve => {
             setTimeout(() => {
                 resolve(allDistrictsAnalysis)
