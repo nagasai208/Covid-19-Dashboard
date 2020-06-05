@@ -38,12 +38,14 @@ class Covid19DashBoard extends React.Component {
                 <TotalDataDiv>
                     <HeaderComponent stateTotalData={covid19StateStore.stateTotalReport}
                         dailyDataGraphs={dailyDataGraphs} cumulativeGraphs={cumulativeGraphs}
-                        onChangeDate={covid19StateStore.onChangeDate} 
+                        onChangeDate={covid19StateStore.onChangeDate} districtName={covid19StateStore.districtName}
                         key={Math.random()} onClickDaily={onClickDaily} onClickCumulative={onClickCumulative} />
                 </TotalDataDiv>
                 <MapsAadGraphTotalDiv>
                     <MapAndGarphsDiv>
-                        <TotalCases key={Math.random()} stateTotalData={covid19StateStore.stateTotalReport} />
+                        <TotalCases key={Math.random()} stateTotalData={covid19StateStore.stateTotalReport}
+                            dailyReport={covid19StateStore.dailyReport} dailyDataGraphs={dailyDataGraphs}
+                            districtName={covid19StateStore.districtName} />
                         <CasesDiv>
                             <OnclickCasesDiv>    
                                 <OnClickCOnfirmed id='confirmed' color={onClickColor} onClick={onClickConfirmed} >{strings.confirmed}</OnClickCOnfirmed>
@@ -52,7 +54,11 @@ class Covid19DashBoard extends React.Component {
                                 <OnClickDeaths id='deaths' color={onClickColor} onClick={onClickDeaths}>{strings.deaths}</OnClickDeaths>
                             </OnclickCasesDiv>
                             <MapMainDiv>
-                                <MapComponent />
+                                {
+                                    covid19StateStore.regionType !== 'mandals' &&
+                                    <MapComponent covid19StateStore={covid19StateStore} />
+                                }
+                               
                             </MapMainDiv>
                         </CasesDiv>
                     </MapAndGarphsDiv>

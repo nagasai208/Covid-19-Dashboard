@@ -1,8 +1,7 @@
 import { observable, action } from "mobx";
-import { API_INITIAL, API_FETCHING, API_SUCCESS } from "@ib/api-constants";
+import { API_INITIAL } from "@ib/api-constants";
 import { bindPromiseWithOnSuccess } from "@ib/mobx-promise"
 import { setAccessToken, getAccessToken, clearUserSession } from "../../utils/StorageUtils";
-import { ResponsiveContainer } from "recharts";
 import { getUserDisplayableErrorMessage } from "../../utils/APIUtils";
 
 
@@ -62,9 +61,8 @@ class AuthenticationStore {
     @action.bound
     setGetUserLogInAPIError(authError) {
         let errorMessage = getUserDisplayableErrorMessage(authError);
-        if (errorMessage === 'invalid username')
-        {
-            this.userNameErrorMessage = errorMessage;   
+        if (errorMessage === 'invalid username') {
+            this.userNameErrorMessage = errorMessage;
         }
         else if (errorMessage === 'incorrect password') {
             this.passwordErrorMessage = errorMessage;
@@ -74,8 +72,8 @@ class AuthenticationStore {
     }
 
     @action.bound
-    setGetUserLogInAPIStatus(apistatus) {
-        this.getUserLogInAPIStatus = apistatus
+    setGetUserLogInAPIStatus(apiStatus) {
+        this.getUserLogInAPIStatus = apiStatus
     }
 
 

@@ -23,6 +23,9 @@ class Covid19StateStore {
     @observable cumulativeReport;
     @observable dailyReport
     @observable currentDate;
+    @observable regionType;
+    @observable districtName;
+    @observable districtId
 
     constructor(covid19Service) {
         this.covid19Service = covid19Service;
@@ -56,6 +59,9 @@ class Covid19StateStore {
         this.cumulativeTotalReport = [];
         this.districtWiseAnalysis = [];
         this.currentDate = new Date();
+        this.regionType = '';
+        this.districtName = '';
+        this.districtId = 0;
     }
 
     clearStore() {
@@ -97,7 +103,6 @@ class Covid19StateStore {
 
     @action.bound
     setGetStateWideCumulativeResponse(response) {
-        //console.log(response, 'report')
         this.cumulativeTotalReport = response;
     }
 
@@ -128,24 +133,25 @@ class Covid19StateStore {
     }
 
     @action.bound
-    setGetCovid19APIResponseZonalWiseDistrictDataAnalysis(response) {
-        this.districtWiseAnalysis = response;
+    setGetDistrictwideReportResponse(response) {
+        this.stateTotalReport = response;
+    }
+    @action.bound
+    setGetDistrictAPIStatus(status) {
+        this.getCovid19StateAPIStatus = status;
     }
 
     @action.bound
-    setGetCovid19DistrictWiseAnalysisAPIStatus(status) {
-        this.getCovid19DistrictWiseAnalysisAPIStatus = status;
-    }
+    setGetDistrictWideReportAPIError(error) {
+        this.getCovid19StateAPIError = error;
 
-    @action.bound
-    setGetCovid19DistrictAnalysisAPIError(error) {
-        this.getCovid19DistrictWiseAnalysisAPIError = error
     }
 
 
     @action.bound
     setGetDistrictwideCumulativeReportResponse(response) {
-        //this.cumulativeReport = response;
+       
+        this.cumulativeReport = response;
     }
 
     @action.bound
@@ -162,7 +168,7 @@ class Covid19StateStore {
 
     @action.bound
     setGetDistrictDailywideCumulativeReportResponse(response) {
-        //this.dailyReport = response;
+        this.dailyReport = response;
     }
     @action.bound
     setGetDistrictDailyCumulativeAPIStatus(status) {
@@ -177,7 +183,7 @@ class Covid19StateStore {
 
     @action.bound
     setGetDistrictwideDailyReportResponse(response) {
-        //this.dailyReport = response;
+        this.dailyReport = response;
     }
     @action.bound
     setGetCovid19DistrictDailyAPIStatus(status) {
@@ -189,7 +195,19 @@ class Covid19StateStore {
         this.getCovid19DistrictDailyAPIError = error
 
     }
+    @action.bound
+    setGetCovid19APIResponseZonalWiseDistrictDataAnalysis(response) {
+        this.districtWiseAnalysis = response;
+    }
+    @action.bound
+    setGetCovid19DistrictWiseAnalysisAPIStatus(status) {
+        this.getCovid19DistrictWiseAnalysisAPIStatus = status;
+    }
 
+    @action.bound
+    setGetCovid19DistrictAnalysisAPIError(error) {
+        this.getCovid19DistrictWiseAnalysisAPIError = error
+    }
     @computed
     get totalDistictsData() {
         return this.stateTotalReport.districts;
@@ -200,25 +218,46 @@ class Covid19StateStore {
     }
 
     @computed
-    get sortedGraph() {
+    get sortedDistrictGraph() {
+        if (this.regionType === 'mandals') {
+            return this.stateTotalReport.mandals.sort((firstValue, secondValue) => (firstValue.activeCases > secondValue.activeCases ? -1 : 1))
+        }
         return this.stateTotalReport.districts.sort((firstValue, secondValue) => (firstValue.activeCases > secondValue.activeCases ? -1 : 1))
 
     }
-
-    @computed
-    get sortedMandalsGraph() {
-        return this.stateTotalReport.mandals.sort((firstValue, secondValue) => (firstValue.activeCases > secondValue.activeCases ? 1 : -1))
-
+    @action.bound
+    onClickDistrict(id, name) {
+        this.districtId = id;
+        this.districtName = name;
+        this.districtWidReport(id);
+        this.districtWideCumulativeReport(id)
+        this.districtWideDailyReport(id)
+        this.districtWideDailyCumulativeReport(id);
+        this.districtWideDataAnalysis()
+        this.regionType = 'mandals';
     }
 
     @action.bound
     onChangeDate(date) {
-        this.currentDate = date;
-        this.stateWidedDailyCumulativeReport()
-        this.stateWideCumulativeReport()
-        this.stateWidedDailyReport();
-        this.districtWideDataAnalysis();
-        this.stateWidReport();
+        if (this.districtName === '') {
+            this.currentDate = date;
+            this.districtName = '';
+            this.regionType = '';
+            this.stateWidedDailyCumulativeReport()
+            this.stateWideCumulativeReport()
+            this.stateWidedDailyReport();
+            this.districtWideDataAnalysis();
+            this.stateWidReport();  
+        }
+        else {
+            this.districtWidReport(this.districtId);
+            this.districtWideCumulativeReport(this.districtId)
+            this.districtWideDailyReport(this.districtId)
+            this.districtWideDailyCumulativeReport(this.districtId);
+            this.districtWideDataAnalysis(this.districtId)
+            this.regionType = 'mandals';
+        }
+        
 
     }
     @action.bound
@@ -254,6 +293,14 @@ class Covid19StateStore {
 
 
     @action.bound
+    districtWidReport(id) {
+        const usersPromise = this.covid19Service.getDistrictWideAPI(this.currentDate, id)
+        return bindPromiseWithOnSuccess(usersPromise)
+            .to(this.setGetDistrictAPIStatus, this.setGetDistrictwideReportResponse)
+            .catch(this.setGetDistrictWideReportAPIError)
+    }
+
+    @action.bound
     districtWideDataAnalysis() {
         const usersPromise = this.covid19Service.getDistrictsWideAnalysisAPI()
         return bindPromiseWithOnSuccess(usersPromise)
@@ -264,11 +311,9 @@ class Covid19StateStore {
 
 
 
-
-
     @action.bound
-    districtWideCumulativeReport() {
-        const usersPromise = this.covid19Service.getDistrictWideCumulativeAPI()
+    districtWideCumulativeReport(id) {
+        const usersPromise = this.covid19Service.getDistrictWideCumulativeAPI(id)
         return bindPromiseWithOnSuccess(usersPromise)
             .to(this.setGetCovid19DistrictCumulativeAPIStatus, this.setGetDistrictwideCumulativeReportResponse)
             .catch(this.setGetCovid19DistrictCumulativeAPIError)
@@ -276,15 +321,15 @@ class Covid19StateStore {
 
 
     @action.bound
-    districtWideDailyCumulativeReport() {
-        const usersPromise = this.covid19Service.getDistrictWideDailyCumulativeAPI()
+    districtWideDailyCumulativeReport(id) {
+        const usersPromise = this.covid19Service.getDistrictWideDailyCumulativeAPI(id)
         return bindPromiseWithOnSuccess(usersPromise)
             .to(this.setGetDistrictDailyCumulativeAPIStatus, this.setGetDistrictDailywideCumulativeReportResponse)
             .catch(this.setGetDistrictDailyCumulativeAPIError)
     }
     @action.bound
-    districtWideDailyReport() {
-        const usersPromise = this.covid19Service.getDistrictWideDailyAPI()
+    districtWideDailyReport(id) {
+        const usersPromise = this.covid19Service.getDistrictWideDailyAPI(id)
         return bindPromiseWithOnSuccess(usersPromise)
             .to(this.setGetCovid19DistrictDailyAPIStatus, this.setGetDistrictwideDailyReportResponse)
             .catch(this.setGetCovid19DistrictDailyAPIError)

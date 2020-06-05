@@ -7,15 +7,30 @@ import { toJS } from "mobx";
 @observer
 class TotalCases extends Component {
     render() {
-        const { stateTotalData } = this.props;
-        return (
-            <TotalCasesMainDiv>
-                <ConfirmedCases>{strings.confirmed}<CasesCount>{stateTotalData.total_cases}</CasesCount></ConfirmedCases>
-                <ActiveCases>{strings.active}<CasesCount>{stateTotalData.active_cases}</CasesCount></ActiveCases>
-                <RecoveredCases>{strings.recovered}<CasesCount>{stateTotalData.total_recovered_cases}</CasesCount></RecoveredCases>
-                <Deaths>{strings.deaths}<CasesCount>{stateTotalData.total_deaths}</CasesCount></Deaths>
-            </TotalCasesMainDiv>
-        )
+        const { stateTotalData, dailyReport, dailyDataGraphs, districtName } = this.props;
+        if (dailyDataGraphs && districtName==='')
+        {
+            return (
+                < TotalCasesMainDiv >
+                    <ConfirmedCases>{strings.confirmed}<CasesCount>{dailyReport[0].total_cases}</CasesCount></ConfirmedCases>
+                    <ActiveCases>{strings.active}<CasesCount>{dailyReport[0].active_cases}</CasesCount></ActiveCases>
+                    <RecoveredCases>{strings.recovered}<CasesCount>{dailyReport[0].total_recovered_cases}</CasesCount></RecoveredCases>
+                    <Deaths>{strings.deaths}<CasesCount>{dailyReport[0].total_deaths}</CasesCount></Deaths>
+                </TotalCasesMainDiv >
+
+            )
+        }
+        else {
+            return (
+                < TotalCasesMainDiv >
+                    <ConfirmedCases>{strings.confirmed}<CasesCount>{stateTotalData.total_cases}</CasesCount></ConfirmedCases>
+                    <ActiveCases>{strings.active}<CasesCount>{stateTotalData.active_cases}</CasesCount></ActiveCases>
+                    <RecoveredCases>{strings.recovered}<CasesCount>{stateTotalData.total_recovered_cases}</CasesCount></RecoveredCases>
+                    <Deaths>{strings.deaths}<CasesCount>{stateTotalData.total_deaths}</CasesCount></Deaths>
+                </TotalCasesMainDiv >
+            )
+        }
+        
     }
 }
 

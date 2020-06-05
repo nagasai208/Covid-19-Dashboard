@@ -1,26 +1,16 @@
 {
     "xAxixsKey":"date",
     "district_name":[
-        "Kadapa",
         "Kurnool",
-        "guntur",
-        "krishna",
-        "vizag",
-        "vijayanagaram",
-        "srikakulam",
-        "eastgodavari",
-        "westgodavari",
-        "nellore",
-        "chittoor",
-        "ongale",
-        "ananthapurm"
+        "Nellore",
+        "Ananthapuram"
     ],
 
     "Each_Day_cases":[
         {
         "date":"20-may",
         "Kadapa":0,
-        "Kurnool":30,
+        "Kurnool":21,
         "guntur":40,
         "krishna":29,
         "vizag":20,
@@ -28,10 +18,10 @@
         "srikakulam":0,
         "eastgodavari":100,
         "westgodavari":0,
-        "nellore":90,
+        "Nellore":63,
         "chittoor":0,
         "ongale":76,
-        "ananthapurm":20
+        "Ananthapuram":53
         },
         {
             "date": "21-may",
@@ -44,10 +34,10 @@
             "srikakulam": 20,
             "eastgodavari": 18,
             "westgodavari": 13,
-            "nellore": 19,
+            "Nellore": 19,
             "chittoor": 3,
             "ongale": 7,
-            "ananthapurm": 20
+            "Ananthapuram": 20
         },
         {
             "date": "22-may",
@@ -60,10 +50,10 @@
             "srikakulam": 19,
             "eastgodavari": 20,
             "westgodavari": 10,
-            "nellore": 49,
+            "Nellore": 49,
             "chittoor": 3,
             "ongale": 20,
-            "ananthapurm": 20
+            "Ananthapuram": 20
         },
         {
             "date": "23-may",
@@ -76,10 +66,10 @@
             "srikakulam": 20,
             "eastgodavari": 10,
             "westgodavari": 0,
-            "nellore": 9,
+            "Nellore": 9,
             "chittoor": 30,
             "ongale": 86,
-            "ananthapurm": 20
+            "Ananthapuram": 20
         },
         {
             "date": "24-may",
@@ -92,10 +82,10 @@
             "srikakulam": 24,
             "eastgodavari": 40,
             "westgodavari": 23,
-            "nellore": 67,
+            "Nellore": 67,
             "chittoor": 20,
             "ongale": 46,
-            "ananthapurm": 20
+            "Ananthapuram": 20
         },
         {
             "date": "26-may",
@@ -108,10 +98,10 @@
             "srikakulam": 0,
             "eastgodavari": 10,
             "westgodavari": 13,
-            "nellore": 9,
+            "Nellore": 9,
             "chittoor": 30,
             "ongale": 6,
-            "ananthapurm": 20
+            "Ananthapuram": 20
         }
 
 

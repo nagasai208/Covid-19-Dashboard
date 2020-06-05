@@ -26,7 +26,7 @@ class DistrictWiseGraph extends PureComponent {
     }
     render() {
         window.onresize = this.displayType;
-        const { covid19StateStore, data } = this.props;
+        const { data } = this.props;
         return (
 
             <div>
@@ -40,7 +40,7 @@ class DistrictWiseGraph extends PureComponent {
                 >
                     <CartesianGrid strokeDasharray="3 3" />
                     <XAxis dataKey="date" />
-                    <YAxis />
+                    /<YAxis />/
                     <Tooltip />
                     <Line connectNulls type="monotone" name={data.district_name} dataKey="total_cases" stroke="#8884d8" fill="#8884d8" />
                 </LineChart>

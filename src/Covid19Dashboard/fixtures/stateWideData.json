@@ -1,113 +1,113 @@
 {
-    "stateName": "Andhra Pradesh",
+    "state_name": "Andhra Pradesh",
     "districts": [
         {
-            "districtId": 0,
-            "districtName": "Kurnool",
-            "totalCases": 10,
-            "totalDeaths": 2,
-            "totalRecoveredCases": 6,
-            "activeCases": 2
+            "district_id": 0,
+            "district_name": "Kurnool",
+            "total_cases": 10,
+            "total_deaths": 2,
+            "total_recovered_cases": 6,
+            "active_cases": 2
         },
         {
-            "districtId": 1,
-            "districtName": "Guntur",
-            "totalCases": 50,
-            "totalDeaths": 5,
-            "totalRecoveredCases": 40,
-            "activeCases": 15
+            "district_id": 1,
+            "district_name": "Guntur",
+            "total_cases": 50,
+            "total_deaths": 5,
+            "total_recovered_cases": 40,
+            "active_cases": 15
         },
         {
-            "districtId": 2,
-            "districtName": "Ongole",
-            "totalCases": 100,
-            "totalDeaths": 10,
-            "totalRecoveredCases": 80,
-            "activeCases": 10
+            "district_id": 2,
+            "district_name": "Ongole",
+            "total_cases": 100,
+            "total_deaths": 10,
+            "total_recovered_cases": 80,
+            "active_cases": 10
         },
         {
-            "districtId": 3,
-            "districtName": "Vizag",
-            "totalCases": 200,
-            "totalDeaths": 20,
-            "totalRecoveredCases": 150,
-            "activeCases": 28
+            "district_id": 3,
+            "district_name": "Vizag",
+            "total_cases": 200,
+            "total_deaths": 20,
+            "total_recovered_cases": 150,
+            "active_cases": 28
         },
         {
-            "districtId": 4,
-            "districtName": "Krishna",
-            "totalCases": 120,
-            "totalDeaths": 20,
-            "totalRecoveredCases": 130,
-            "activeCases": 27
+            "district_id": 4,
+            "district_name": "Krishna",
+            "total_cases": 120,
+            "total_deaths": 20,
+            "total_recovered_cases": 130,
+            "active_cases": 27
         },
         {
-            "districtId": 5,
-            "districtName": "West Godavari",
-            "totalCases": 10,
-            "totalDeaths": 20,
-            "totalRecoveredCases": 150,
-            "activeCases": 24
+            "district_id": 5,
+            "district_name": "West Godavari",
+            "total_cases": 10,
+            "total_deaths": 20,
+            "total_recovered_cases": 150,
+            "active_cases": 24
         },
         {
-            "districtId": 6,
-            "districtName": "Srikakulam",
-            "totalCases": 50,
-            "totalDeaths": 20,
-            "totalRecoveredCases": 10,
-            "activeCases": 20
+            "district_id": 6,
+            "district_name": "Srikakulam",
+            "total_cases": 50,
+            "total_deaths": 20,
+            "total_recovered_cases": 10,
+            "active_cases": 20
         },
         {
-            "districtId": 7,
-            "districtName": "East Godavari",
-            "totalCases": 20,
-            "totalDeaths": 20,
-            "totalRecoveredCases": 15,
-            "activeCases": 5
+            "district_id": 7,
+            "district_name": "East Godavari",
+            "total_cases": 20,
+            "total_deaths": 20,
+            "total_recovered_cases": 15,
+            "active_cases": 5
         },
         {
-            "districtId": 8,
-            "districtName": "Vijayanagaram",
-            "totalCases": 205,
-            "totalDeaths": 20,
-            "totalRecoveredCases": 150,
-            "activeCases": 20
+            "district_id": 8,
+            "district_name": "Vijayanagaram",
+            "total_cases": 205,
+            "total_deaths": 20,
+            "total_recovered_cases": 150,
+            "active_cases": 20
         },
         {
-            "districtId": 9,
-            "districtName": "Nellore",
-            "totalCases": 150,
-            "totalDeaths": 20,
-            "totalRecoveredCases": 130,
-            "activeCases": 15
+            "district_id": 9,
+            "district_name": "Nellore",
+            "total_cases": 150,
+            "total_deaths": 20,
+            "total_recovered_cases": 130,
+            "active_cases": 15
         },
         {
-            "districtId": 10,
-            "districtName": "Kadapa",
-            "totalCases": 140,
-            "totalDeaths": 20,
-            "totalRecoveredCases": 110,
-            "activeCases": 10
+            "district_id": 10,
+            "district_name": "Kadapa",
+            "total_cases": 140,
+            "total_deaths": 20,
+            "total_recovered_cases": 110,
+            "active_cases": 10
         },
         {
-            "districtId": 11,
-            "districtName": "Ananthapuram",
-            "totalCases": 100,
-            "totalDeaths": 20,
-            "totalRecoveredCases": 70,
-            "activeCases": 10
+            "district_id": 11,
+            "district_name": "Ananthapuram",
+            "total_cases": 100,
+            "total_deaths": 20,
+            "total_recovered_cases": 70,
+            "active_cases": 10
         },
         {
-            "districtId": 12,
-            "districtName": "Chittor",
-            "totalCases": 400,
-            "totalDeaths": 20,
-            "totalRecoveredCases": 350,
-            "activeCases": 30
+            "district_id": 12,
+            "district_name": "Chittor",
+            "total_cases": 400,
+            "total_deaths": 20,
+            "total_recovered_cases": 350,
+            "active_cases": 30
         }
     ],
-    "totalCases": 1814,
-    "totalDeaths": 207,
-    "totalRecoveredCases": 1391,
-    "activeCases": 216
+    "total_cases": 1814,
+    "total_deaths": 207,
+    "total_recovered_cases": 1391,
+    "active_cases": 216
 }

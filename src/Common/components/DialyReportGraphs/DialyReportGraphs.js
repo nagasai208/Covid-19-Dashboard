@@ -4,7 +4,7 @@ import {
 } from 'recharts';
 
 import { observer } from "mobx-react";
-import { observable } from 'mobx';
+import { observable, toJS } from 'mobx';
 import withScreenSizeDetectors from '../../hoc/withScreenSizeDetectors/withScreenSizeDetectors';
 @observer
 class DialyReportGraphs extends PureComponent {
@@ -32,7 +32,7 @@ class DialyReportGraphs extends PureComponent {
             <BarChart
                 width={this.width}
                 height={200}
-                data={dailyReport.daily_cases}
+                data={dailyReport}
                 margin={{
                     top: 5, right: 30, left: 20, bottom: 5,
                 }}

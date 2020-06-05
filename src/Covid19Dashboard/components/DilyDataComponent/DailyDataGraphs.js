@@ -3,6 +3,7 @@ import { observer } from "mobx-react"
 import DialyReportGraphs from "../../../Common/components/DialyReportGraphs/DialyReportGraphs";
 import strings from '../../i18n/strings.json';
 import { DailyDataGraphsDiv, GraphsHeading} from './styledComponents';
+import { toJS } from "mobx";
 
 @observer
 class DailyDataGraphs extends Component {

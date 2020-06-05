@@ -9,19 +9,19 @@ class ReactTableData extends React.Component {
         super();
     }
     render() {
-        const { tableData } = this.props;
+        const { tableData, name, nameType } = this.props;
         return (
             <div className={'text-white text-center bg-gray-800 '}>
                 <ReactTable
                     data={tableData}
                     showPagination={false}
-                    defaultPageSize={tableData.length}
+                    defaultPageSize={10}
                     columns={[
                         {
                             columns: [
                                 {
-                                    Header: 'DistrictName',
-                                    accessor: 'district_name',
+                                    Header: `${nameType}`,
+                                    accessor: `${name}`,
                                     style: {
                                         padding: "10px"
                                     },

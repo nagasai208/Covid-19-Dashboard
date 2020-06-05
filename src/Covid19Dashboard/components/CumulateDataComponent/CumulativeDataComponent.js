@@ -20,7 +20,7 @@ class CumulativeDataComponent extends Component {
                 </CumulativeDataGraphsDiv>
                 <CumulativeDataGraphsDiv>
                     <GraphsHeading>{strings.cumulativeConfirmCases}</GraphsHeading>
-                    {
+                    {cumulativeReport!== undefined &&
 
                         <CumulativeAllDistrictGraph cumulativeReport={cumulativeTotalReport} />
     

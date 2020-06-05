@@ -24,11 +24,9 @@ class DashBoardRoute extends React.Component {
         this.props.covid19StateStore.stateWidedDailyReport()
         this.props.covid19StateStore.stateWideCumulativeReport();
         this.props.covid19StateStore.stateWidedDailyCumulativeReport()
+         this.props.covid19StateStore.districtWideDataAnalysis()
         await this.props.covid19StateStore.stateWidReport()
-
-        // this.props.covid19StateStore.districtWideCumulativeReport()
-        //this.props.covid19StateStore.districtWideDailyCumulativeReport()
-        //this.props.covid19StateStore.districtWideDailyReport()
+        
 
     }
     onClickSignOut = () => {
@@ -46,9 +44,14 @@ class DashBoardRoute extends React.Component {
     }
 
     @action.bound
-    onClickZOnalDasboard() {
-        this.props.covid19StateStore.stateWidReport()
+    async onClickZOnalDasboard() {
+        this.props.covid19StateStore.regionType = '';
+        this.props.covid19StateStore.districtName = '';
         this.districtAnalysis = true;
+        await this.props.covid19StateStore.stateWidReport()
+        this.props.covid19StateStore.stateWidedDailyReport()
+        this.props.covid19StateStore.stateWideCumulativeReport();
+        this.props.covid19StateStore.stateWidedDailyCumulativeReport()
     }
     @action.bound
     onClickDistrictWiseAnalysis() {

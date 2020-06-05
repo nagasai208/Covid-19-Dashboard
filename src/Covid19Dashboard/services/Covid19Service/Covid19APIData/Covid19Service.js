@@ -1,11 +1,10 @@
 import { create } from "apisauce";
 import { apiMethods } from "../../../constants/APIConstants";
-import { baseUrl } from '../../baseUrl';
-import { compareAsc, format } from 'date-fns';
+import { format } from 'date-fns';
 import { networkCallWithApisauce } from "../../../../Authentication/utils/APIUtils";
 import { getAuthorizationHeaders } from "@ib/api";
 import { getAccessToken } from "../../../../Authentication/utils/StorageUtils";
-
+import { baseUrl } from "../../../../Common/service/baseUrl";
 class Covid19Service {
     api
     constructor() {
@@ -46,26 +45,36 @@ class Covid19Service {
             apiMethods.get
         )
     }
-    getDistrictWideCumulativeAPI() {
+
+    getDistrictWideAPI(date, id) {
         return networkCallWithApisauce(
             this.api,
-            'v1/products',
+            `/state/districts/${id}/cumulative/v1?till_date=${format((date), 'yyyy-MM-dd')}`,
             {},
             apiMethods.get
         )
     }
-    getDistrictWideDailyCumulativeAPI() {
+
+    getDistrictWideCumulativeAPI(id) {
         return networkCallWithApisauce(
             this.api,
-            'v1/products',
+            `/state/districts/${id}/daily_cumulative/v1`,
             {},
             apiMethods.get
         )
     }
-    getDistrictWideDailyAPI() {
+    getDistrictWideDailyCumulativeAPI(id) {
         return networkCallWithApisauce(
             this.api,
-            'v1/products',
+            `/state/districts/${id}/mandals/daily_cumulative/v1`,
+            {},
+            apiMethods.get
+        )
+    }
+    getDistrictWideDailyAPI(id) {
+        return networkCallWithApisauce(
+            this.api,
+            `/state/districts/${id}/daily_cases/v1/`,
             {},
             apiMethods.get
         )

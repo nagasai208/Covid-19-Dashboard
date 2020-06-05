@@ -6,10 +6,10 @@ import DatePickerComponent from "../DatePicker";
 @observer
 class HeaderComponent extends Component {
     render() {
-        const { onClickDaily, onClickCumulative, stateTotalData, onChangeDate, dailyDataGraphs, cumulativeGraphs } = this.props;
+        const { onClickDaily, onClickCumulative, onChangeDate, dailyDataGraphs, cumulativeGraphs, districtName } = this.props;
         return (
             <HeadeMainDiv>
-                <StateName>{stateTotalData.state_name}</StateName>
+                <StateName>{strings.stateName}/{districtName}</StateName>
                 <Date><DateHeading>{strings.date}:</DateHeading> <DatePickerComponent onChangeDate={onChangeDate} /></Date>
                 <CasesButton>
                     <ButtonCumulative color={cumulativeGraphs} onClick={onClickCumulative}> {strings.cumulative} </ButtonCumulative>

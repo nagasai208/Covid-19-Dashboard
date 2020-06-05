@@ -27,7 +27,7 @@ class ConfirmedCasesGraph extends PureComponent {
 
     render() {
         window.onresize = this.displayType;
-        const { positiveCasesGraph } = this.props;
+        const { positiveCasesGraph,name } = this.props;
         return (
             <ComposedChart
                 layout="vertical"
@@ -40,7 +40,8 @@ class ConfirmedCasesGraph extends PureComponent {
             >
                 <CartesianGrid stroke="#f5f5f5" />
                 <XAxis type="number" />
-                <YAxis dataKey="district_name" type="category" />
+                    <YAxis dataKey={name} type="category" />
+               
                 <Tooltip />
                 <Legend />
                 <Bar dataKey="active_cases" name="positive" barSize={20} fill="#f56565" />

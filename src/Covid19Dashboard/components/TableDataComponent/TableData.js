@@ -6,10 +6,14 @@ import { TableMainDiv } from './styledComponents';
 class TableData extends Component {
    
     render() {
-        const { totalDistictsData } = this.props.covid19StateStore;
+        const { totalDistictsData, totalMandals, regionType } = this.props.covid19StateStore;
         return (
             <TableMainDiv>
-                <ReactTableData tableData={totalDistictsData}  />
+                {regionType === 'mandals' ? <ReactTableData tableData={totalMandals} name='mandal_name' nameType="Mandal Name" />:
+                   
+                    <ReactTableData tableData={totalDistictsData} name= 'district_name' nameType="District Name"/> 
+                }
+                
             </TableMainDiv>
         )
     }
