@@ -8,14 +8,14 @@ import { toJS } from "mobx";
 class TotalCases extends Component {
     render() {
         const { stateTotalData, dailyReport, dailyDataGraphs, districtName } = this.props;
-        if (dailyDataGraphs && districtName==='')
+        if (dailyDataGraphs)
         {
             return (
                 < TotalCasesMainDiv >
-                    <ConfirmedCases>{strings.confirmed}<CasesCount>{dailyReport[0].total_cases}</CasesCount></ConfirmedCases>
-                    <ActiveCases>{strings.active}<CasesCount>{dailyReport[0].active_cases}</CasesCount></ActiveCases>
-                    <RecoveredCases>{strings.recovered}<CasesCount>{dailyReport[0].total_recovered_cases}</CasesCount></RecoveredCases>
-                    <Deaths>{strings.deaths}<CasesCount>{dailyReport[0].total_deaths}</CasesCount></Deaths>
+                    <ConfirmedCases>{strings.confirmed}<CasesCount>{stateTotalData.totalCases}</CasesCount></ConfirmedCases>
+                    <ActiveCases>{strings.active}<CasesCount>{stateTotalData.totalCases}</CasesCount></ActiveCases>
+                    <RecoveredCases>{strings.recovered}<CasesCount>{stateTotalData.totalRecoveredCases}</CasesCount></RecoveredCases>
+                    <Deaths>{strings.deaths}<CasesCount>{stateTotalData.totalDeaths}</CasesCount></Deaths>
                 </TotalCasesMainDiv >
 
             )
@@ -23,13 +23,13 @@ class TotalCases extends Component {
         else {
             return (
                 < TotalCasesMainDiv >
-                    <ConfirmedCases>{strings.confirmed}<CasesCount>{stateTotalData.total_cases}</CasesCount></ConfirmedCases>
-                    <ActiveCases>{strings.active}<CasesCount>{stateTotalData.active_cases}</CasesCount></ActiveCases>
-                    <RecoveredCases>{strings.recovered}<CasesCount>{stateTotalData.total_recovered_cases}</CasesCount></RecoveredCases>
-                    <Deaths>{strings.deaths}<CasesCount>{stateTotalData.total_deaths}</CasesCount></Deaths>
+                    <ConfirmedCases>{strings.confirmed}<CasesCount>{stateTotalData.totalCases}</CasesCount></ConfirmedCases>
+                    <ActiveCases>{strings.active}<CasesCount>{stateTotalData.activeCases}</CasesCount></ActiveCases>
+                    <RecoveredCases>{strings.recovered}<CasesCount>{stateTotalData.totalRecoveredCases}</CasesCount></RecoveredCases>
+                    <Deaths>{strings.deaths}<CasesCount>{stateTotalData.totalDeaths}</CasesCount></Deaths>
                 </TotalCasesMainDiv >
             )
-        }
+         }
         
     }
 }

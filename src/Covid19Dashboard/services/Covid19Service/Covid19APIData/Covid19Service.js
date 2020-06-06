@@ -45,6 +45,14 @@ class Covid19Service {
             apiMethods.get
         )
     }
+    getStateDailyReport(date) {
+        return networkCallWithApisauce(
+            this.api,
+            `/state/v1/?date=${format((date), 'yyyy-MM-dd')}`,
+            {},
+            apiMethods.get
+        )
+    }
 
     getDistrictWideAPI(date, id) {
         return networkCallWithApisauce(
@@ -74,7 +82,15 @@ class Covid19Service {
     getDistrictWideDailyAPI(id) {
         return networkCallWithApisauce(
             this.api,
-            `/state/districts/${id}/daily_cases/v1/`,
+            `/state/districts/${id}/daily_cumulative/v1`,
+            {},
+            apiMethods.get
+        )
+    }
+    getDistrictDailyAPI(id, date) {
+        return networkCallWithApisauce(
+            this.api,
+            `/state/districts/${id}/v1?date=${format((date), 'yyyy-MM-dd')}`,
             {},
             apiMethods.get
         )

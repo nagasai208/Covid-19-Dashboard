@@ -1,2 +1,3 @@
-export const baseUrl = 'https://501f42dfbdd2.ngrok.io/api/covid_dashboard';
+export const baseUrl = 'https://31046c14f261.ngrok.io/api/covid_dashboard';
 
+    

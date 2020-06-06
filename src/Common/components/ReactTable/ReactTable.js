@@ -9,7 +9,7 @@ class ReactTableData extends React.Component {
         super();
     }
     render() {
-        const { tableData, name, nameType } = this.props;
+        const { tableData, name, nameType, active } = this.props;
         return (
             <div className={'text-white text-center bg-gray-800 '}>
                 <ReactTable
@@ -31,22 +31,22 @@ class ReactTableData extends React.Component {
                                 },
                                 {
                                     Header: "Confirmed",
-                                    accessor: "total_cases"
+                                    accessor: "totalCases"
 
                                 },
                                 {
                                     Header: "Active",
-                                    accessor: "active_cases"
+                                    accessor: `${active}`
 
                                 },
                                 {
                                     Header: "Recorved",
-                                    accessor: "total_recovered_cases"
+                                    accessor: "totalRecoveredCases"
 
                                 },
                                 {
                                     Header: "Deaths",
-                                    accessor: "total_deaths"
+                                    accessor: "totalDeaths"
                                 }
                             ],
 

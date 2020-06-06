@@ -25,7 +25,8 @@ class Covid19StateStore {
     @observable currentDate;
     @observable regionType;
     @observable districtName;
-    @observable districtId
+    @observable districtId;
+    @observable daily;
 
     constructor(covid19Service) {
         this.covid19Service = covid19Service;
@@ -62,6 +63,7 @@ class Covid19StateStore {
         this.regionType = '';
         this.districtName = '';
         this.districtId = 0;
+        this.daily = 'false';
     }
 
     clearStore() {
@@ -72,7 +74,9 @@ class Covid19StateStore {
 
     @action.bound
     setGetStatewideReport(response) {
-        this.stateTotalReport = response;
+        let data = keysToCamel(response)
+        this.stateTotalReport = data;
+
     }
     @action.bound
     setGetCovid19StateAPIStatus(status) {
@@ -87,7 +91,8 @@ class Covid19StateStore {
 
     @action.bound
     setGetStateWideDailyCumulativeReportResponse(response) {
-        this.cumulativeReport = response;
+        let data = keysToCamel(response)
+        this.cumulativeReport = data;
     }
     @action.bound
     setGetStateWideDailyCumulativeReportStatus(status) {
@@ -100,10 +105,10 @@ class Covid19StateStore {
 
     }
 
-
     @action.bound
     setGetStateWideCumulativeResponse(response) {
-        this.cumulativeTotalReport = response;
+        let data = keysToCamel(response)
+        this.cumulativeTotalReport = data;
     }
 
     @action.bound
@@ -115,11 +120,10 @@ class Covid19StateStore {
     setGetStateWideCumulativeAPIError(error) {
         this.getCovid19DistrictWiseAnalysisAPIError = error
     }
-
-
     @action.bound
     setGetStatewideDailyReport(response) {
-        this.dailyReport = response;
+        let data = keysToCamel(response)
+        this.dailyReport = data;
     }
     @action.bound
     setGetCovid19StateDailyAPIStatus(status) {
@@ -131,10 +135,25 @@ class Covid19StateStore {
         this.getCovid19StateDailyAPIError = error
 
     }
+    @action.bound
+    setGetStateDailyReportResponse(response) {
+        let data = keysToCamel(response)
+        this.stateTotalReport =data;
+    }
+    @action.bound
+    setGetDailyAPIStatus(status) {
+        this.getCovid19StateDailyAPIStatus = status;
+    }
 
     @action.bound
+    setGetStateDailyAPIError(error) {
+        this.getCovid19StateDailyAPIError = error
+
+    }
+    @action.bound
     setGetDistrictwideReportResponse(response) {
-        this.stateTotalReport = response;
+        let data = keysToCamel(response)
+        this.stateTotalReport = data;
     }
     @action.bound
     setGetDistrictAPIStatus(status) {
@@ -146,12 +165,10 @@ class Covid19StateStore {
         this.getCovid19StateAPIError = error;
 
     }
-
-
     @action.bound
     setGetDistrictwideCumulativeReportResponse(response) {
-       
-        this.cumulativeReport = response;
+        let data = keysToCamel(response)
+        this.cumulativeReport = data;
     }
 
     @action.bound
@@ -162,13 +179,12 @@ class Covid19StateStore {
     @action.bound
     setGetCovid19DistrictCumulativeAPIError(error) {
         this.getCovid19DistrictCumulativeAPIError = error
-
     }
-
 
     @action.bound
     setGetDistrictDailywideCumulativeReportResponse(response) {
-        this.dailyReport = response;
+        let data = keysToCamel(response)
+        this.cumulativeTotalReport = data;
     }
     @action.bound
     setGetDistrictDailyCumulativeAPIStatus(status) {
@@ -183,7 +199,8 @@ class Covid19StateStore {
 
     @action.bound
     setGetDistrictwideDailyReportResponse(response) {
-        this.dailyReport = response;
+        let data = keysToCamel(response)
+        this.dailyReport = data;
     }
     @action.bound
     setGetCovid19DistrictDailyAPIStatus(status) {
@@ -195,9 +212,27 @@ class Covid19StateStore {
         this.getCovid19DistrictDailyAPIError = error
 
     }
+
+    @action.bound
+    setGetDistrictDailyReportResponse(response) {
+        let data = keysToCamel(response)
+        this.stateTotalReport = data;
+    }
+    @action.bound
+    setGetDistrictDailyAPIStatus(status) {
+        this.getCovid19DistrictDailyAPIStatus = status;
+    }
+
+    @action.bound
+    setGetDistrictDailyAPIError(error) {
+        this.getCovid19DistrictDailyAPIError = error;
+
+    }
+
     @action.bound
     setGetCovid19APIResponseZonalWiseDistrictDataAnalysis(response) {
-        this.districtWiseAnalysis = response;
+        let data = keysToCamel(response)
+        this.districtWiseAnalysis = data;
     }
     @action.bound
     setGetCovid19DistrictWiseAnalysisAPIStatus(status) {
@@ -208,6 +243,9 @@ class Covid19StateStore {
     setGetCovid19DistrictAnalysisAPIError(error) {
         this.getCovid19DistrictWiseAnalysisAPIError = error
     }
+
+
+
     @computed
     get totalDistictsData() {
         return this.stateTotalReport.districts;
@@ -229,26 +267,39 @@ class Covid19StateStore {
     onClickDistrict(id, name) {
         this.districtId = id;
         this.districtName = name;
+        this.regionType = 'mandals';
+
         this.districtWidReport(id);
         this.districtWideCumulativeReport(id)
         this.districtWideDailyReport(id)
         this.districtWideDailyCumulativeReport(id);
         this.districtWideDataAnalysis()
         this.regionType = 'mandals';
+
+
     }
 
     @action.bound
     onChangeDate(date) {
+        this.currentDate = date;
         if (this.districtName === '') {
-            this.currentDate = date;
-            this.districtName = '';
-            this.regionType = '';
-            this.stateWidedDailyCumulativeReport()
-            this.stateWideCumulativeReport()
-            this.stateWidedDailyReport();
-            this.districtWideDataAnalysis();
-            this.stateWidReport();  
+            if (this.daily) {
+                this.stateWidedDailyCumulativeReport()
+                this.stateWideCumulativeReport()
+                this.stateWidedDailyReport();
+                this.districtWideDataAnalysis();
+                this.stateDailyReport();
+            }
+            else {
+                this.stateWidedDailyCumulativeReport()
+                this.stateWideCumulativeReport()
+                this.stateWidedDailyReport();
+                this.districtWideDataAnalysis();
+                this.stateWidReport();
+            }
+
         }
+
         else {
             this.districtWidReport(this.districtId);
             this.districtWideCumulativeReport(this.districtId)
@@ -257,7 +308,7 @@ class Covid19StateStore {
             this.districtWideDataAnalysis(this.districtId)
             this.regionType = 'mandals';
         }
-        
+
 
     }
     @action.bound
@@ -289,6 +340,13 @@ class Covid19StateStore {
         return bindPromiseWithOnSuccess(usersPromise)
             .to(this.setGetCovid19StateDailyAPIStatus, this.setGetStatewideDailyReport)
             .catch(this.setGetCovid19StateDailyAPIError)
+    }
+
+    stateDailyReport() {
+        const usersPromise = this.covid19Service.getStateDailyReport(this.currentDate)
+        return bindPromiseWithOnSuccess(usersPromise)
+            .to(this.setGetDailyAPIStatus, this.setGetStateDailyReportResponse)
+            .catch(this.setGetStateDailyAPIError)
     }
 
 
@@ -335,6 +393,14 @@ class Covid19StateStore {
             .catch(this.setGetCovid19DistrictDailyAPIError)
     }
 
+    @action.bound
+    districtDailyReport(id) {
+        const usersPromise = this.covid19Service.getDistrictDailyAPI(id, this.currentDate)
+        return bindPromiseWithOnSuccess(usersPromise)
+            .to(this.setGetDistrictDailyAPIStatus, this.setGetDistrictDailyReportResponse)
+            .catch(this.setGetDistrictDailyAPIError)
+    }
+
 
 
 
@@ -343,3 +409,40 @@ class Covid19StateStore {
 export {
     Covid19StateStore
 }
+
+
+
+const toCamel = (changeCase) => {
+    return changeCase.replace(/([-_][a-z])/ig, ($1) => {
+        return $1.toUpperCase()
+            .replace('-', '')
+            .replace('_', '');
+    });
+};
+
+const isArray = function (data) {
+    return Array.isArray(data);
+};
+
+const isObject = function (value) {
+    return value === Object(value) && !isArray(value) && typeof value !== 'function';
+};
+
+const keysToCamel = function (object) {
+    if (isObject(object)) {
+        const mainData = {};
+
+        Object.keys(object)
+            .forEach((eachValue) => {
+                mainData[toCamel(eachValue)] = keysToCamel(object[eachValue]);
+            });
+
+        return mainData;
+    } else if (isArray(object)) {
+        return object.map((eachData) => {
+            return keysToCamel(eachData);
+        });
+    }
+
+    return object;
+};

@@ -11,8 +11,8 @@ class ConfirmedCasesGraphComponent extends Component {
             <ConfirmedCasesDiv>
                 <GraphHeading>{strings.distictWiseReport}</GraphHeading>
                 {
-                    regionType === 'mandals' ? <ConfirmedCasesGraph positiveCasesGraph={sortedDistrictGraph} name='mandal_name' />:
-                        <ConfirmedCasesGraph positiveCasesGraph={sortedDistrictGraph} name='district_name' />
+                    regionType === 'mandals' ? <ConfirmedCasesGraph positiveCasesGraph={sortedDistrictGraph} name='mandalName' />:
+                        <ConfirmedCasesGraph positiveCasesGraph={sortedDistrictGraph} name='districtName' />
                 }
                     
             </ConfirmedCasesDiv>

@@ -1,27 +1,26 @@
 {
-    "xAxixsKey":"date",
-    "district_name":[
+    "xAxixsKey": "date",
+    "district_name": [
         "Kurnool",
         "Nellore",
         "Ananthapuram"
     ],
-
-    "Each_Day_cases":[
+    "Each_Day_cases": [
         {
-        "date":"20-may",
-        "Kadapa":0,
-        "Kurnool":21,
-        "guntur":40,
-        "krishna":29,
-        "vizag":20,
-        "vijayanagaram":80,
-        "srikakulam":0,
-        "eastgodavari":100,
-        "westgodavari":0,
-        "Nellore":63,
-        "chittoor":0,
-        "ongale":76,
-        "Ananthapuram":53
+            "date": "20-may",
+            "Kadapa": 0,
+            "Kurnool": 21,
+            "guntur": 40,
+            "krishna": 29,
+            "vizag": 20,
+            "vijayanagaram": 80,
+            "srikakulam": 0,
+            "eastgodavari": 100,
+            "westgodavari": 0,
+            "Nellore": 63,
+            "chittoor": 0,
+            "ongale": 76,
+            "Ananthapuram": 53
         },
         {
             "date": "21-may",
@@ -103,7 +102,5 @@
             "ongale": 6,
             "Ananthapuram": 20
         }
-
-
     ]
 }

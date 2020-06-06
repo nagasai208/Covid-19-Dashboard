@@ -29,29 +29,62 @@ class DashBoardRoute extends React.Component {
         
 
     }
+
     onClickSignOut = () => {
         this.props.authenticationStore.signOut();
     }
+
+    @action.bound
+    onClickDistrict() {
+        this.cumulativeGraphs = true;
+        this.dailyDataGraphs = false;
+        this.props.covid19StateStore.daily = false;
+        }
     @action.bound
     onClickDaily() {
         this.dailyDataGraphs = true;
         this.cumulativeGraphs = false;
+        this.props.covid19StateStore.daily = true;
+        if (this.props.covid19StateStore.districtName === '') {
+            this.props.covid19StateStore.stateDailyReport()
+        }
+        else {
+            let id = this.props.covid19StateStore.districtId;
+            this.props.covid19StateStore.districtDailyReport(id)
+        }
     }
     @action.bound
-    onClickCumulative() {
+    async onClickCumulative() {
         this.cumulativeGraphs = true;
         this.dailyDataGraphs = false;
+        this.props.covid19StateStore.daily = false;
+       
+        if (this.props.covid19StateStore.districtName === '') {
+            
+            this.props.covid19StateStore.stateWidReport()
+        }
+        else {
+            let id = this.props.covid19StateStore.districtId;
+            await this.props.covid19StateStore.districtWidReport(id)
+        }
     }
 
     @action.bound
     async onClickZOnalDasboard() {
-        this.props.covid19StateStore.regionType = '';
         this.props.covid19StateStore.districtName = '';
         this.districtAnalysis = true;
-        await this.props.covid19StateStore.stateWidReport()
+        this.dailyDataGraphs = false;
+        this.cumulativeGraphs = true;
+        this.props.covid19StateStore.daily = false;
+        if (this.dailyDataGraphs) {
+            this.props.covid19StateStore.stateDailyReport()
+        }
+        else {
+         this.props.covid19StateStore.stateWidReport()
+        }
+        
         this.props.covid19StateStore.stateWidedDailyReport()
-        this.props.covid19StateStore.stateWideCumulativeReport();
-        this.props.covid19StateStore.stateWidedDailyCumulativeReport()
+        this.props.covid19StateStore.regionType = '';
     }
     @action.bound
     onClickDistrictWiseAnalysis() {
@@ -84,7 +117,7 @@ class DashBoardRoute extends React.Component {
                 onClickZOnalDasboard={this.onClickZOnalDasboard} districtAnalysis={this.districtAnalysis}
                 covid19StateStore={covid19StateStore} doNetworkCalls={this.doNetworkCalls} onClickConfirmed={this.onClickConfirmed}
                 onClickActive={this.onClickActive} onClickRecovered={this.onClickRecovered} onClickDeaths={this.onClickDeaths}
-                onClickColor={this.onClickColor}
+                onClickColor={this.onClickColor} onClickDistrict={this.onClickDistrict}
             />
         )
     }

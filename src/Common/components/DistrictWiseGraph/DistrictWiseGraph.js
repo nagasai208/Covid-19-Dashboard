@@ -33,7 +33,7 @@ class DistrictWiseGraph extends PureComponent {
                 <LineChart
                     width={this.width}
                     height={200}
-                    data={toJS(data.daily_cumulative)}
+                    data={toJS(data.dailyCumulative)}
                     margin={{
                         top: 10, right: 30, left: 0, bottom: 0,
                     }}
@@ -42,7 +42,7 @@ class DistrictWiseGraph extends PureComponent {
                     <XAxis dataKey="date" />
                     /<YAxis />/
                     <Tooltip />
-                    <Line connectNulls type="monotone" name={data.district_name} dataKey="total_cases" stroke="#8884d8" fill="#8884d8" />
+                    <Line connectNulls type="monotone" name={data.district_name} dataKey="totalCases" stroke="#8884d8" fill="#8884d8" />
                 </LineChart>
             </div>
                 

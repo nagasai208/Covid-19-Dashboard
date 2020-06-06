@@ -32,7 +32,7 @@ class Covid19DashBoard extends React.Component {
     renderList = observer(() => {
         const { dailyDataGraphs, onClickDaily, onClickCumulative, cumulativeGraphs,
             districtAnalysis, covid19StateStore, onClickDeaths, onClickRecovered,
-            onClickActive, onClickConfirmed, onClickColor } = this.props;
+            onClickActive, onClickConfirmed, onClickColor, onClickDistrict } = this.props;
         return districtAnalysis === true ?
             <HomePageDataZonalDashboard>
                 <TotalDataDiv>
@@ -55,8 +55,8 @@ class Covid19DashBoard extends React.Component {
                             </OnclickCasesDiv>
                             <MapMainDiv>
                                 {
-                                    covid19StateStore.regionType !== 'mandals' &&
-                                    <MapComponent covid19StateStore={covid19StateStore} />
+                                    //covid19StateStore.regionType !== 'mandals' &&
+                                    <MapComponent covid19StateStore={covid19StateStore} onClickDistrict={onClickDistrict} />
                                 }
                                
                             </MapMainDiv>
@@ -76,7 +76,7 @@ class Covid19DashBoard extends React.Component {
                 </MapsAadGraphTotalDiv>
                 <FooterData>
                     <TableDiv>
-                        <TableData key={Math.random()} covid19StateStore={covid19StateStore} />
+                        <TableData key={Math.random()} covid19StateStore={covid19StateStore} dailyDataGraphs={dailyDataGraphs} />
                     </TableDiv>
                     <PositiveGraphsDiv>
                         <ConfirmedCasesGraphComponent key={Math.random()} covid19StateStore={covid19StateStore} />

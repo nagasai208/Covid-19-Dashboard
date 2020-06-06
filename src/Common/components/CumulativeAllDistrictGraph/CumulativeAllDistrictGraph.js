@@ -56,7 +56,7 @@ export default class CumulativeAllDistrictGraph extends PureComponent {
                     {
                         cumulativeReport.districts !== undefined &&
                         cumulativeReport.districts.map(item => {
-                            return < Line type="monotone" name={item.district_name} dataKey={item.district_name} stroke="#ff6366" />
+                            return < Line type="monotone" name={item.districtName} dataKey={item.districtName} stroke="#ff6366" />
 
                         })
                     }

@@ -7,14 +7,22 @@ import { toJS } from "mobx";
 
 @observer
 class DailyDataGraphs extends Component {
+    dialyCasses
     render() {
-        const { dailyReport } = this.props.covid19StateStore;
+        const { dailyReport, districtName } = this.props.covid19StateStore;
+        if (districtName === '')
+        {
+            this.dialyCasses = dailyReport;
+        }
+        else {
+            this.dialyCasses = dailyReport.dailyCumulative;
+        }
         return (
             <div>
                 <DailyDataGraphsDiv>
                     <GraphsHeading>{strings.dailyConfirmedCases}</GraphsHeading>
                     {
-                        <DialyReportGraphs dailyReport={dailyReport} casesType="active_cases" color={"#e03131"}/>
+                        <DialyReportGraphs dailyReport={this.dialyCasses} casesType="activeCases" color={"#e03131"}/>
 
                     }
                     
@@ -23,14 +31,14 @@ class DailyDataGraphs extends Component {
                 <DailyDataGraphsDiv>
                     <GraphsHeading>{strings.dailyRecoveredCases}</GraphsHeading>
                     {
-                        <DialyReportGraphs dailyReport={dailyReport} casesType="total_recovered_cases" color={"rgb(47, 158, 68)"}/>
+                        <DialyReportGraphs dailyReport={this.dialyCasses} casesType="totalRecoveredCases" color={"rgb(47, 158, 68)"}/>
 
                     }
                 </DailyDataGraphsDiv>
                 <DailyDataGraphsDiv>
                     <GraphsHeading>{strings.dailyDeaths}</GraphsHeading>
                     {
-                        <DialyReportGraphs dailyReport={dailyReport} casesType="total_deaths" color={"#e67700"} />
+                        <DialyReportGraphs dailyReport={this.dialyCasses} casesType="totalDeaths" color={"#e67700"} />
 
                     }
                 </DailyDataGraphsDiv>

@@ -13,7 +13,7 @@ class DistrictWiseGraphComponent extends Component {
             return (
                 <DistrictWiseZonalMainDiv>
                     <DistrictWiseZonalDiv>
-                        <p>{`${strings.cumulativeConfirmCases}-${item.district_name}`}</p>
+                        <p>{`${strings.cumulativeConfirmCases}-${item.districtName}`}</p>
                         <DistrictWiseGraph data={item}/>
                     </DistrictWiseZonalDiv>
                 </DistrictWiseZonalMainDiv>)

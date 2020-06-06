@@ -44,7 +44,7 @@ class ConfirmedCasesGraph extends PureComponent {
                
                 <Tooltip />
                 <Legend />
-                <Bar dataKey="active_cases" name="positive" barSize={20} fill="#f56565" />
+                <Bar dataKey="totalCases" name="positive" barSize={20} fill="#f56565" />
             </ComposedChart>
         );
     }
