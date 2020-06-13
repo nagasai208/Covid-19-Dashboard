@@ -60,6 +60,13 @@ class AuthenticationStore {
 
     @action.bound
     setGetUserLogInAPIError(authError) {
+
+        //nooo
+        setAccessToken(1)
+        this.accessToken = getAccessToken()
+
+
+
         let errorMessage = getUserDisplayableErrorMessage(authError);
         if (errorMessage === 'invalid username') {
             this.userNameErrorMessage = errorMessage;

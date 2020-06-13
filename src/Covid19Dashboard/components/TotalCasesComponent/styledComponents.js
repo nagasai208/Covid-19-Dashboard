@@ -2,7 +2,7 @@ import styled from '@emotion/styled';
 import tw from 'tailwind.macro';
 
 const TotalCasesMainDiv = styled.div`
-${tw` flex m-2 justify-center flex-wrap w-full`}`
+${tw` flex m-2 justify-center flex-wrap  `};width:100%`
 
 const ConfirmedCases = styled.div`
 ${tw`w-40  text-white  h-24 flex flex-col items-center justify-center `};

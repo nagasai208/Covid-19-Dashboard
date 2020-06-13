@@ -7,35 +7,6 @@ import { toJS } from "mobx";
 import cumulativeData from '../../../Covid19Dashboard/fixtures/StateWideAllDistrictsDailyCumulativeReport.json'
 @observer
 export default class CumulativeAllDistrictGraph extends PureComponent {
-    // componentDidMount() {
-    //     const { cumulativeReport } = this.props;
-    //     const dates = 10;
-    //     this.districtsNames = [];
-    //     this.values = []
-    //     cumulativeReport.districts.map(item => {
-    //         this.districtsNames.push(item.district_name)
-    //     })
-    //     const dataObj = {
-    //         date: null,
-
-    //     }
-    //     this.districtsNames.map(name => {
-    //         dataObj[name] = null;
-    //     })
-    //     for (let i = 0; i < 10; i++) {
-    //         const graphData = { ...dataObj }
-    //         graphData['date'] = cumulativeReport[0].daily_cumulative[i].date;
-    //         cumulativeReport.map(eachObj => {
-    //             const confirmedCasess = eachObj.daily_cumulative[i].confirmed_casess;
-    //             graphData[eachObj.name = confirmedCasess]
-    //         })
-    //         this.values.push(graphData);
-
-    //     }
-    //     const result = {
-            
-    //     }
-    // }
     render() {
         const { cumulativeReport } = this.props;
         return (

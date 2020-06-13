@@ -7,7 +7,7 @@ import CumulativeAllDistrictGraph from "../../../Common/components/CumulativeAll
 @observer
 class CumulativeDataComponent extends Component {
     render() {
-        const { cumulativeReport, cumulativeTotalReport } = this.props.covid19StateStore;
+        const { cumulativeReport, cumulativeTotalReport, districtName } = this.props.covid19StateStore;
         return (
             <CumulatiGraphMainDiv>
                 <CumulativeDataGraphsDiv>
@@ -20,10 +20,11 @@ class CumulativeDataComponent extends Component {
                 </CumulativeDataGraphsDiv>
                 <CumulativeDataGraphsDiv>
                     <GraphsHeading>{strings.cumulativeConfirmCases}</GraphsHeading>
-                    {cumulativeReport!== undefined &&
-
+                    {
+                        districtName === '' &&
+                        cumulativeReport !== undefined &&
                         <CumulativeAllDistrictGraph cumulativeReport={cumulativeTotalReport} />
-    
+
                     }
                 </CumulativeDataGraphsDiv>
             </CumulatiGraphMainDiv>

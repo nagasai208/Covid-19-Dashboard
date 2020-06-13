@@ -11,21 +11,22 @@ ${tw`flex flex-col justify-around mt-5`};
 width:100%`
 
 const OnclickCasesDiv = styled.div`
-${tw`flex  justify-around mt-5 text-white flex-wrap  h-10`}`
+${tw`flex  justify-around mt-5 text-white flex-wrap  h-10`};
+width:100%`
 
 
 
 const MapAndGarphsDiv = styled.div`
-${tw`flex flex-col flex-wrap`};
-;`;
+${tw`flex flex-col flex-wrap `};width:650px;
+;`
 
 const OnlyGraphs = styled.div`
-${tw`flex flex-col justify-center items-center `};
+${tw`flex flex-col justify-center items-center justify-center`};
 width:45%`;
 
 
 const MapsAadGraphTotalDiv = styled.div`
-${tw`flex w-full flex-wrap  justify-center`};`;
+${tw`flex w-full flex-wrap justify-center`}`;
 
 
 const FooterData = styled.div`
@@ -95,7 +96,8 @@ border-bottom:${props => props.color === 'recovered' ? '2px solid #2f9e44' : ''}
 
 
 const MapMainDiv = styled.div`
-${tw`mt-5`};
+${tw`mt-5 `};
+width:100%;
 `;
 
 export {

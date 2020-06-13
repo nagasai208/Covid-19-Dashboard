@@ -43,6 +43,22 @@ class Covid19ServiceFixturesData {
         })
 
     }
+    getStateDailyReport() {
+        return new Promise(resolve => {
+            setTimeout(() => {
+                resolve(stateWideReport)
+            }, 1000)
+        })
+
+    }
+    getDistrictWideAPI() {
+        return new Promise(resolve => {
+            setTimeout(() => {
+                resolve(stateWideReport)
+            }, 1000)
+        })
+
+    }
     getDistrictWideCumulativeAPI() {
         return new Promise(resolve => {
             setTimeout(() => {
@@ -63,6 +79,14 @@ class Covid19ServiceFixturesData {
         return new Promise(resolve => {
             setTimeout(() => {
                 resolve(districtWideDailyReport)
+            }, 1000)
+        })
+
+    }
+    getDistrictDailyAPI() {
+        return new Promise(resolve => {
+            setTimeout(() => {
+                resolve(stateWideReport)
             }, 1000)
         })
 

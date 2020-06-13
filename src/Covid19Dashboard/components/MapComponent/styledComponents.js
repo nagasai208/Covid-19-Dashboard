@@ -3,7 +3,8 @@ import tw from 'tailwind.macro';
 
 
 const MapMainDiv = styled.div`
-${tw` flex flex-wrap`};`
+${tw` flex flex-wrap border border-white-800`};
+width:100%;`
 
 
 const DistrictButton = styled.button`

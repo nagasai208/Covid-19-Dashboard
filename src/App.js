@@ -1,5 +1,5 @@
 import React from 'react'
-import { BrowserRouter as Router, Switch, Route } from 'react-router-dom'
+import { BrowserRouter as Router, Switch, Route, Redirect } from 'react-router-dom'
 import "./App.css";
 import { Provider } from "mobx-react";
 import stores from './Common/stores'
@@ -14,8 +14,11 @@ class App extends React.Component {
           <Switch>
             {covid19DashboardRoute}
             {dashBoardRoute}
-            <Route path="/">
+            <Route path="/login">
               <LoginPageRoute />
+            </Route>
+            <Route path="/">
+            <Redirect to={'/login'} />  
             </Route>
           </Switch>
         </Router>
