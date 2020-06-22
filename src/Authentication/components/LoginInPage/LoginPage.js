@@ -33,7 +33,7 @@ class LoginPage extends React.Component {
                     <UserNameHeading>{strings.userName}</UserNameHeading>
                     <Input type={strings.typeText} error={this.userNameError}
                         placeholder={strings.userNamePlaceHolder} inputRef={userNameRef}
-                        onChange={onChangeUserName} />
+                        onChange={onChangeUserName} value={this.userName}/>
                     {
                         userNameErrorMessage !== '' ?
                             <ErrorMessage>{userNameErrorMessage}</ErrorMessage> : <ErrorMessage></ErrorMessage>

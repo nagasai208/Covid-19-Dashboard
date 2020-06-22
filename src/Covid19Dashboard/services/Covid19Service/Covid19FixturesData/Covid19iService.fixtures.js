@@ -6,6 +6,7 @@ import allDistrictsAnalysis from '../../../fixtures/districtWiseCasesDataAnalysi
 import districtWideCumulativeReport from '../../../fixtures/districtWideCumulativeData.json';
 import districtWideDailyReport from '../../../fixtures/districtWideDailyData.json';
 import cumulativeDistrictData from '../../../fixtures/covid19AllDistrictsreport.json';
+import districtWideTotalData from '../../../fixtures/districtWideData.json'
 
 class Covid19ServiceFixturesData {
     getStateWideAPI() {
@@ -54,7 +55,7 @@ class Covid19ServiceFixturesData {
     getDistrictWideAPI() {
         return new Promise(resolve => {
             setTimeout(() => {
-                resolve(stateWideReport)
+                resolve(districtWideTotalData)
             }, 1000)
         })
 
@@ -86,12 +87,12 @@ class Covid19ServiceFixturesData {
     getDistrictDailyAPI() {
         return new Promise(resolve => {
             setTimeout(() => {
-                resolve(stateWideReport)
+                resolve(districtWideDailyReport)
             }, 1000)
         })
 
     }
-    
+
     getDistrictsWideAnalysisAPI() {
         return new Promise(resolve => {
             setTimeout(() => {

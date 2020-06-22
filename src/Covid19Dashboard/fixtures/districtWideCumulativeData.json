@@ -1,1 +1,53 @@
-{}
+{
+    "daily_cumulative": [
+        {
+            "date": "2020-06-15",
+            "total_cases": 10,
+            "total_deaths": 2,
+            "total_recovered_cases": 3,
+            "active_cases": 5
+        },
+        {
+            "date": "2020-06-14",
+            "total_cases": 10,
+            "total_deaths": 2,
+            "total_recovered_cases": 3,
+            "active_cases": 5
+        },
+        {
+            "date": "2020-06-13",
+            "total_cases": 10,
+            "total_deaths": 2,
+            "total_recovered_cases": 3,
+            "active_cases": 5
+        },
+        {
+            "date": "2020-06-12",
+            "total_cases": 10,
+            "total_deaths": 2,
+            "total_recovered_cases": 3,
+            "active_cases": 5
+        },
+        {
+            "date": "2020-06-11",
+            "total_cases": 10,
+            "total_deaths": 2,
+            "total_recovered_cases": 3,
+            "active_cases": 5
+        },
+        {
+            "date": "2020-06-10",
+            "total_cases": 10,
+            "total_deaths": 2,
+            "total_recovered_cases": 3,
+            "active_cases": 5
+        },
+        {
+            "date": "2020-06-09",
+            "total_cases": 10,
+            "total_deaths": 2,
+            "total_recovered_cases": 3,
+            "active_cases": 5
+        }
+    ]
+}   

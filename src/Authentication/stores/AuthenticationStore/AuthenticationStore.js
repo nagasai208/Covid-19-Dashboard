@@ -22,8 +22,8 @@ class AuthenticationStore {
     }
     @action.bound
     init() {
-        this.getUserSignInAPIStatus = API_INITIAL;
-        this.getUserSignInAPIError = null;
+        this.getUserLogInAPIStatus = API_INITIAL;
+        this.getUserLogInAPIError = null;
         this.requestObject = []
         this.userName = '';
         this.password = '';
@@ -60,20 +60,16 @@ class AuthenticationStore {
 
     @action.bound
     setGetUserLogInAPIError(authError) {
-
         //nooo
         setAccessToken(1)
         this.accessToken = getAccessToken()
-
-
-
-        let errorMessage = getUserDisplayableErrorMessage(authError);
-        if (errorMessage === 'invalid username') {
-            this.userNameErrorMessage = errorMessage;
-        }
-        else if (errorMessage === 'incorrect password') {
-            this.passwordErrorMessage = errorMessage;
-        }
+        // let errorMessage = getUserDisplayableErrorMessage(authError);
+        // if (errorMessage === 'invalid username') {
+        //     this.userNameErrorMessage = errorMessage;
+        // }
+        // else if (errorMessage === 'incorrect password') {
+        //     this.passwordErrorMessage = errorMessage;
+        // }
         this.getUserLogInAPIError = authError;
 
     }

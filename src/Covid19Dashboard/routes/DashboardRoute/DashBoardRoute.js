@@ -24,9 +24,9 @@ class DashBoardRoute extends React.Component {
         this.props.covid19StateStore.stateWidedDailyReport()
         this.props.covid19StateStore.stateWideCumulativeReport();
         this.props.covid19StateStore.stateWidedDailyCumulativeReport()
-         this.props.covid19StateStore.districtWideDataAnalysis()
+        this.props.covid19StateStore.districtWideDataAnalysis()
         await this.props.covid19StateStore.stateWidReport()
-        
+
 
     }
 
@@ -39,7 +39,7 @@ class DashBoardRoute extends React.Component {
         this.cumulativeGraphs = true;
         this.dailyDataGraphs = false;
         this.props.covid19StateStore.daily = false;
-        }
+    }
     @action.bound
     onClickDaily() {
         this.dailyDataGraphs = true;
@@ -58,9 +58,9 @@ class DashBoardRoute extends React.Component {
         this.cumulativeGraphs = true;
         this.dailyDataGraphs = false;
         this.props.covid19StateStore.daily = false;
-       
+
         if (this.props.covid19StateStore.districtName === '') {
-            
+
             this.props.covid19StateStore.stateWidReport()
         }
         else {
@@ -80,9 +80,9 @@ class DashBoardRoute extends React.Component {
             this.props.covid19StateStore.stateDailyReport()
         }
         else {
-         this.props.covid19StateStore.stateWidReport()
+            this.props.covid19StateStore.stateWidReport()
         }
-        
+
         this.props.covid19StateStore.stateWidedDailyReport()
         this.props.covid19StateStore.regionType = '';
     }
@@ -125,8 +125,8 @@ class DashBoardRoute extends React.Component {
 
 
 
-const covid19DashboardRoute = (
+const Covid19DashboardRoute = (
     <ProtectedRoute exact path='/covid19-dashboard' component={DashBoardRoute} />
 );
 
-export default (covid19DashboardRoute);
+export default Covid19DashboardRoute;

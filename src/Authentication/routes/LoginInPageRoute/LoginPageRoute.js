@@ -51,9 +51,9 @@ class LoginPageRoute extends React.Component {
                     password:this.props.authenticationStore.password
             }
             await this.props.authenticationStore.userLogin(requestObject)
-            if (this.props.authenticationStore.userNameErrorMessage !== '' || this.props.authenticationStore.passwordErrorMessage !=='') {
-                this.clicked = false;
-            }
+            // if (this.props.authenticationStore.userNameErrorMessage !== '' || this.props.authenticationStore.passwordErrorMessage !=='') {
+            //     this.clicked = false;
+            // }
            
         }
         event.preventDefault();

@@ -1,9 +1,5 @@
 import React, { useState } from 'react'
-import ReactMapboxGl, { Layer, Feature, Source, GeoJSONLayer } from 'react-mapbox-gl';
 import { observer, inject } from "mobx-react";
-import bbox from '@turf/bbox';
-import DeckGL from '@deck.gl/react';
-import stateBoundaries from '../../fixtures/stateBoundries.json';
 import { MapMainDiv, DistrictButton } from './styledComponents';
 import { observable, toJS, action } from 'mobx';
 @inject('covid19StateStore')

@@ -21,8 +21,8 @@ class CumulativeDataComponent extends Component {
                 <CumulativeDataGraphsDiv>
                     <GraphsHeading>{strings.cumulativeConfirmCases}</GraphsHeading>
                     {
-                        districtName === '' &&
-                        cumulativeReport !== undefined &&
+                       // districtName === '' &&
+                        //cumulativeReport !== undefined &&
                         <CumulativeAllDistrictGraph cumulativeReport={cumulativeTotalReport} />
 
                     }

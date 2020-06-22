@@ -1,5 +1,5 @@
 {
-    "daily_cases": [
+    "daily_cumulative": [
         {
             "date": "20-may",
             "total_cases": 9,

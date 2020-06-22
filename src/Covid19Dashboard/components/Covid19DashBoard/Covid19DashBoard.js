@@ -8,6 +8,7 @@ import HeaderComponent from "../Header";
 import TotalCases from "../TotalCasesComponent";
 import DailyDataGraphs from "../DilyDataComponent";
 import CumulativeDataComponent from "../CumulateDataComponent";
+import { getLoadingStatus } from '@ib/api-utils';
 import ConfirmedCasesGraphComponent from '../ConfirmedCasesGraph'
 import {
     DashboardMainDiv,
@@ -47,9 +48,9 @@ class Covid19DashBoard extends React.Component {
                             dailyReport={covid19StateStore.dailyReport} dailyDataGraphs={dailyDataGraphs}
                             districtName={covid19StateStore.districtName} />
                         <CasesDiv>
-                            <OnclickCasesDiv>    
+                            <OnclickCasesDiv>
                                 <OnClickCOnfirmed id='confirmed' color={onClickColor} onClick={onClickConfirmed} >{strings.confirmed}</OnClickCOnfirmed>
-                                <OnClickActive id='active' color={onClickColor} onClick={ onClickActive} >{strings.active}</OnClickActive>
+                                <OnClickActive id='active' color={onClickColor} onClick={onClickActive} >{strings.active}</OnClickActive>
                                 <OnClickRecovered id='recovered' color={onClickColor} onClick={onClickRecovered}>{strings.recovered}</OnClickRecovered>
                                 <OnClickDeaths id='deaths' color={onClickColor} onClick={onClickDeaths}>{strings.deaths}</OnClickDeaths>
                             </OnclickCasesDiv>
@@ -58,7 +59,7 @@ class Covid19DashBoard extends React.Component {
                                     //covid19StateStore.regionType !== 'mandals' &&
                                     <MapComponent covid19StateStore={covid19StateStore} onClickDistrict={onClickDistrict} />
                                 }
-                               
+
                             </MapMainDiv>
                         </CasesDiv>
                     </MapAndGarphsDiv>
@@ -91,6 +92,9 @@ class Covid19DashBoard extends React.Component {
 
             </DistrictWiseZonalMainDiv>
     })
+    loadingStatus = () => {
+        return getLoadingStatus(this.props.covid19StateStore.getCovid19StateAPIStatus)
+    }
     render() {
         const { onClickSignOut,
             onClickDistrictWiseAnalysis, onClickZOnalDasboard, doNetworkCalls, covid19StateStore, districtAnalysis } = this.props;
@@ -98,11 +102,11 @@ class Covid19DashBoard extends React.Component {
             <DashboardMainDiv>
                 <SignOutButton bgColor='signOut' onClickSignOut={onClickSignOut} />
                 <ZonalDashBoard>
-                    <SecondaryButton   onClick={onClickZOnalDasboard} btnName={strings.zonalDashboard} />
-                    <SecondaryButton  onClick={onClickDistrictWiseAnalysis} btnName={strings.districtWiseCasesAnalysis} />
+                    <SecondaryButton onClick={onClickZOnalDasboard} btnName={strings.zonalDashboard} />
+                    <SecondaryButton onClick={onClickDistrictWiseAnalysis} btnName={strings.districtWiseCasesAnalysis} />
                 </ZonalDashBoard>
                 <LoadingWrapperWithFailure
-                    apiStatus={covid19StateStore.getCovid19StateAPIStatus}
+                    apiStatus={this.loadingStatus()}
                     apiError={covid19StateStore.getCovid19StateAPIError}
                     onRetryClick={doNetworkCalls}
                     renderSuccessUI={this.renderList}

@@ -1,7 +1,7 @@
 import { create } from "apisauce";
-import { apiMethods } from "../../../constants/APIConstants";
+import { apiMethods } from "../../../../Common/constants/APIConstants";
 import { format } from 'date-fns';
-import { networkCallWithApisauce } from "../../../../Authentication/utils/APIUtils";
+import { networkCallWithApisauceWithToken } from "../../../../Authentication/utils/APIUtils";
 import { getAuthorizationHeaders } from "@ib/api";
 import { getAccessToken } from "../../../../Authentication/utils/StorageUtils";
 import { baseUrl } from "../../../../Common/service/baseUrl";
@@ -11,7 +11,7 @@ class Covid19Service {
         this.api = create({ baseURL: baseUrl, headers: getAuthorizationHeaders(getAccessToken()) });
     }
     getStateWideAPI(date) {
-        return networkCallWithApisauce(
+        return networkCallWithApisauceWithToken(
             this.api,
             `/state/cumulative/v1?till_date=${format((date), 'yyyy-MM-dd')}`,
             {},
@@ -19,7 +19,7 @@ class Covid19Service {
         )
     }
     getStateWideDailyCumulativeAPI() {
-        return networkCallWithApisauce(
+        return networkCallWithApisauceWithToken(
             this.api,
             '/state/daily_cumulative_report/v1',
             {},
@@ -29,7 +29,7 @@ class Covid19Service {
 
 
     getStateWideCumulativeReport() {
-        return networkCallWithApisauce(
+        return networkCallWithApisauceWithToken(
             this.api,
             '/state/districts/daily_cumulative_report/v1',
             {},
@@ -38,7 +38,7 @@ class Covid19Service {
 
     }
     getStatewideDailyReport() {
-        return networkCallWithApisauce(
+        return networkCallWithApisauceWithToken(
             this.api,
             '/state/daily_cases/v1',
             {},
@@ -46,7 +46,7 @@ class Covid19Service {
         )
     }
     getStateDailyReport(date) {
-        return networkCallWithApisauce(
+        return networkCallWithApisauceWithToken(
             this.api,
             `/state/v1/?date=${format((date), 'yyyy-MM-dd')}`,
             {},
@@ -55,7 +55,7 @@ class Covid19Service {
     }
 
     getDistrictWideAPI(date, id) {
-        return networkCallWithApisauce(
+        return networkCallWithApisauceWithToken(
             this.api,
             `/state/districts/${id}/cumulative/v1?till_date=${format((date), 'yyyy-MM-dd')}`,
             {},
@@ -64,7 +64,7 @@ class Covid19Service {
     }
 
     getDistrictWideCumulativeAPI(id) {
-        return networkCallWithApisauce(
+        return networkCallWithApisauceWithToken(
             this.api,
             `/state/districts/${id}/daily_cumulative/v1`,
             {},
@@ -72,7 +72,7 @@ class Covid19Service {
         )
     }
     getDistrictWideDailyCumulativeAPI(id) {
-        return networkCallWithApisauce(
+        return networkCallWithApisauceWithToken(
             this.api,
             `/state/districts/${id}/mandals/daily_cumulative/v1`,
             {},
@@ -80,7 +80,7 @@ class Covid19Service {
         )
     }
     getDistrictWideDailyAPI(id) {
-        return networkCallWithApisauce(
+        return networkCallWithApisauceWithToken(
             this.api,
             `/state/districts/${id}/daily_cumulative/v1`,
             {},
@@ -88,7 +88,7 @@ class Covid19Service {
         )
     }
     getDistrictDailyAPI(id, date) {
-        return networkCallWithApisauce(
+        return networkCallWithApisauceWithToken(
             this.api,
             `/state/districts/${id}/v1?date=${format((date), 'yyyy-MM-dd')}`,
             {},
@@ -96,7 +96,7 @@ class Covid19Service {
         )
     }
     getDistrictsWideAnalysisAPI() {
-        return networkCallWithApisauce(
+        return networkCallWithApisauceWithToken(
             this.api,
             '/state/districts/daily_cumulative_report/v1',
             {},

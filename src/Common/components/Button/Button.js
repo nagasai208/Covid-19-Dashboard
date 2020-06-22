@@ -5,7 +5,7 @@ class Button extends React.Component {
     render() {
         const { buttonName, onClickLogin, clicked } = this.props;
         return (
-            <ButtonTag onClick={onClickLogin}>{clicked ? <Loader type="TailSpin" color='white' width={25} height={25} />:buttonName}</ButtonTag>
+            <ButtonTag  data-testId="button" onClick={onClickLogin}>{clicked ? <Loader type="TailSpin" color='white' width={25} height={25} />:buttonName}</ButtonTag>
         )
     }
 }

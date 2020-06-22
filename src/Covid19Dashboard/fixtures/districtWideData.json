@@ -1,0 +1,113 @@
+{
+    "mandal_name": "Guntur",
+    "mandals": [
+        {
+            "district_id": 0,
+            "mandal_name": "ponnur",
+            "total_cases": 10,
+            "total_deaths": 2,
+            "total_recovered_cases": 6,
+            "active_cases": 2
+        },
+        {
+            "district_id": 1,
+            "mandal_name": "bapatla",
+            "total_cases": 50,
+            "total_deaths": 5,
+            "total_recovered_cases": 40,
+            "active_cases": 15
+        },
+        {
+            "district_id": 2,
+            "mandal_name": "karlapalem",
+            "total_cases": 100,
+            "total_deaths": 10,
+            "total_recovered_cases": 80,
+            "active_cases": 10
+        },
+        {
+            "district_id": 3,
+            "mandal_name": "chebrolu",
+            "total_cases": 200,
+            "total_deaths": 20,
+            "total_recovered_cases": 150,
+            "active_cases": 28
+        },
+        {
+            "district_id": 4,
+            "mandal_name": "nuzendla",
+            "total_cases": 120,
+            "total_deaths": 20,
+            "total_recovered_cases": 130,
+            "active_cases": 27
+        },
+        {
+            "district_id": 5,
+            "mandal_name": "eepuru",
+            "total_cases": 10,
+            "total_deaths": 20,
+            "total_recovered_cases": 150,
+            "active_cases": 24
+        },
+        {
+            "district_id": 6,
+            "mandal_name": "bollapalli",
+            "total_cases": 50,
+            "total_deaths": 20,
+            "total_recovered_cases": 10,
+            "active_cases": 20
+        },
+        {
+            "district_id": 7,
+            "mandal_name": "savalyapuram",
+            "total_cases": 20,
+            "total_deaths": 20,
+            "total_recovered_cases": 15,
+            "active_cases": 5
+        },
+        {
+            "district_id": 8,
+            "mandal_name": "vinukonda",
+            "total_cases": 205,
+            "total_deaths": 20,
+            "total_recovered_cases": 150,
+            "active_cases": 20
+        },
+        {
+            "district_id": 9,
+            "mandal_name": "kakumanu",
+            "total_cases": 150,
+            "total_deaths": 20,
+            "total_recovered_cases": 130,
+            "active_cases": 15
+        },
+        {
+            "district_id": 10,
+            "mandal_name": "tenali",
+            "total_cases": 140,
+            "total_deaths": 20,
+            "total_recovered_cases": 110,
+            "active_cases": 10
+        },
+        {
+            "district_id": 11,
+            "mandal_name": "repallea",
+            "total_cases": 100,
+            "total_deaths": 20,
+            "total_recovered_cases": 70,
+            "active_cases": 10
+        },
+        {
+            "district_id": 12,
+            "mandal_name": "mangalagiri",
+            "total_cases": 400,
+            "total_deaths": 20,
+            "total_recovered_cases": 350,
+            "active_cases": 30
+        }
+    ],
+    "total_cases": 1814,
+    "total_deaths": 207,
+    "total_recovered_cases": 1391,
+    "active_cases": 216
+}

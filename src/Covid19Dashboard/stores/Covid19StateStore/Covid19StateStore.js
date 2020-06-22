@@ -71,7 +71,6 @@ class Covid19StateStore {
     }
 
 
-
     @action.bound
     setGetStatewideReport(response) {
         let data = keysToCamel(response)
@@ -216,7 +215,7 @@ class Covid19StateStore {
     @action.bound
     setGetDistrictDailyReportResponse(response) {
         let data = keysToCamel(response)
-        this.stateTotalReport = data;
+        this.dailyReport = data;
     }
     @action.bound
     setGetDistrictDailyAPIStatus(status) {
@@ -258,9 +257,9 @@ class Covid19StateStore {
     @computed
     get sortedDistrictGraph() {
         if (this.regionType === 'mandals') {
-            return this.stateTotalReport.mandals.sort((firstValue, secondValue) => (firstValue.activeCases > secondValue.activeCases ? -1 : 1))
+            return this.stateTotalReport.mandals.sort((firstValue, secondValue) => (firstValue.totalCases > secondValue.totalCases ? -1 : 1))
         }
-        return this.stateTotalReport.districts.sort((firstValue, secondValue) => (firstValue.activeCases > secondValue.activeCases ? -1 : 1))
+        return this.stateTotalReport.districts.sort((firstValue, secondValue) => (firstValue.totalCases < secondValue.totalCases ? -1 : 1))
 
     }
     @action.bound
@@ -268,7 +267,6 @@ class Covid19StateStore {
         this.districtId = id;
         this.districtName = name;
         this.regionType = 'mandals';
-
         this.districtWidReport(id);
         this.districtWideCumulativeReport(id)
         this.districtWideDailyReport(id)
@@ -297,7 +295,6 @@ class Covid19StateStore {
                 this.districtWideDataAnalysis();
                 this.stateWidReport();
             }
-
         }
 
         else {
