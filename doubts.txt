@@ -1,0 +1,5 @@
+1.networkcall API Type
+2.ref's types
+3.store & service
+4.api error type
+5.

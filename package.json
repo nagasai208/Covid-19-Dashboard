@@ -118,8 +118,6 @@
          "!src/Authentication/components/common/**/*.{ts,tsx,js,jsx}",
          "!src/Covid19Dashboard/services/Covid19Service/Covid19APIData/**/*.{ts,tsx,js,jsx}",
          "!src/Covid19Dashboard/services/Covid19Service/Covid19FixturesData/**/*.{ts,tsx,js,jsx}"
-         
-
       ]
    }
 }
