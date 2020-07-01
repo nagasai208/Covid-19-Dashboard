@@ -1,0 +1,16 @@
+{
+   "HiTherePleseSignup": "హాయ్, దయచేసి సైన్ ఇన్ చేయండి",
+   "userName": "వినియోగదారు పేరు",
+   "password": "పాస్వర్డ్",
+   "login": "సైన్ ఇన్ చేయండి",
+   "userNameErrorMessage": "దయచేసి చెల్లుబాటు అయ్యే వినియోగదారు పేరును నమోదు చేయండి",
+   "passwordErrorMessage": "సరికాని పాస్వర్డ్",
+   "userNamePlaceHolder": "వినియోగదారు పేరును నమోదు చేయండి",
+   "passwordPlaceHolder": "రహస్య సంకేతం తెలపండి",
+   "errorMessageUserName": "వినియోగదారు పేరును నమోదు చేయండి",
+   "errorMessagePAssword": "రహస్య సంకేతం తెలపండి",
+   "typeText": "text",
+   "typePassword": "password",
+   "dontHaveAnAccount": "ఖాతా లేదా?",
+   "signUp": "చేరడం"
+}

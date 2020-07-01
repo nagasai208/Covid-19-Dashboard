@@ -1,3 +1,3 @@
-import { LoginPageRoute } from "./LoginPageRoute";
+import { LoginPageRoute } from './LoginPageRoute'
 
-export default LoginPageRoute;
+export default LoginPageRoute

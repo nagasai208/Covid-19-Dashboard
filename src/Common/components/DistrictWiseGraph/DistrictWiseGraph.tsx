@@ -6,9 +6,9 @@ import withScreenSizeDetectors from '../../hoc/withScreenSizeDetectors/withScree
 import { observer } from "mobx-react";
 import { observable, toJS } from 'mobx';
 type DistrictWisedataProps= {
-    isMobile:Function
-    isTablet:Function
-    isDesktop:Function
+    // isMobile:Function
+    // isTablet:Function
+    // isDesktop:Function
     data:any
 
 }
@@ -17,28 +17,28 @@ type DistrictWisedataProps= {
 class DistrictWiseGraph extends PureComponent<DistrictWisedataProps> {
     @observable width
     static jsfiddleUrl = 'https://jsfiddle.net/alidingling/hbqxcu35/';
-    componentDidMount() {
-        this.displayType();
-    }
-    displayType = () => {
-        if (this.props.isMobile()) {
-            this.width = 300;
-        }
-        else if (this.props.isTablet()) {
-            this.width = 400;
-        }
-        else if (this.props.isDesktop()) {
-            this.width = 500;
-        }
-    }
+    // componentDidMount() {
+    //     this.displayType();
+    // }
+    // displayType = () => {
+    //     if (this.props.isMobile()) {
+    //         this.width = 300;
+    //     }
+    //     else if (this.props.isTablet()) {
+    //         this.width = 400;
+    //     }
+    //     else if (this.props.isDesktop()) {
+    //         this.width = 500;
+    //     }
+    // }
     render() {
-        window.onresize = this.displayType;
+       // window.onresize = this.displayType;
         const { data } = this.props;
         return (
 
             <div>
                 <LineChart
-                    width={this.width}
+                    width={500}
                     height={200}
                     data={toJS(data.dailyCumulative)}
                     margin={{

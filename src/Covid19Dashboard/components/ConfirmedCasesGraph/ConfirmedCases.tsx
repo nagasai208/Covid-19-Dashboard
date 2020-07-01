@@ -6,14 +6,13 @@ import { ConfirmedCasesDiv, GraphHeading } from './styledComponents';
 import Covid19StateStore from "../../stores/Covid19StateStore";
 
 type ConfirmedCasesProps = {
-    covid19StateStore:Covid19StateStore
     sortedDistrictGraph:any
     regionType:string
 }
 @observer
 class ConfirmedCasesGraphComponent extends Component <ConfirmedCasesProps>{
     render() {
-        const { sortedDistrictGraph, regionType } = this.props.covid19StateStore;
+        const { sortedDistrictGraph, regionType } = this.props;
         return (
             <ConfirmedCasesDiv>
                 <GraphHeading>{strings.distictWiseReport}</GraphHeading>

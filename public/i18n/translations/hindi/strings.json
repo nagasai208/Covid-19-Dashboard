@@ -1,0 +1,16 @@
+{
+   "HiTherePleseSignup": "హాయ్, దయచేసి సైన్ ఇన్ చేయండిn",
+   "userName": "USERNAME",
+   "password": "PASSWORD",
+   "login": "Sign In",
+   "userNameErrorMessage": "plese enter valid username",
+   "passwordErrorMessage": "Incorrect password",
+   "userNamePlaceHolder": "Enter username",
+   "passwordPlaceHolder": "Enter password",
+   "errorMessageUserName": "enter username",
+   "errorMessagePAssword": "पास वर्ड दर्ज करें",
+   "typeText": "text",
+   "typePassword": "password",
+   "dontHaveAnAccount": "क्या आपका खाता नहीं है??",
+   "signUp": "साइन अप करें"
+}

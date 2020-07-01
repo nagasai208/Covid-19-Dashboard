@@ -2,7 +2,7 @@ import stateWideReport from '../../../fixtures/stateWideData.json';
 import stateWideAllDistrictReport from '../../../fixtures/StateWideAllDistrictsDailyCumulativeReport.json';
 import stateWideCumulativeReport from '../../../fixtures/stateWideCumulativeData.json';
 import stateWideDailyReport from '../../../fixtures/stateWideDailyData.json';
-import allDistrictsAnalysis from '../../../fixtures/districtWiseCasesDataAnalysis';
+import allDistrictsAnalysis from '../../../fixtures/districtWiseCasesDataAnalysis.json';
 import districtWideCumulativeReport from '../../../fixtures/districtWideCumulativeData.json';
 import districtWideDailyReport from '../../../fixtures/districtWideDailyData.json';
 import cumulativeDistrictData from '../../../fixtures/covid19AllDistrictsreport.json';

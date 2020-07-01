@@ -3,12 +3,12 @@ import { observer, inject } from "mobx-react";
 import { MapMainDiv, DistrictButton } from './styledComponents';
 import { observable, toJS, action } from 'mobx';
 import Covid19StateStore from "../../stores/Covid19StateStore";
-type MapComponentProps = {
-    onClickDistrict:Function
-    totalDistictsData:any
-    districtName:string
+interface MapComponentProps  {
+     
+}
+
+interface InjectedProps extends MapComponentProps {
     covid19StateStore:Covid19StateStore
-    onclickDistrict:() =>void
 }
 @inject('covid19StateStore')
 @observer
@@ -17,10 +17,16 @@ class MapComponent extends React.Component <MapComponentProps> {
     onclickDistrict(event: { target: { value: any; id: number; }; }) {
         let name = event.target.value;
         let id= event.target.id
-        this.props.covid19StateStore.onClickDistrict(id, name)
+        this.getCovidStore().onClickDistrict(id, name)
+    }
+
+    getInjectedProps=():InjectedProps => this.props as InjectedProps
+
+    getCovidStore = () => {
+        return this.getInjectedProps().covid19StateStore
     }
     render() {
-        const { totalDistictsData, districtName } = this.props;
+        const { totalDistictsData, districtName } = this.getCovidStore();
         if (districtName === '') {
             return (
                 <MapMainDiv>

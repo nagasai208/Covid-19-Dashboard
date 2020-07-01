@@ -10,14 +10,14 @@ type DailyReportProps = {
     isMobile:Function
     isTablet:Function
     isDesktop:Function
-    dailyReport:any
+    dailyReport:{dailyCumulative:any}
     casesType:string
     color:string
 
 }
 @observer
 class DialyReportGraphs extends PureComponent <DailyReportProps> {
-    @observable width
+    @observable width!: number
     static jsfiddleUrl = 'https://jsfiddle.net/alidingling/30763kr7/';
     componentDidMount() {
         this.displayType();

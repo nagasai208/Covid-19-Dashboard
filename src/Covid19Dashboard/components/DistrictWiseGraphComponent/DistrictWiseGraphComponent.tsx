@@ -7,17 +7,18 @@ import strings from '../../i18n/strings.json';
 import Covid19StateStore from "../../stores/Covid19StateStore";
 type DistrictProps = {
     districtWiseAnalysis:any
-    districts:any
-    doNetworkCalls:Function
+    districts:string
+    doNetworkCalls:()=>void
     data:any
     covid19StateStore:Covid19StateStore
+   
     
 
 }
 @observer
 class DistrictWiseGraphComponent extends Component <DistrictProps>{
     doNetworkCalls(){
-        
+        this.props.covid19StateStore.districtWideDataAnalysis()
     }
      
     renderList = observer(() => {

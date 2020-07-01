@@ -29,9 +29,10 @@ import SignOutButton from "../SignOut";
 import DistrictWiseGraphComponent from "../DistrictWiseGraphComponent";
 import MapComponent from "../MapComponent";
 import Covid19StateStore from "../../stores/Covid19StateStore";
+import LikeComponent from "../../../Common/components/common/Icons/Loader/Like";
 
 type DashboardPrps = {
-    dailyDataGraphs:object
+    dailyDataGraphs:boolean
     onClickDaily: any
     onClickCumulative: any
     cumulativeGraphs:object
@@ -48,6 +49,9 @@ type DashboardPrps = {
     doNetworkCalls:()=>void
     covid19StateStore:Covid19StateStore
     onChangeDate:()=>void
+    dailyReport:{dailyCumulative:any}
+    cumulativeReport:{dailyCumulative:Array<object>}
+    cumulativeTotalReport:{dailyCumulative:Array<object>}
 }
 @observer
 class Covid19DashBoard extends React.Component <DashboardPrps> {
@@ -66,7 +70,7 @@ class Covid19DashBoard extends React.Component <DashboardPrps> {
                 <MapsAadGraphTotalDiv>
                     <MapAndGarphsDiv>
                         <TotalCases key={Math.random()} stateTotalData={covid19StateStore.stateTotalReport}
-                            dailyReport={covid19StateStore.dailyReport} dailyDataGraphs={dailyDataGraphs}
+                             dailyDataGraphs={dailyDataGraphs}
                              />
                         <CasesDiv>
                             <OnclickCasesDiv>
@@ -78,7 +82,7 @@ class Covid19DashBoard extends React.Component <DashboardPrps> {
                             <MapMainDiv>
                                 {
                                     
-                                    <MapComponent totalDistictsData={covid19StateStore.totalDistictsData} districtName={covid19StateStore.districtName} onClickDistrict={onClickDistrict} />
+                                    <MapComponent  />
                                 }
 
                             </MapMainDiv>
@@ -91,7 +95,7 @@ class Covid19DashBoard extends React.Component <DashboardPrps> {
                         }
                         {
                             cumulativeGraphs ?
-                                <CumulativeDataComponent key={Math.random()} covid19StateStore={covid19StateStore} /> : null
+                                <CumulativeDataComponent key={Math.random()} cumulativeReport={covid19StateStore.cumulativeReport}  /> : null
                         }
                     </OnlyGraphs>
 
@@ -101,7 +105,7 @@ class Covid19DashBoard extends React.Component <DashboardPrps> {
                         <TableData key={Math.random()} covid19StateStore={covid19StateStore} dailyDataGraphs={dailyDataGraphs} />
                     </TableDiv>
                     <PositiveGraphsDiv>
-                        <ConfirmedCasesGraphComponent key={Math.random()} covid19StateStore={covid19StateStore} />
+                        <ConfirmedCasesGraphComponent key={Math.random()} sortedDistrictGraph={covid19StateStore.sortedDistrictGraph} regionType={covid19StateStore.regionType} />
                     </PositiveGraphsDiv>
                 </FooterData>
 
@@ -110,7 +114,9 @@ class Covid19DashBoard extends React.Component <DashboardPrps> {
                 {
                     <DistrictWiseGraphComponent districtWiseAnalysis={covid19StateStore.districtWiseAnalysis} covid19StateStore={covid19StateStore} />
                 }
-
+                {
+                    <LikeComponent />
+                }
             </DistrictWiseZonalMainDiv>
     })
     loadingStatus = () => {

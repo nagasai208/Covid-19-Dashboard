@@ -7,9 +7,9 @@ import {
 import { observer } from "mobx-react";
 import { observable } from 'mobx';
 type ConfirmedGraphProps = {
-    isMobile:Function
-    isTablet:Function
-    isDesktop:Function
+    // isMobile:Function
+    // isTablet:Function
+    // isDesktop:Function
     positiveCasesGraph:any
     name:string
 }
@@ -17,28 +17,28 @@ type ConfirmedGraphProps = {
 class ConfirmedCasesGraph extends PureComponent <ConfirmedGraphProps>{
     @observable width!:number;
     static jsfiddleUrl = 'https://jsfiddle.net/alidingling/shjsn5su/';
-    componentDidMount() {
-        this.displayType();
-    }
-    displayType = () => {
-        if (this.props.isMobile()) {
-            this.width = 300;
-        }
-        else if (this.props.isTablet()) {
-            this.width = 400;
-        }
-        else if (this.props.isDesktop()) {
-            this.width = 500;
-        }
-    }
+    // componentDidMount() {
+    //     this.displayType();
+    // }
+    // displayType = () => {
+    //     if (this.props.isMobile()) {
+    //         this.width = 300;
+    //     }
+    //     else if (this.props.isTablet()) {
+    //         this.width = 400;
+    //     }
+    //     else if (this.props.isDesktop()) {
+    //         this.width = 500;
+    //     }
+    // }
 
     render() {
-        window.onresize = this.displayType;
+       // window.onresize = this.displayType;
         const { positiveCasesGraph,name } = this.props;
         return (
             <ComposedChart
                 layout="vertical"
-                width={this.width}
+                width={600}
                 height={500}
                 data={positiveCasesGraph}
                 margin={{
@@ -57,5 +57,5 @@ class ConfirmedCasesGraph extends PureComponent <ConfirmedGraphProps>{
     }
 }
 
-export default withScreenSizeDetectors(ConfirmedCasesGraph);
+export default (ConfirmedCasesGraph);
 

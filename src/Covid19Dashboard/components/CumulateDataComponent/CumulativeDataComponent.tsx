@@ -6,13 +6,12 @@ import { CumulativeDataGraphsDiv, GraphsHeading, CumulatiGraphMainDiv } from './
 import CumulativeAllDistrictGraph from "../../../Common/components/CumulativeAllDistrictGraph/CumulativeAllDistrictGraph";
 import Covid19StateStore from "../../stores/Covid19StateStore";
 type CumulativeDataComponentProps = {
-    covid19StateStore:Covid19StateStore
     cumulativeReport:{dailyCumulative:Array<object>}
 }
 @observer
 class CumulativeDataComponent extends Component <CumulativeDataComponentProps> {
     render() {
-        const { cumulativeReport, cumulativeTotalReport, districtName } = this.props.covid19StateStore;
+        const { cumulativeReport } = this.props;
         return (
             <CumulatiGraphMainDiv>
                 <CumulativeDataGraphsDiv>
@@ -26,9 +25,7 @@ class CumulativeDataComponent extends Component <CumulativeDataComponentProps> {
                 <CumulativeDataGraphsDiv>
                     <GraphsHeading>{strings.cumulativeConfirmCases}</GraphsHeading>
                     {
-                       // districtName === '' &&
-                        //cumulativeReport !== undefined &&
-                        <CumulativeAllDistrictGraph cumulativeReport={cumulativeTotalReport} />
+                        <CumulativeAllDistrictGraph  />
 
                     }
                 </CumulativeDataGraphsDiv>

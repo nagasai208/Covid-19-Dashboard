@@ -9,7 +9,6 @@ type HeadreProps = {
     dailyDataGraphs:any
     districtName:string
     cumulativeGraphs:any
-    color:any
 }
 @observer
 class HeaderComponent extends Component <HeadreProps>{

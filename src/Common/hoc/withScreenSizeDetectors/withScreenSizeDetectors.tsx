@@ -1,9 +1,8 @@
 import React from 'react';
 import { observer } from "mobx-react";
-import { observable } from "mobx";
 
-function withScreenSizeDetectors(WrappedComponent) {
-    return observer(class extends React.Component{
+function withScreenSizeDetectors<T>(WrappedComponent:React.ComponentType<T>) {
+    return observer(class extends React.Component<T>{
         isMobile = () => {
             if (window.innerWidth < 576) {
                 return true;
@@ -24,8 +23,10 @@ function withScreenSizeDetectors(WrappedComponent) {
         }
 
         render(){
+            const props = this.props as T
             return (
-                <WrappedComponent isDesktop={this.isDesktop} isMobile = {this.isMobile} isTablet={this.isTablet} {...this.props} />
+                <WrappedComponent isDesktop={this.isDesktop} isMobile = {this.isMobile} isTablet={this.isTablet} {...props} />
+                
             )
         }
     }
@@ -33,3 +34,12 @@ function withScreenSizeDetectors(WrappedComponent) {
     )
 }
 export default withScreenSizeDetectors;
+
+
+
+
+
+
+
+
+

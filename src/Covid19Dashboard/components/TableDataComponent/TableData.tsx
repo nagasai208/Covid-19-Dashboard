@@ -4,7 +4,7 @@ import ReactTableData from "../../../Common/components/ReactTable";
 import { TableMainDiv } from './styledComponents';
 import Covid19StateStore from "../../stores/Covid19StateStore";
 type TableDataProps = {
-    dailyDataGraphs:object
+    dailyDataGraphs:boolean
     covid19StateStore:Covid19StateStore
 }
 @observer
